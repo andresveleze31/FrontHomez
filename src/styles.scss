@@ -1,1 +1,71 @@
-/* You can add global styles to this file, and also import other style files */
+@import "primeng/resources/themes/lara-light-blue/theme.css";
+@import "primeng/resources/primeng.css";
+@import "primeicons/primeicons.css";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    font-size: 62.5%;
+    box-sizing: border-box;
+  }
+  *,
+  *:before,
+  *:after {
+    box-sizing: inherit;
+  }
+  body {
+    font-size: 1.6rem;
+    font-family: "Poppins", sans-serif;
+    color: #181A20;
+
+  }
+
+  p {
+    font-size: 2rem;
+  }
+  a {
+    text-decoration: none;
+  }
+
+  span{
+    font-size: 1.4rem;
+  }
+
+  img {
+    max-width: 100%;
+    display: block;
+  }
+
+  h1,
+  h2,
+  h3 {
+    margin: 0 0 2rem 0;
+  }
+  h1 {
+    font-size: 4rem;
+  }
+  h2 {
+    font-size: 3.6rem;
+  }
+  h3 {
+    font-size: 3rem;
+  }
+}
+
+@layer components {
+  .contenedor {
+    width: 95%;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .bg-banner{
+    background-image: url('./assets/bannerhomez.jpg'); /* Especifica la ruta de tu imagen */
+  background-size: cover; /* Ajusta la imagen al tamaño del contenedor */
+  background-position: center; /* Centra la imagen */
+  background-repeat: no-repeat; /* Evita que la imagen se repita */
+  }
+  
+}

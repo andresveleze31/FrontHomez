@@ -1,0 +1,672 @@
+<app-navbar></app-navbar>
+<header class="bg-banner">
+  <div
+    class="contenedor py-[20rem] gap-[1.5rem] flex flex-col justify-center items-center"
+  >
+    <p class="text-white uppercase text-[1.5rem] font-medium">
+      La mejor manera de
+    </p>
+    <h1 class="text-white font-bold text-[5.2rem]">
+      Encontrar El Lugar Perfecto
+    </h1>
+    <p class="text-white text-[1.5rem] font-medium">
+      Tenemos mas de 745,000 apartamentos, lugares y demas
+    </p>
+
+    <form
+      class="bg-white w-full p-[2rem] rounded-xl mt-[8rem] grid grid-cols-3 gap-[2rem]"
+    >
+      <div
+        class="flex px-[2rem] gap-[2rem] items-center bg-gray-100 py-[2rem] rounded-2xl"
+      >
+        <li class="pi pi-key text-gray-400 text-xl"></li>
+        <input
+          class="outline-none bg-gray-100"
+          type="text"
+          placeholder="Ingresa un Keyword"
+        />
+      </div>
+
+      <div
+        class="flex px-[2rem] gap-[2rem] items-center bg-gray-100 py-[2rem] rounded-2xl"
+      >
+        <li class="pi pi-flag text-gray-500 text-xl"></li>
+        <select class="outline-none bg-gray-100 w-full text-gray-400">
+          <option value="opcion1">Opción 1</option>
+          <option value="opcion2">Opción 2</option>
+          <option value="opcion3">Opción 3</option>
+        </select>
+      </div>
+
+      <div
+        class="flex px-[2rem] hover:bg-gray-700 transition-all duration-300 cursor-pointer gap-[2rem] justify-center text-white font-medium items-center bg-redPrimary py-[2rem] rounded-2xl"
+      >
+        <li class="pi pi-search text-white text-xl"></li>
+
+        <input type="submit" value="Buscar" />
+      </div>
+    </form>
+  </div>
+</header>
+
+<!-- Departamentos Seccion -->
+<section class="py-[10rem] contenedor">
+  <div class="flex justify-between">
+    <div>
+      <h3 class="font-semibold mb-3">Propiedades por Departamento</h3>
+      <span>Encuentra una propiedad cercana a ti</span>
+    </div>
+
+    <a
+      class="flex text-[1.5rem] gap-[1rem] hover:text-redPrimary transition-all duration-300 items-center cursor-pointer font-semibold"
+    >
+      Ver Propiedades
+      <li class="pi pi-arrow-up-right text-xl"></li>
+    </a>
+  </div>
+
+  <div class="mt-[5rem]">
+    <p-carousel
+      [value]="products"
+      [numVisible]="5"
+      [numScroll]="1"
+      [circular]="true"
+      [responsiveOptions]="responsiveOptions"
+      autoplayInterval="3000"
+    >
+      <ng-template let-product pTemplate="item">
+        <div class="text-center py-5 px-3 flex flex-col font-sans items-center">
+          <img
+            src="https://homez-appdir.vercel.app/_next/image?url=%2Fimages%2Flistings%2Fcp-m-1.png&w=256&q=75"
+            alt="Producto"
+            class="w-[17rem] h-[17rem] shadow-2"
+          />
+          <div class="mt-[2rem]">
+            <h4 class="mb-1 text-[1.5rem] font-semibold">{{ product.name }}</h4>
+            <h6 class="mt-0 mb-3 text-[1.5rem]">{{ "$" + product.price }}</h6>
+          </div>
+        </div>
+      </ng-template>
+    </p-carousel>
+  </div>
+</section>
+
+<!--Como Funciona-->
+<section class="pb-[10rem] contenedor">
+  <div class="flex flex-col items-center">
+    <span class="text-center">Como Funciona</span>
+    <h3 class="font-semibold mb-3 text-center">
+      Encuentra la Propiedad Perfecta
+    </h3>
+  </div>
+
+  <div class="mt-[5rem] grid grid-cols-4 gap-[3rem]">
+    <div
+      class="flex flex-col group hover:bg-gray-900 transition-all duration-300 gap-[2rem] bg-slate-100 rounded-xl items-center px-[2rem] py-[5rem]"
+    >
+      <div
+        class="bg-white group-hover:bg-gray-800 transition-all duration-300 p-[1rem] w-[7rem] h-[7rem] flex justify-center items-center rounded-full"
+      >
+        <li
+          class="pi pi-home text-[3rem] group-hover:text-white transition-all duration-300"
+        ></li>
+      </div>
+      <h4
+        class="font-semibold text-[1.8rem] mt-[5rem] group-hover:text-white transition-all duration-300"
+      >
+        Encontrar Propiedad
+      </h4>
+      <p
+        class="text-[1.4rem] text-center group-hover:text-white transition-all duration-300"
+      >
+        Seleccion una propiedad de nuestro gran listado
+      </p>
+    </div>
+
+    <div
+      class="flex flex-col group hover:bg-gray-900 transition-all duration-300 gap-[2rem] bg-slate-100 rounded-xl items-center px-[2rem] py-[5rem]"
+    >
+      <div
+        class="bg-white group-hover:bg-gray-800 transition-all duration-300 p-[1rem] w-[7rem] h-[7rem] flex justify-center items-center rounded-full"
+      >
+        <li
+          class="pi pi-desktop text-[3rem] group-hover:text-white transition-all duration-300"
+        ></li>
+      </div>
+      <h4
+        class="font-semibold text-[1.8rem] mt-[5rem] group-hover:text-white transition-all duration-300"
+      >
+        Conoce al Propietario
+      </h4>
+      <p
+        class="text-[1.4rem] text-center group-hover:text-white transition-all duration-300"
+      >
+        Genera confianza con la propiedad y el propietario
+      </p>
+    </div>
+    <div
+      class="flex flex-col group hover:bg-gray-900 transition-all duration-300 gap-[2rem] bg-slate-100 rounded-xl items-center px-[2rem] py-[5rem]"
+    >
+      <div
+        class="bg-white group-hover:bg-gray-800 transition-all duration-300 p-[1rem] w-[7rem] h-[7rem] flex justify-center items-center rounded-full"
+      >
+        <li
+          class="pi pi-calendar text-[3rem] group-hover:text-white transition-all duration-300"
+        ></li>
+      </div>
+      <h4
+        class="font-semibold text-[1.8rem] mt-[5rem] group-hover:text-white transition-all duration-300"
+      >
+        Agenda tu Calendario
+      </h4>
+      <p
+        class="text-[1.4rem] text-center group-hover:text-white transition-all duration-300"
+      >
+        Da a conocer tus horarios para brindarte la mejor experiencia
+      </p>
+    </div>
+    <div
+      class="flex flex-col group hover:bg-gray-900 transition-all duration-300 gap-[2rem] bg-slate-100 rounded-xl items-center px-[2rem] py-[5rem]"
+    >
+      <div
+        class="bg-white group-hover:bg-gray-800 transition-all duration-300 p-[1rem] w-[7rem] h-[7rem] flex justify-center items-center rounded-full"
+      >
+        <li
+          class="pi pi-key text-[3rem] group-hover:text-white transition-all duration-300"
+        ></li>
+      </div>
+      <h4
+        class="font-semibold text-[1.8rem] mt-[5rem] group-hover:text-white transition-all duration-300"
+      >
+        Tomas las llaves
+      </h4>
+      <p
+        class="text-[1.4rem] text-center group-hover:text-white transition-all duration-300"
+      >
+        Ve y disfruta de una gran temporada en la propiedad
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- Apartamentos Seccion -->
+<section class="py-[10rem] bg-slate-100">
+  <div class="contenedor">
+    <div class="flex justify-between">
+      <div>
+        <h3 class="font-semibold mb-3">Descubre las Mejores Propiedades</h3>
+        <span>La mejor calidad en un solo sitio</span>
+      </div>
+
+      <a
+        class="flex text-[1.5rem] gap-[1rem] hover:text-redPrimary transition-all duration-300 items-center cursor-pointer font-semibold"
+      >
+        Ver Propiedades
+        <li class="pi pi-arrow-up-right text-xl"></li>
+      </a>
+    </div>
+
+    <!-- Componente hacer el for Seccion -->
+
+    <div class="mt-[7rem] grid grid-cols-3 gap-[3rem]">
+      <div class="bg-white rounded-2xl shadow-lg">
+        <div class="relative">
+          <img
+            class="w-full object-fill rounded-t-2xl"
+            src="https://homez-appdir.vercel.app/_next/image?url=%2Fimages%2Flistings%2Fg1-2.jpg&w=384&q=75"
+            alt="Imagen Propiedad"
+          />
+          <div
+            class="bg-white absolute rounded-xl px-[2rem] py-[0.5rem] bottom-[2rem] left-[2rem]"
+          >
+            <p class="font-bold text-[1.5rem]">$82.000 / dia</p>
+          </div>
+        </div>
+        <div class="p-[2rem] flex flex-col">
+          <a class="font-semibold text-[1.5rem] hover:underline" href=""
+            >Apartamento en Chapinero Alto</a
+          >
+          <span class="text-gray-500 mt-[0.5rem]">Bogota D.C, Colombia</span>
+
+          <div class="flex gap-[2rem] mt-[1.5rem]">
+            <div
+              class="flex gap-[1rem] text-[1.3rem] cursor-pointer group items-center text-gray-700 transition-all duration-300"
+            >
+              <li
+                class="pi pi-inbox text-[1.3rem] group-hover:text-redPrimary transition-all duration-300"
+              ></li>
+              <span
+                class="group-hover:text-redPrimary transition-all duration-300"
+                >2 camas</span
+              >
+            </div>
+
+            <div
+              class="flex gap-[1rem] text-[1.3rem] cursor-pointer group items-center text-gray-700 transition-all duration-300"
+            >
+              <li
+                class="pi pi-filter text-[1.3rem] group-hover:text-redPrimary transition-all duration-300"
+              ></li>
+              <span
+                class="group-hover:text-redPrimary transition-all duration-300"
+                >2 baños</span
+              >
+            </div>
+
+            <div
+              class="flex gap-[1rem] text-[1.3rem] cursor-pointer group items-center text-gray-700 transition-all duration-300"
+            >
+              <li
+                class="pi pi-slack text-[1.3rem] group-hover:text-redPrimary transition-all duration-300"
+              ></li>
+              <span
+                class="group-hover:text-redPrimary transition-all duration-300"
+                >1200 mts</span
+              >
+            </div>
+          </div>
+
+          <hr class="my-[1.5rem] text-gray-400" />
+
+          <div class="flex justify-between text-gray-500">
+            <p class="text-[1.4rem]">Disponible</p>
+            <a class="cursor-pointer hover:text-redPrimary" href="">
+              <li class="pi pi-external-link text-[1.4rem]"></li>
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="bg-white rounded-2xl shadow-lg">
+        <div class="relative">
+          <img
+            class="w-full object-fill rounded-t-2xl"
+            src="https://homez-appdir.vercel.app/_next/image?url=%2Fimages%2Flistings%2Fg1-2.jpg&w=384&q=75"
+            alt="Imagen Propiedad"
+          />
+          <div
+            class="bg-white absolute rounded-xl px-[2rem] py-[0.5rem] bottom-[2rem] left-[2rem]"
+          >
+            <p class="font-bold text-[1.5rem]">$82.000 / dia</p>
+          </div>
+        </div>
+        <div class="p-[2rem] flex flex-col">
+          <a class="font-semibold text-[1.5rem] hover:underline" href=""
+            >Apartamento en Chapinero Alto</a
+          >
+          <span class="text-gray-500 mt-[0.5rem]">Bogota D.C, Colombia</span>
+
+          <div class="flex gap-[2rem] mt-[1.5rem]">
+            <div
+              class="flex gap-[1rem] text-[1.3rem] cursor-pointer group items-center text-gray-700 transition-all duration-300"
+            >
+              <li
+                class="pi pi-inbox text-[1.3rem] group-hover:text-redPrimary transition-all duration-300"
+              ></li>
+              <span
+                class="group-hover:text-redPrimary transition-all duration-300"
+                >2 camas</span
+              >
+            </div>
+
+            <div
+              class="flex gap-[1rem] text-[1.3rem] cursor-pointer group items-center text-gray-700 transition-all duration-300"
+            >
+              <li
+                class="pi pi-filter text-[1.3rem] group-hover:text-redPrimary transition-all duration-300"
+              ></li>
+              <span
+                class="group-hover:text-redPrimary transition-all duration-300"
+                >2 baños</span
+              >
+            </div>
+
+            <div
+              class="flex gap-[1rem] text-[1.3rem] cursor-pointer group items-center text-gray-700 transition-all duration-300"
+            >
+              <li
+                class="pi pi-slack text-[1.3rem] group-hover:text-redPrimary transition-all duration-300"
+              ></li>
+              <span
+                class="group-hover:text-redPrimary transition-all duration-300"
+                >1200 mts</span
+              >
+            </div>
+          </div>
+
+          <hr class="my-[1.5rem] text-gray-400" />
+
+          <div class="flex justify-between text-gray-500">
+            <p class="text-[1.4rem]">Disponible</p>
+            <a class="cursor-pointer hover:text-redPrimary" href="">
+              <li class="pi pi-external-link text-[1.4rem]"></li>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="bg-white rounded-2xl shadow-lg">
+        <div class="relative">
+          <img
+            class="w-full object-fill rounded-t-2xl"
+            src="https://homez-appdir.vercel.app/_next/image?url=%2Fimages%2Flistings%2Fg1-2.jpg&w=384&q=75"
+            alt="Imagen Propiedad"
+          />
+          <div
+            class="bg-white absolute rounded-xl px-[2rem] py-[0.5rem] bottom-[2rem] left-[2rem]"
+          >
+            <p class="font-bold text-[1.5rem]">$82.000 / dia</p>
+          </div>
+        </div>
+        <div class="p-[2rem] flex flex-col">
+          <a class="font-semibold text-[1.5rem] hover:underline" href=""
+            >Apartamento en Chapinero Alto</a
+          >
+          <span class="text-gray-500 mt-[0.5rem]">Bogota D.C, Colombia</span>
+
+          <div class="flex gap-[2rem] mt-[1.5rem]">
+            <div
+              class="flex gap-[1rem] text-[1.3rem] cursor-pointer group items-center text-gray-700 transition-all duration-300"
+            >
+              <li
+                class="pi pi-inbox text-[1.3rem] group-hover:text-redPrimary transition-all duration-300"
+              ></li>
+              <span
+                class="group-hover:text-redPrimary transition-all duration-300"
+                >2 camas</span
+              >
+            </div>
+
+            <div
+              class="flex gap-[1rem] text-[1.3rem] cursor-pointer group items-center text-gray-700 transition-all duration-300"
+            >
+              <li
+                class="pi pi-filter text-[1.3rem] group-hover:text-redPrimary transition-all duration-300"
+              ></li>
+              <span
+                class="group-hover:text-redPrimary transition-all duration-300"
+                >2 baños</span
+              >
+            </div>
+
+            <div
+              class="flex gap-[1rem] text-[1.3rem] cursor-pointer group items-center text-gray-700 transition-all duration-300"
+            >
+              <li
+                class="pi pi-slack text-[1.3rem] group-hover:text-redPrimary transition-all duration-300"
+              ></li>
+              <span
+                class="group-hover:text-redPrimary transition-all duration-300"
+                >1200 mts</span
+              >
+            </div>
+          </div>
+
+          <hr class="my-[1.5rem] text-gray-400" />
+
+          <div class="flex justify-between text-gray-500">
+            <p class="text-[1.4rem]">Disponible</p>
+            <a class="cursor-pointer hover:text-redPrimary" href="">
+              <li class="pi pi-external-link text-[1.4rem]"></li>
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="bg-white rounded-2xl shadow-lg">
+        <div class="relative">
+          <img
+            class="w-full object-fill rounded-t-2xl"
+            src="https://homez-appdir.vercel.app/_next/image?url=%2Fimages%2Flistings%2Fg1-2.jpg&w=384&q=75"
+            alt="Imagen Propiedad"
+          />
+          <div
+            class="bg-white absolute rounded-xl px-[2rem] py-[0.5rem] bottom-[2rem] left-[2rem]"
+          >
+            <p class="font-bold text-[1.5rem]">$82.000 / dia</p>
+          </div>
+        </div>
+        <div class="p-[2rem] flex flex-col">
+          <a class="font-semibold text-[1.5rem] hover:underline" href=""
+            >Apartamento en Chapinero Alto</a
+          >
+          <span class="text-gray-500 mt-[0.5rem]">Bogota D.C, Colombia</span>
+
+          <div class="flex gap-[2rem] mt-[1.5rem]">
+            <div
+              class="flex gap-[1rem] text-[1.3rem] cursor-pointer group items-center text-gray-700 transition-all duration-300"
+            >
+              <li
+                class="pi pi-inbox text-[1.3rem] group-hover:text-redPrimary transition-all duration-300"
+              ></li>
+              <span
+                class="group-hover:text-redPrimary transition-all duration-300"
+                >2 camas</span
+              >
+            </div>
+
+            <div
+              class="flex gap-[1rem] text-[1.3rem] cursor-pointer group items-center text-gray-700 transition-all duration-300"
+            >
+              <li
+                class="pi pi-filter text-[1.3rem] group-hover:text-redPrimary transition-all duration-300"
+              ></li>
+              <span
+                class="group-hover:text-redPrimary transition-all duration-300"
+                >2 baños</span
+              >
+            </div>
+
+            <div
+              class="flex gap-[1rem] text-[1.3rem] cursor-pointer group items-center text-gray-700 transition-all duration-300"
+            >
+              <li
+                class="pi pi-slack text-[1.3rem] group-hover:text-redPrimary transition-all duration-300"
+              ></li>
+              <span
+                class="group-hover:text-redPrimary transition-all duration-300"
+                >1200 mts</span
+              >
+            </div>
+          </div>
+
+          <hr class="my-[1.5rem] text-gray-400" />
+
+          <div class="flex justify-between text-gray-500">
+            <p class="text-[1.4rem]">Disponible</p>
+            <a class="cursor-pointer hover:text-redPrimary" href="">
+              <li class="pi pi-external-link text-[1.4rem]"></li>
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="bg-white rounded-2xl shadow-lg">
+        <div class="relative">
+          <img
+            class="w-full object-fill rounded-t-2xl"
+            src="https://homez-appdir.vercel.app/_next/image?url=%2Fimages%2Flistings%2Fg1-2.jpg&w=384&q=75"
+            alt="Imagen Propiedad"
+          />
+          <div
+            class="bg-white absolute rounded-xl px-[2rem] py-[0.5rem] bottom-[2rem] left-[2rem]"
+          >
+            <p class="font-bold text-[1.5rem]">$82.000 / dia</p>
+          </div>
+        </div>
+        <div class="p-[2rem] flex flex-col">
+          <a class="font-semibold text-[1.5rem] hover:underline" href=""
+            >Apartamento en Chapinero Alto</a
+          >
+          <span class="text-gray-500 mt-[0.5rem]">Bogota D.C, Colombia</span>
+
+          <div class="flex gap-[2rem] mt-[1.5rem]">
+            <div
+              class="flex gap-[1rem] text-[1.3rem] cursor-pointer group items-center text-gray-700 transition-all duration-300"
+            >
+              <li
+                class="pi pi-inbox text-[1.3rem] group-hover:text-redPrimary transition-all duration-300"
+              ></li>
+              <span
+                class="group-hover:text-redPrimary transition-all duration-300"
+                >2 camas</span
+              >
+            </div>
+
+            <div
+              class="flex gap-[1rem] text-[1.3rem] cursor-pointer group items-center text-gray-700 transition-all duration-300"
+            >
+              <li
+                class="pi pi-filter text-[1.3rem] group-hover:text-redPrimary transition-all duration-300"
+              ></li>
+              <span
+                class="group-hover:text-redPrimary transition-all duration-300"
+                >2 baños</span
+              >
+            </div>
+
+            <div
+              class="flex gap-[1rem] text-[1.3rem] cursor-pointer group items-center text-gray-700 transition-all duration-300"
+            >
+              <li
+                class="pi pi-slack text-[1.3rem] group-hover:text-redPrimary transition-all duration-300"
+              ></li>
+              <span
+                class="group-hover:text-redPrimary transition-all duration-300"
+                >1200 mts</span
+              >
+            </div>
+          </div>
+
+          <hr class="my-[1.5rem] text-gray-400" />
+
+          <div class="flex justify-between text-gray-500">
+            <p class="text-[1.4rem]">Disponible</p>
+            <a class="cursor-pointer hover:text-redPrimary" href="">
+              <li class="pi pi-external-link text-[1.4rem]"></li>
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="bg-white rounded-2xl shadow-lg">
+        <div class="relative">
+          <img
+            class="w-full object-fill rounded-t-2xl"
+            src="https://homez-appdir.vercel.app/_next/image?url=%2Fimages%2Flistings%2Fg1-2.jpg&w=384&q=75"
+            alt="Imagen Propiedad"
+          />
+          <div
+            class="bg-white absolute rounded-xl px-[2rem] py-[0.5rem] bottom-[2rem] left-[2rem]"
+          >
+            <p class="font-bold text-[1.5rem]">$82.000 / dia</p>
+          </div>
+        </div>
+        <div class="p-[2rem] flex flex-col">
+          <a class="font-semibold text-[1.5rem] hover:underline" href=""
+            >Apartamento en Chapinero Alto</a
+          >
+          <span class="text-gray-500 mt-[0.5rem]">Bogota D.C, Colombia</span>
+
+          <div class="flex gap-[2rem] mt-[1.5rem]">
+            <div
+              class="flex gap-[1rem] text-[1.3rem] cursor-pointer group items-center text-gray-700 transition-all duration-300"
+            >
+              <li
+                class="pi pi-inbox text-[1.3rem] group-hover:text-redPrimary transition-all duration-300"
+              ></li>
+              <span
+                class="group-hover:text-redPrimary transition-all duration-300"
+                >2 camas</span
+              >
+            </div>
+
+            <div
+              class="flex gap-[1rem] text-[1.3rem] cursor-pointer group items-center text-gray-700 transition-all duration-300"
+            >
+              <li
+                class="pi pi-filter text-[1.3rem] group-hover:text-redPrimary transition-all duration-300"
+              ></li>
+              <span
+                class="group-hover:text-redPrimary transition-all duration-300"
+                >2 baños</span
+              >
+            </div>
+
+            <div
+              class="flex gap-[1rem] text-[1.3rem] cursor-pointer group items-center text-gray-700 transition-all duration-300"
+            >
+              <li
+                class="pi pi-slack text-[1.3rem] group-hover:text-redPrimary transition-all duration-300"
+              ></li>
+              <span
+                class="group-hover:text-redPrimary transition-all duration-300"
+                >1200 mts</span
+              >
+            </div>
+          </div>
+
+          <hr class="my-[1.5rem] text-gray-400" />
+
+          <div class="flex justify-between text-gray-500">
+            <p class="text-[1.4rem]">Disponible</p>
+            <a class="cursor-pointer hover:text-redPrimary" href="">
+              <li class="pi pi-external-link text-[1.4rem]"></li>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!--Tipos Propiedades-->
+<section class="py-[10rem] contenedor">
+  <div class="flex justify-between">
+    <div>
+      <h3 class="font-semibold mb-3">Tipos de Propiedades para Ti</h3>
+      <span>Encuentra Apartamentos, Fincas y demas</span>
+    </div>
+
+    <a
+      class="flex text-[1.5rem] gap-[1rem] hover:text-redPrimary transition-all duration-300 items-center cursor-pointer font-semibold"
+    >
+      Ver Propiedades
+      <li class="pi pi-arrow-up-right text-xl"></li>
+    </a>
+  </div>
+
+  <div class="mt-[5rem]">
+    <p-carousel
+      [value]="tipos"
+      [numVisible]="4"
+      [numScroll]="1"
+      [circular]="true"
+      [responsiveOptions]="responsiveOptions"
+      autoplayInterval="3000"
+    >
+      <ng-template let-tipo pTemplate="item">
+        <a
+          href="#"
+          class="text-center relative h-[36rem] overflow-hidden mx-5 flex flex-col font-sans items-center rounded-3xl group"
+        >
+          <img
+            src="{{ tipo.img }}"
+            alt="Producto"
+            class="w-full group-hover:scale-125 transition-all duration-300 group-hover:rotate-12 h-[36rem] shadow-2 object-cover rounded-3xl"
+          />
+          <div
+            class="absolute inset-0 bg-gradient-to-b from-gray-900 to-transparent rounded-3xl"
+          >
+            <p
+              class="text-white text-[1.5rem] text-left font-semibold px-[2rem] pt-[2rem] pb-[1rem]"
+            >
+              {{ tipo.name }}
+            </p>
+            <p class="text-white text-[1.5rem] text-left px-[2rem]">
+              {{ tipo.cantidad }} Propiedades
+            </p>
+          </div>
+        </a>
+      </ng-template>
+    </p-carousel>
+  </div>
+</section>
+
+
