@@ -1,11 +1,13 @@
 import { Component } from '@angular/core';
 import { NavbarComponent } from '../navbar/navbar.component';
 import { CarouselModule } from 'primeng/carousel';
+import { FooterComponent } from '../footer/footer.component';
+
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [NavbarComponent, CarouselModule],
+  imports: [NavbarComponent, CarouselModule, FooterComponent],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss',
 })
