@@ -5,7 +5,8 @@ module.exports = {
     extend: {
       colors: {
         redPrimary: "#eb6753",
-        softWhite: "#BEBDBD"
+        softWhite: "#BEBDBD",
+        customBlack: "#181A20"
       },
       fontFamily: {
         sans: ["Poppins", "Arial", "sans-serif"],
