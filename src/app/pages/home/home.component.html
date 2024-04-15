@@ -75,17 +75,11 @@
       autoplayInterval="3000"
     >
       <ng-template let-product pTemplate="item">
-        <div class="text-center py-5 px-3 flex flex-col font-sans items-center">
-          <img
-            src="https://homez-appdir.vercel.app/_next/image?url=%2Fimages%2Flistings%2Fcp-m-1.png&w=256&q=75"
-            alt="Producto"
-            class="w-[17rem] h-[17rem] shadow-2"
-          />
-          <div class="mt-[2rem]">
-            <h4 class="mb-1 text-[1.5rem] font-semibold">{{ product.name }}</h4>
-            <h6 class="mt-0 mb-3 text-[1.5rem]">{{ "$" + product.price }}</h6>
-          </div>
-        </div>
+        <app-departamento
+          [nombre]="product.departamento"
+          [img]="product.img"
+          precio="12 Propiedades"
+        ></app-departamento>
       </ng-template>
     </p-carousel>
   </div>
@@ -719,28 +713,11 @@
       autoplayInterval="3000"
     >
       <ng-template let-tipo pTemplate="item">
-        <a
-          href="#"
-          class="text-center relative h-[36rem] overflow-hidden mx-5 flex flex-col font-sans items-center rounded-3xl group"
-        >
-          <img
-            src="{{ tipo.img }}"
-            alt="Producto"
-            class="w-full group-hover:scale-125 transition-all duration-300 group-hover:rotate-12 h-[36rem] shadow-2 object-cover rounded-3xl"
-          />
-          <div
-            class="absolute inset-0 bg-gradient-to-b from-gray-900 to-transparent rounded-3xl"
-          >
-            <p
-              class="text-white text-[1.5rem] text-left font-semibold px-[2rem] pt-[2rem] pb-[1rem]"
-            >
-              {{ tipo.name }}
-            </p>
-            <p class="text-white text-[1.5rem] text-left px-[2rem]">
-              {{ tipo.cantidad }} Propiedades
-            </p>
-          </div>
-        </a>
+        <app-tipo
+          [tipo]="tipo.tipo"
+          [img]="tipo.img"
+          propiedades="12"
+        ></app-tipo>
       </ng-template>
     </p-carousel>
   </div>
@@ -749,7 +726,7 @@
 <!-- Testimoniales -->
 
 <section class="py-[20rem] bg-[#181A20]">
-  <div class="contenedor text-white grid grid-cols-[2fr,1fr]">
+  <div class="contenedor text-white grid grid-cols-[2fr,1fr] items-center">
     <div>
       <h3 class="font-semibold text-white mb-3">
         La Gente Adora Estar Segura con Homez
@@ -770,6 +747,38 @@
         <div>
           <h1 class="font-bold mb-0">50%</h1>
           <span class="text-white">Propietarios Completos</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="bg-white p-[3rem] rounded-2xl">
+      <div class="flex text-customBlack justify-between">
+        <p class="text-[1.6rem] font-semibold">Gran trabajo</p>
+        <li class="pi pi-comments text-[2rem] text-redPrimary"></li>
+      </div>
+      <p class="text-customBlack font-semibold text-[1.4rem] mt-[2rem] ">
+        Diseño increíble, fácil de personalizar y una calidad de diseño
+        superlativa en su plataforma en la nube para un rendimiento optimizado.
+        Y no lo teníamos en nuestros diseños originales.
+      </p>
+
+      <div class="flex gap-[.6rem] items-center mt-[1rem] mb-[2rem] ">
+        <li class="pi pi-star-fill text-yellow-400 text-[1.4rem] "></li>
+        <li class="pi pi-star-fill text-yellow-400 text-[1.4rem] "></li>
+        <li class="pi pi-star-fill text-yellow-400 text-[1.4rem] "></li>
+        <li class="pi pi-star-fill text-yellow-400 text-[1.4rem] "></li>
+        <li class="pi pi-star-fill text-yellow-400 text-[1.4rem] "></li>
+      </div>
+
+      
+
+      <hr>
+
+      <div class="flex gap-[2rem] mt-[2rem] items-center">
+        <img src="https://homez-appdir.vercel.app/_next/image?url=%2Fimages%2Ftestimonials%2Ftestimonial-1.png&w=64&q=75" alt="Testimonio">
+        <div class="flex flex-col gap-[1rem] ">
+          <p class="text-[1.5rem] text-customBlack font-semibold ">Leslie Alexander</p>
+          <p class="text-[1.3rem] text-customBlack ">Nintendo</p>
         </div>
       </div>
     </div>
@@ -873,7 +882,9 @@
   </div>
 </div>
 
-<section class="contenedor-2 bg-gray-100 rounded-[2rem] py-[10rem] flex justify-center items-center">
+<section
+  class="contenedor-2 bg-gray-100 rounded-[2rem] py-[10rem] flex justify-center items-center"
+>
   <div class="contenedor flex justify-between items-center">
     <div>
       <h3 class="font-semibold mb-3">¿Necesitas Ayuda? Contactanos.</h3>

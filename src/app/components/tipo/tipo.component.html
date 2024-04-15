@@ -1,0 +1,22 @@
+<a
+  href="#"
+  class="text-center relative h-[36rem] overflow-hidden mx-5 flex flex-col font-sans items-center rounded-3xl group"
+>
+  <img
+    [src]="img"
+    alt="Producto"
+    class="w-full group-hover:scale-125 transition-all duration-300 group-hover:rotate-12 h-[36rem] shadow-2 object-cover rounded-3xl"
+  />
+  <div
+    class="absolute inset-0 bg-gradient-to-b from-gray-900 to-transparent rounded-3xl"
+  >
+    <p
+      class="text-white text-[1.5rem] text-left font-semibold px-[2rem] pt-[2rem] pb-[1rem]"
+    >
+      {{ tipo }}
+    </p>
+    <p class="text-white text-[1.5rem] text-left px-[2rem]">
+      {{ propiedades }} Propiedades
+    </p>
+  </div>
+</a>
