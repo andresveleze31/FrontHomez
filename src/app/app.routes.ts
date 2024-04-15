@@ -5,6 +5,8 @@ import { BlogComponent } from './pages/blog/blog.component';
 import { AboutComponent } from './pages/about/about.component';
 import { DashboardArrendadorComponent } from './admin/arrendador/dashboard-arrendador/dashboard-arrendador.component';
 import { DashboardArrendatarioComponent } from './admin/arrendatario/dashboard-arrendatario/dashboard-arrendatario.component';
+import { RegisterArrendadorComponent } from './pages/register-arrendador/register-arrendador.component';
+import { RegisterArrendatarioComponent } from './pages/register-arrendatario/register-arrendatario.component';
 
 export const routes: Routes = [
   {
@@ -31,4 +33,13 @@ export const routes: Routes = [
     path: 'homez/arrendatario/dashboard',
     component: DashboardArrendatarioComponent,
   },
+  {
+    path: 'homez/register/arrendador',
+    component: RegisterArrendadorComponent,
+  },
+  {
+    path: 'homez/register/arrendatario',
+    component: RegisterArrendatarioComponent,
+  },
+
 ];
