@@ -1,0 +1,115 @@
+<app-navbardashboard></app-navbardashboard>
+
+<div class="flex">
+  <app-sidebararrendador></app-sidebararrendador>
+
+  <main
+    class="bg-slate-100 w-full h-[calc(100vh-85px)] overflow-y-auto p-[6rem]"
+  >
+    <h1 class="text-[3rem] font-semibold">Añade una Propiedad</h1>
+
+    <form class="p-[2rem] bg-white rounded-[1.5rem] shadow-md font-sans" action="">
+      <p-stepper class="font-sans">
+        <p-stepperPanel header="Descripcion">
+          <ng-template class="w-full"
+            pTemplate="content"
+            let-nextCallback="nextCallback"
+            let-index="index"
+          >
+            <div class="flex flex-col w-full">
+              <div>
+                <label class="block text-[1.5rem] font-semibold" for=""
+                  >Titulo</label
+                >
+                <input
+                  class="input w-full"
+                  type="text"
+                  placeholder="Nombre Significativo de la Propiedad"
+                />
+              </div>
+
+              <div class="mt-[2rem] ">
+                <label class="block text-[1.5rem] font-semibold" for=""
+                  >Descripcion</label
+                >
+
+                <textarea class="input w-full"
+                placeholder="Descripcion la Propiedad" name="" id="" cols="30" rows="6"></textarea>
+              </div>
+            </div>
+            <div class="flex pt-4 justify-content-end">
+              <p-button
+                label="Next"
+                icon="pi pi-arrow-right"
+                iconPos="right"
+                (onClick)="nextCallback.emit()"
+              /></div
+          ></ng-template>
+        </p-stepperPanel>
+        <p-stepperPanel header="Media">
+          <ng-template
+            pTemplate="content"
+            let-prevCallback="prevCallback"
+            let-nextCallback="nextCallback"
+            let-index="index"
+          >
+          <div class="flex flex-col w-full">
+            <div>
+              <label class="block text-[1.5rem] font-semibold" for=""
+                >Titulo</label
+              >
+              <input
+                class="input w-full"
+                type="text"
+                placeholder="Nombre Significativo de la Propiedad"
+              />
+            </div>
+
+            <div class="mt-[2rem] ">
+              <label class="block text-[1.5rem] font-semibold" for=""
+                >Descripcion</label
+              >
+
+              <textarea class="input w-full"
+              placeholder="Descripcion la Propiedad" name="" id="" cols="30" rows="6"></textarea>
+            </div>
+          </div>
+            <div class="flex pt-4 justify-between">
+              <p-button
+                label="Back"
+                icon="pi pi-arrow-left"
+                (onClick)="prevCallback.emit()"
+              />
+              <p-button
+                label="Next"
+                icon="pi pi-arrow-right"
+                iconPos="right"
+                (onClick)="nextCallback.emit()"
+              /></div
+          ></ng-template>
+        </p-stepperPanel>
+        <p-stepperPanel header="Ubicacion">
+          <ng-template
+            pTemplate="content"
+            let-prevCallback="prevCallback"
+            let-index="index"
+          >
+            <div class="flex flex-column h-12rem">
+              <div
+                class="border-2 border-dashed surface-border border-round surface-ground flex-auto flex justify-content-center align-items-center font-medium"
+              >
+                Content III
+              </div>
+            </div>
+            <div class="flex pt-4 justify-content-start">
+              <p-button
+                label="Back"
+                icon="pi pi-arrow-left"
+                (onClick)="prevCallback.emit()"
+              /></div
+          ></ng-template>
+        </p-stepperPanel>
+      </p-stepper>
+    </form>
+  </main>
+</div>
