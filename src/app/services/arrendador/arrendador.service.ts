@@ -11,7 +11,7 @@ export class ArrendadorService {
   insertarArrendador(arrendador: Arrendador): Promise<Arrendador> {
     return axios
       .post<Arrendador>(
-        'http://localhost:9093/api/homez/arrendador',
+        'https://gruposjaveriana.dynaco.co/api/homez/arrendador',
         arrendador
       )
       .then((response) => response.data);
@@ -20,7 +20,7 @@ export class ArrendadorService {
   updateArrendador(arrendador: Arrendador): Promise<Arrendador> {
     return axios
       .put<Arrendador>(
-        'http://localhost:9093/api/homez/arrendador',
+        'https://gruposjaveriana.dynaco.co/api/homez/arrendador',
         arrendador
       )
       .then((response) => response.data);
@@ -28,7 +28,9 @@ export class ArrendadorService {
 
   async getArrendadorByID(): Promise<Arrendador> {
     return await axios
-      .get<Arrendador>('http://localhost:9093/api/homez/arrendador/1')
+      .get<Arrendador>(
+        'https://gruposjaveriana.dynaco.co/api/homez/arrendador/1'
+      )
       .then((response) => response.data);
   }
 }

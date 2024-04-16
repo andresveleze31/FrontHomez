@@ -10,7 +10,7 @@ export class PropiedadService {
 
   async getPropiedades(): Promise<Propiedad[]> {
     return await axios
-      .get<Propiedad[]>('http://localhost:9093/api/homez/propiedad')
+      .get<Propiedad[]>('https://gruposjaveriana.dynaco.co/api/homez/propiedad')
       .then((response) => response.data);
   }
 }

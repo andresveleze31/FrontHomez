@@ -11,7 +11,9 @@ export class DepartamentoService {
 
   async getDepartamentos(): Promise<Departamento[]> {
     return await axios
-      .get<Departamento[]>('http://localhost:9093/api/homez/departamento')
+      .get<Departamento[]>(
+        'https://gruposjaveriana.dynaco.co/api/homez/departamento'
+      )
       .then((response) => response.data);
   }
 }
