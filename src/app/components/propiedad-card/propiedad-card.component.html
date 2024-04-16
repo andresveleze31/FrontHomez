@@ -1,0 +1,66 @@
+<div class="bg-white rounded-2xl shadow-lg">
+  <div class="relative">
+    <img
+      class="w-full h-[24.7rem] object-cover rounded-t-2xl"
+      [src]="img"
+      alt="Imagen Propiedad"
+    />
+    <div
+      class="bg-white absolute rounded-xl px-[2rem] py-[0.5rem] bottom-[2rem] left-[2rem]"
+    >
+      <p class="font-bold text-[1.5rem]">{{ valor }} / dia</p>
+    </div>
+  </div>
+  <div class="p-[2rem] flex flex-col">
+    <a class="font-semibold text-[1.5rem] hover:underline" href="">{{
+      nombre
+    }}</a>
+    <span class="text-gray-500 mt-[0.5rem]"
+      >{{ departamento }}, {{ municipio }}</span
+    >
+
+    <div class="flex gap-[2rem] mt-[1.5rem]">
+      <div
+        class="flex gap-[1rem] text-[1.3rem] cursor-pointer group items-center text-gray-700 transition-all duration-300"
+      >
+        <li
+          class="pi pi-inbox text-[1.3rem] group-hover:text-redPrimary transition-all duration-300"
+        ></li>
+        <span class="group-hover:text-redPrimary transition-all duration-300"
+          >{{ habitaciones }} camas</span
+        >
+      </div>
+
+      <div
+        class="flex gap-[1rem] text-[1.3rem] cursor-pointer group items-center text-gray-700 transition-all duration-300"
+      >
+        <li
+          class="pi pi-filter text-[1.3rem] group-hover:text-redPrimary transition-all duration-300"
+        ></li>
+        <span class="group-hover:text-redPrimary transition-all duration-300"
+          >{{ banos }} baños</span
+        >
+      </div>
+
+      <div
+        class="flex gap-[1rem] text-[1.3rem] cursor-pointer group items-center text-gray-700 transition-all duration-300"
+      >
+        <li
+          class="pi pi-slack text-[1.3rem] group-hover:text-redPrimary transition-all duration-300"
+        ></li>
+        <span class="group-hover:text-redPrimary transition-all duration-300"
+          >{{ personas }} personas</span
+        >
+      </div>
+    </div>
+
+    <hr class="my-[1.5rem] text-gray-400" />
+
+    <div class="flex justify-between text-gray-500">
+      <p class="text-[1.4rem]">Disponible</p>
+      <a class="cursor-pointer hover:text-redPrimary" href="">
+        <li class="pi pi-external-link text-[1.4rem]"></li>
+      </a>
+    </div>
+  </div>
+</div>

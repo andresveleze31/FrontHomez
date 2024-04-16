@@ -203,7 +203,19 @@
     <!-- Componente hacer el for Seccion -->
 
     <div class="mt-[7rem] grid grid-cols-3 gap-[3rem]">
-      <div class="bg-white rounded-2xl shadow-lg">
+      <div *ngFor="let propiedad of propiedades.slice(0, 6)">
+        <app-propiedad-card
+          [nombre]="propiedad.nombre || ''"
+          [departamento]="propiedad.departamento?.departamento || ''"
+          [municipio]="propiedad.municipio?.municipio || ''"
+          [habitaciones]="propiedad.habitaciones"
+          [valor]="propiedad.valor"
+          [img]="propiedad.fotos?.[0]?.foto || ''"
+          [personas]="propiedad.personas"
+        ></app-propiedad-card>
+      </div>
+
+      <!-- <div class="bg-white rounded-2xl shadow-lg">
         <div class="relative">
           <img
             class="w-full object-fill rounded-t-2xl"
@@ -605,7 +617,7 @@
             </a>
           </div>
         </div>
-      </div>
+      </div> -->
     </div>
   </div>
 </section>
@@ -756,29 +768,32 @@
         <p class="text-[1.6rem] font-semibold">Gran trabajo</p>
         <li class="pi pi-comments text-[2rem] text-redPrimary"></li>
       </div>
-      <p class="text-customBlack font-semibold text-[1.4rem] mt-[2rem] ">
+      <p class="text-customBlack font-semibold text-[1.4rem] mt-[2rem]">
         Diseño increíble, fácil de personalizar y una calidad de diseño
         superlativa en su plataforma en la nube para un rendimiento optimizado.
         Y no lo teníamos en nuestros diseños originales.
       </p>
 
-      <div class="flex gap-[.6rem] items-center mt-[1rem] mb-[2rem] ">
-        <li class="pi pi-star-fill text-yellow-400 text-[1.4rem] "></li>
-        <li class="pi pi-star-fill text-yellow-400 text-[1.4rem] "></li>
-        <li class="pi pi-star-fill text-yellow-400 text-[1.4rem] "></li>
-        <li class="pi pi-star-fill text-yellow-400 text-[1.4rem] "></li>
-        <li class="pi pi-star-fill text-yellow-400 text-[1.4rem] "></li>
+      <div class="flex gap-[.6rem] items-center mt-[1rem] mb-[2rem]">
+        <li class="pi pi-star-fill text-yellow-400 text-[1.4rem]"></li>
+        <li class="pi pi-star-fill text-yellow-400 text-[1.4rem]"></li>
+        <li class="pi pi-star-fill text-yellow-400 text-[1.4rem]"></li>
+        <li class="pi pi-star-fill text-yellow-400 text-[1.4rem]"></li>
+        <li class="pi pi-star-fill text-yellow-400 text-[1.4rem]"></li>
       </div>
 
-      
-
-      <hr>
+      <hr />
 
       <div class="flex gap-[2rem] mt-[2rem] items-center">
-        <img src="https://homez-appdir.vercel.app/_next/image?url=%2Fimages%2Ftestimonials%2Ftestimonial-1.png&w=64&q=75" alt="Testimonio">
-        <div class="flex flex-col gap-[1rem] ">
-          <p class="text-[1.5rem] text-customBlack font-semibold ">Leslie Alexander</p>
-          <p class="text-[1.3rem] text-customBlack ">Nintendo</p>
+        <img
+          src="https://homez-appdir.vercel.app/_next/image?url=%2Fimages%2Ftestimonials%2Ftestimonial-1.png&w=64&q=75"
+          alt="Testimonio"
+        />
+        <div class="flex flex-col gap-[1rem]">
+          <p class="text-[1.5rem] text-customBlack font-semibold">
+            Leslie Alexander
+          </p>
+          <p class="text-[1.3rem] text-customBlack">Nintendo</p>
         </div>
       </div>
     </div>
