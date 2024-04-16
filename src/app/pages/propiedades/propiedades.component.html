@@ -1,5 +1,74 @@
 <app-navbar></app-navbar>
 
+<div class="bg-slate-100">
+  <main class="contenedor py-[7rem]">
+    <h3 class="font-semibold mb-3">Propiedades</h3>
+    <span class="text-center"
+      >Algunas de Nuestras Entradas. Conoce las propiedades que hay para
+      ti.</span
+    >
 
+    <form class="flex justify-between mt-[8rem]" action="">
+      <div class="flex gap-[2rem] items-center">
+        <select
+          class="outline-none bg-white rounded-full p-[1rem] text-[1.4rem] font-semibold shadow-xl"
+        >
+          <option disabled selected value="">Tipo Propiedad</option>
+          <option value="opcion1">Opción 1</option>
+          <option value="opcion2">Opción 2</option>
+          <option value="opcion3">Opción 3</option>
+        </select>
+
+        <select
+          class="outline-none bg-white rounded-full p-[1rem] text-[1.4rem] font-semibold shadow-xl"
+        >
+          <option disabled selected value="">Municipio</option>
+          <option value="opcion1">Opción 1</option>
+          <option value="opcion2">Opción 2</option>
+          <option value="opcion3">Opción 3</option>
+        </select>
+
+        <select
+          class="outline-none bg-white rounded-full p-[1rem] text-[1.4rem] font-semibold shadow-xl"
+        >
+          <option disabled selected value="">Cantidad Personas</option>
+          <option value="opcion1">Opción 1</option>
+          <option value="opcion2">Opción 2</option>
+          <option value="opcion3">Opción 3</option>
+        </select>
+
+        <select
+          class="outline-none bg-white rounded-full p-[1rem] text-[1.4rem] font-semibold shadow-xl"
+        >
+          <option disabled selected value="">Cantidad Habitaciones</option>
+          <option value="opcion1">Opción 1</option>
+          <option value="opcion2">Opción 2</option>
+          <option value="opcion3">Opción 3</option>
+        </select>
+      </div>
+
+      <input
+        class="py-[1rem] px-[4rem] cursor-pointer hover:bg-redPrimary/90 shadow-xl transition-all duration-300 rounded-full text-[1.4rem] font-semibold text-white bg-redPrimary"
+        type="submit"
+        placeholder="Buscar"
+      />
+    </form>
+
+    <div class="mt-[7rem] grid grid-cols-3 gap-[3rem]">
+      <div *ngFor="let propiedad of propiedades">
+        <app-propiedad-card
+          [nombre]="propiedad.nombre || ''"
+          [departamento]="propiedad.departamento?.departamento || ''"
+          [municipio]="propiedad.municipio?.municipio || ''"
+          [habitaciones]="propiedad.habitaciones"
+          [valor]="propiedad.valor"
+          [img]="propiedad.fotos?.[0]?.foto || ''"
+          [personas]="propiedad.personas"
+        ></app-propiedad-card>
+      </div>
+    </div>
+
+  </main>
+</div>
 
 <app-footer></app-footer>
