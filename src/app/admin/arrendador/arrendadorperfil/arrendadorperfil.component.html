@@ -1,16 +1,13 @@
-<main class="w-full  flex justify-center items-center  bg-stone-50 ">
-  <div class="py-[4rem] px-[4rem] rounded-[2rem] shadow-xl bg-white my-[5rem]">
-    <div class="flex flex-col items-center">
-      <img src="../../../assets/logohomez.svg" alt="Logo Homez" />
-      <div class="mt-[3rem] text-center">
-        <h3 class="font-semibold mb-3">Registrar Arrendador</h3>
-        <span
-          >Pon en Arrendamiento una de tus propiedades de forma segura.</span
-        >
-      </div>
-    </div>
+<app-navbardashboard></app-navbardashboard>
 
-    <form class="mt-[3rem]" (ngSubmit)="insertarArrendador()">
+<div class="flex">
+  <app-sidebararrendador></app-sidebararrendador>
+
+  <main class="bg-slate-100 w-full h-[calc(100vh-85px)] overflow-y-auto p-[6rem]  ">
+    <h1 class="text-[3rem] font-semibold ">Perfil</h1>
+
+
+    <form class="mt-[3rem]   p-[2rem] bg-white rounded-[1.5rem] shadow-md font-sans" (ngSubmit)="updateArrendador()">
       <div class="grid grid-cols-2 gap-[2rem]">
         <div>
           <label class="block text-[1.5rem] font-semibold" for="">Nombre</label>
@@ -39,11 +36,12 @@
         <input name='contraseña' [(ngModel)]="arrendador['contraseña']"  class="input w-full" type="password" placeholder="Tu Password" />
       </div>
 
-      <input class="w-full py-[1.7rem] px-[2rem] bg-redPrimary text-white rounded-[.8rem] mt-[2rem] hover:bg-redPrimary/90 transition-all duration-300 cursor-pointer" type="submit">
+      <input value="Actualizar" class=" py-[1.7rem] px-[5rem] bg-redPrimary text-white rounded-[.8rem] mt-[2rem] hover:bg-redPrimary/90 transition-all duration-300 cursor-pointer" type="submit">
     </form>
 
-    <div class="mt-[2rem] flex justify-center">
-        <a class="text-[1.4rem] text-gray-400" href="/homez/register/arrendatario">¿Deseas ser arrendatario? <span class="text-customBlack font-semibold">Registrate aqui</span></a>
-    </div>
-  </div>
-</main>
+
+
+  </main>
+
+  
+</div>

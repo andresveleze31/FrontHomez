@@ -8,6 +8,9 @@ import { DashboardArrendatarioComponent } from './admin/arrendatario/dashboard-a
 import { RegisterArrendadorComponent } from './pages/register-arrendador/register-arrendador.component';
 import { RegisterArrendatarioComponent } from './pages/register-arrendatario/register-arrendatario.component';
 import { CreatePropiedadComponent } from './admin/arrendador/create-propiedad/create-propiedad.component';
+import { MispropiedadesComponent } from './admin/arrendador/mispropiedades/mispropiedades.component';
+import { ArrendadorperfilComponent } from './admin/arrendador/arrendadorperfil/arrendadorperfil.component';
+import { ArrendatarioperfilComponent } from './admin/arrendatario/arrendatarioperfil/arrendatarioperfil.component';
 
 export const routes: Routes = [
   {
@@ -35,8 +38,20 @@ export const routes: Routes = [
     component: CreatePropiedadComponent,
   },
   {
+    path: 'homez/arrendador/mis-propiedades',
+    component: MispropiedadesComponent,
+  },
+  {
+    path: 'homez/arrendador/perfil',
+    component: ArrendadorperfilComponent,
+  },
+  {
     path: 'homez/arrendatario/dashboard',
     component: DashboardArrendatarioComponent,
+  },
+  {
+    path: 'homez/arrendatario/perfil',
+    component: ArrendatarioperfilComponent,
   },
   {
     path: 'homez/register/arrendador',
@@ -46,5 +61,4 @@ export const routes: Routes = [
     path: 'homez/register/arrendatario',
     component: RegisterArrendatarioComponent,
   },
-
 ];
