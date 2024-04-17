@@ -3,8 +3,25 @@
 <div class="flex">
   <app-sidebararrendador></app-sidebararrendador>
 
-  <main class="bg-slate-100 w-full h-[calc(100vh-85px)] overflow-y-auto p-[6rem] ">
-    <h1 class="text-[3rem] font-semibold ">Mis Propiedades</h1>
+  <main
+    class="bg-slate-100 w-full h-[calc(100vh-85px)] overflow-y-auto p-[6rem]"
+  >
+    <h1 class="text-[3rem] font-semibold">Mis Propiedades</h1>
+
+    <div
+      class="mt-[3rem] p-[4rem] bg-white rounded-[1.5rem] shadow-md flex flex-col gap-[1rem]"
+    >
+      <div class="grid grid-cols-[1fr,1fr,1fr,1.5fr] py-[2rem] px-[2rem] bg-slate-100">
+        <p class="text-[1.5rem] font-semibold">Imagen</p>
+        <p class="text-[1.5rem] font-semibold">Datos</p>
+        <p class="text-[1.5rem] font-semibold">Estado</p>
+        <p class="text-[1.5rem] font-semibold">Acciones</p>
+      </div>
+
+      <app-propiedad-admin-arrendador></app-propiedad-admin-arrendador>
+      <app-propiedad-admin-arrendador></app-propiedad-admin-arrendador>
+      <app-propiedad-admin-arrendador></app-propiedad-admin-arrendador>
+      <app-propiedad-admin-arrendador></app-propiedad-admin-arrendador>
+    </div>
   </main>
 </div>
-

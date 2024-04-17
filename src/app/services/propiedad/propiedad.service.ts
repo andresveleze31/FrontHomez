@@ -13,4 +13,21 @@ export class PropiedadService {
       .get<Propiedad[]>('https://gruposjaveriana.dynaco.co/api/homez/propiedad')
       .then((response) => response.data);
   }
+
+  async getPropiedadById(id: number | null): Promise<Propiedad> {
+    return await axios
+      .get<Propiedad>(
+        `https://gruposjaveriana.dynaco.co/api/homez/propiedad/${id}`
+      )
+      .then((response) => response.data);
+  }
+
+  insertarPropiedad(propiedad: Propiedad): Promise<Propiedad> {
+    return axios
+      .post<Propiedad>(
+        'https://gruposjaveriana.dynaco.co/api/homez/propiedad',
+        propiedad
+      )
+      .then((response) => response.data);
+  }
 }

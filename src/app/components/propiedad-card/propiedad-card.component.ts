@@ -8,6 +8,7 @@ import { Component, Input } from '@angular/core';
   styleUrl: './propiedad-card.component.scss',
 })
 export class PropiedadCardComponent {
+  @Input() id: string | number | null | undefined = null;
   @Input() nombre: string = '';
   @Input() departamento: string = '';
   @Input() municipio: string = '';

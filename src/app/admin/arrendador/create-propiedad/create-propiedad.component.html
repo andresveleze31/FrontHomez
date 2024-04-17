@@ -8,108 +8,225 @@
   >
     <h1 class="text-[3rem] font-semibold">Añade una Propiedad</h1>
 
-    <form class="p-[2rem] bg-white rounded-[1.5rem] shadow-md font-sans" action="">
-      <p-stepper class="font-sans">
-        <p-stepperPanel header="Descripcion">
-          <ng-template class="w-full"
-            pTemplate="content"
-            let-nextCallback="nextCallback"
-            let-index="index"
+    <form
+      (ngSubmit)="insertarPropiedad()"
+      class="p-[3.5rem] bg-white rounded-[1.5rem] shadow-md font-sans"
+      action=""
+    >
+      <div class="flex flex-col w-full">
+        <div>
+          <label class="block text-[1.5rem] font-semibold" for="">Titulo</label>
+          <input
+            [(ngModel)]="propiedad.nombre"
+            name="nombre"
+            class="input w-full"
+            type="text"
+            placeholder="Nombre Significativo de la Propiedad"
+          />
+        </div>
+
+        <div class="mt-[2rem]">
+          <label class="block text-[1.5rem] font-semibold" for=""
+            >Descripcion</label
           >
-            <div class="flex flex-col w-full">
-              <div>
-                <label class="block text-[1.5rem] font-semibold" for=""
-                  >Titulo</label
-                >
-                <input
-                  class="input w-full"
-                  type="text"
-                  placeholder="Nombre Significativo de la Propiedad"
-                />
-              </div>
 
-              <div class="mt-[2rem] ">
-                <label class="block text-[1.5rem] font-semibold" for=""
-                  >Descripcion</label
-                >
+          <input
+            [(ngModel)]="propiedad.descripcion"
+            class="input w-full"
+            placeholder="Descripcion la Propiedad"
+            name="descripcion"
+            cols="30"
+            rows="6"
+          />
+        </div>
 
-                <textarea class="input w-full"
-                placeholder="Descripcion la Propiedad" name="" id="" cols="30" rows="6"></textarea>
-              </div>
-            </div>
-            <div class="flex pt-4 justify-content-end">
-              <p-button
-                label="Next"
-                icon="pi pi-arrow-right"
-                iconPos="right"
-                (onClick)="nextCallback.emit()"
-              /></div
-          ></ng-template>
-        </p-stepperPanel>
-        <p-stepperPanel header="Media">
-          <ng-template
-            pTemplate="content"
-            let-prevCallback="prevCallback"
-            let-nextCallback="nextCallback"
-            let-index="index"
+        <div class="mt-[2rem]">
+          <label class="block text-[1.5rem] font-semibold" for="">Valor</label>
+          <input
+            [(ngModel)]="propiedad.valor"
+            class="input w-full"
+            name="valor"
+            type="number"
+            placeholder="Valor Dia de la Propiedad"
+          />
+        </div>
+      </div>
+      <div class="flex flex-col w-full">
+        <div *ngFor="let foto of fotos; let i = index">
+          <label class="block text-[1.5rem] mt-[2rem] font-semibold" for=""
+            >Foto</label
           >
-          <div class="flex flex-col w-full">
-            <div>
-              <label class="block text-[1.5rem] font-semibold" for=""
-                >Titulo</label
-              >
-              <input
-                class="input w-full"
-                type="text"
-                placeholder="Nombre Significativo de la Propiedad"
-              />
-            </div>
+          <input
+            class="input w-full"
+            type="text"
+            [(ngModel)]="fotos[i].foto"
+            placeholder="Foto de la Propiedad"
+          />
+        </div>
 
-            <div class="mt-[2rem] ">
-              <label class="block text-[1.5rem] font-semibold" for=""
-                >Descripcion</label
-              >
+        <div class="flex gap-[2rem]">
+          <button
+            (click)="onClick($event)"
+            class="bg-redPrimary text-[1.4rem] w-[30rem] mt-[2rem] rounded-2xl text-white hover:bg-redPrimary/90 p-[1.5rem]"
+          >
+            Añadir Foto
+          </button>
 
-              <textarea class="input w-full"
-              placeholder="Descripcion la Propiedad" name="" id="" cols="30" rows="6"></textarea>
-            </div>
+          <button
+            (click)="onClickDelete($event)"
+            class="bg-customBlack text-[1.4rem] w-[30rem] mt-[2rem] rounded-2xl text-white hover:bg-customBlack/90 p-[1.5rem]"
+          >
+            Eliminar Foto Anterior
+          </button>
+        </div>
+      </div>
+      <div class="flex flex-col h-12rem">
+        <div class="grid grid-cols-3 gap-[2rem]">
+          <div>
+            <label class="block text-[1.5rem] mt-[2rem] font-semibold" for=""
+              >Departamento</label
+            >
+            <select
+              [(ngModel)]="propiedad.departamento"
+              class="input w-full appearance-none"
+              name="departamento"
+            >
+              <option *ngFor="let dep of departamentos" [ngValue]="dep">
+                {{ dep.departamento }}
+              </option>
+            </select>
           </div>
-            <div class="flex pt-4 justify-between">
-              <p-button
-                label="Back"
-                icon="pi pi-arrow-left"
-                (onClick)="prevCallback.emit()"
-              />
-              <p-button
-                label="Next"
-                icon="pi pi-arrow-right"
-                iconPos="right"
-                (onClick)="nextCallback.emit()"
-              /></div
-          ></ng-template>
-        </p-stepperPanel>
-        <p-stepperPanel header="Ubicacion">
-          <ng-template
-            pTemplate="content"
-            let-prevCallback="prevCallback"
-            let-index="index"
-          >
-            <div class="flex flex-column h-12rem">
-              <div
-                class="border-2 border-dashed surface-border border-round surface-ground flex-auto flex justify-content-center align-items-center font-medium"
-              >
-                Content III
-              </div>
-            </div>
-            <div class="flex pt-4 justify-content-start">
-              <p-button
-                label="Back"
-                icon="pi pi-arrow-left"
-                (onClick)="prevCallback.emit()"
-              /></div
-          ></ng-template>
-        </p-stepperPanel>
-      </p-stepper>
+          <div>
+            <label class="block text-[1.5rem] mt-[2rem] font-semibold" for=""
+              >Municipio</label
+            >
+            <select
+              [(ngModel)]="propiedad.municipio"
+              class="input w-full appearance-none"
+              name="municipio"
+            >
+              <option *ngFor="let mun of municipios" [ngValue]="mun">
+                {{ mun.municipio }}
+              </option>
+            </select>
+          </div>
+          <div>
+            <label class="block text-[1.5rem] mt-[2rem] font-semibold" for=""
+              >Tipo Ingreso</label
+            >
+            <select
+              [(ngModel)]="propiedad.tipoIngreso"
+              class="input w-full appearance-none"
+              name="tipoIngreso"
+            >
+              <option *ngFor="let tiping of tipoingresos" [ngValue]="tiping">
+                {{ tiping.tipoingreso }}
+              </option>
+            </select>
+          </div>
+
+          <div>
+            <label class="block text-[1.5rem] mt-[2rem] font-semibold" for=""
+              >Tipo</label
+            >
+            <select
+              [(ngModel)]="propiedad.tipo"
+              class="input w-full appearance-none"
+              name="tipo"
+            >
+              <option *ngFor="let tipo of tipos" [ngValue]="tipo">
+                {{ tipo.tipo }}
+              </option>
+            </select>
+          </div>
+
+          <div>
+            <label class="block text-[1.5rem] mt-[2rem] font-semibold" for=""
+              >Personas</label
+            >
+            <input
+              [(ngModel)]="propiedad.personas"
+              name="personas"
+              class="input w-full"
+              type="number"
+              placeholder="Cantidad de Personas"
+            />
+          </div>
+
+          <div>
+            <label class="block text-[1.5rem] mt-[2rem] font-semibold" for=""
+              >Baños</label
+            >
+            <input
+              class="input w-full"
+              type="number"
+              name="baños"
+              placeholder="Cantidad de Baños"
+            />
+          </div>
+
+          <div>
+            <label class="block text-[1.5rem] mt-[2rem] font-semibold" for=""
+              >Habitaciones</label
+            >
+            <input
+              [(ngModel)]="propiedad.habitaciones"
+              class="input w-full"
+              type="number"
+              name="habitaciones"
+              placeholder="Cantidad de Habitaciones"
+            />
+          </div>
+
+          <div>
+            <label class="block text-[1.5rem] mt-[2rem] font-semibold" for=""
+              >Mascotas</label
+            >
+            <select
+              [(ngModel)]="propiedad.mascotas"
+              class="input w-full appearance-none"
+              name="mascotas"
+            >
+              <option [ngValue]="true">Si</option>
+              <option [ngValue]="false">No</option>
+            </select>
+          </div>
+
+          <div>
+            <label class="block text-[1.5rem] mt-[2rem] font-semibold" for=""
+              >Piscina</label
+            >
+            <select
+              [(ngModel)]="propiedad.piscina"
+              name="piscina"
+              class="input w-full appearance-none"
+            >
+              <option [ngValue]="true">Si</option>
+              <option [ngValue]="false">No</option>
+            </select>
+          </div>
+
+          <div>
+            <label class="block text-[1.5rem] mt-[2rem] font-semibold" for=""
+              >Asador</label
+            >
+            <select
+              [(ngModel)]="propiedad.asador"
+              class="input w-full appearance-none"
+              name="asador"
+            >
+              <option [ngValue]="true">Si</option>
+              <option [ngValue]="false">No</option>
+            </select>
+          </div>
+        </div>
+      </div>
+
+      <input
+        class="bg-redPrimary cursor-pointer text-[1.4rem] w-[30rem] mt-[2rem] rounded-2xl text-white hover:bg-redPrimary/90 p-[1.5rem]"
+        type="submit"
+        value="Añadir Propiedad"
+      />
     </form>
   </main>
 </div>

@@ -11,6 +11,9 @@ import { CreatePropiedadComponent } from './admin/arrendador/create-propiedad/cr
 import { MispropiedadesComponent } from './admin/arrendador/mispropiedades/mispropiedades.component';
 import { ArrendadorperfilComponent } from './admin/arrendador/arrendadorperfil/arrendadorperfil.component';
 import { ArrendatarioperfilComponent } from './admin/arrendatario/arrendatarioperfil/arrendatarioperfil.component';
+import { ArrendadorsolicitudesComponent } from './admin/arrendador/arrendadorsolicitudes/arrendadorsolicitudes.component';
+import { ArrendatariosolicitudesComponent } from './admin/arrendatario/arrendatariosolicitudes/arrendatariosolicitudes.component';
+import { PropiedadDetallesComponent } from './pages/propiedad-detalles/propiedad-detalles.component';
 
 export const routes: Routes = [
   {
@@ -21,6 +24,7 @@ export const routes: Routes = [
     path: 'homez/propiedades',
     component: PropiedadesComponent,
   },
+  { path: 'homez/propiedad/:id', component: PropiedadDetallesComponent },
   {
     path: 'homez/blog',
     component: BlogComponent,
@@ -46,12 +50,20 @@ export const routes: Routes = [
     component: ArrendadorperfilComponent,
   },
   {
+    path: 'homez/arrendador/solicitudes',
+    component: ArrendadorsolicitudesComponent,
+  },
+  {
     path: 'homez/arrendatario/dashboard',
     component: DashboardArrendatarioComponent,
   },
   {
     path: 'homez/arrendatario/perfil',
     component: ArrendatarioperfilComponent,
+  },
+  {
+    path: 'homez/arrendatario/solicitudes',
+    component: ArrendatariosolicitudesComponent,
   },
   {
     path: 'homez/register/arrendador',

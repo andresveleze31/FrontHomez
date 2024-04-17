@@ -12,7 +12,7 @@
     </div>
   </div>
   <div class="p-[2rem] flex flex-col">
-    <a class="font-semibold text-[1.5rem] hover:underline" href="">{{
+    <a class="font-semibold text-[1.5rem] hover:underline" [href]="'/homez/propiedad/' + id">{{
       nombre
     }}</a>
     <span class="text-gray-500 mt-[0.5rem]"
@@ -58,7 +58,7 @@
 
     <div class="flex justify-between text-gray-500">
       <p class="text-[1.4rem]">Disponible</p>
-      <a class="cursor-pointer hover:text-redPrimary" href="">
+      <a class="cursor-pointer hover:text-redPrimary" [href]="'/homez/propiedad/' + id">
         <li class="pi pi-external-link text-[1.4rem]"></li>
       </a>
     </div>

@@ -205,6 +205,7 @@
     <div class="mt-[7rem] grid grid-cols-3 gap-[3rem]">
       <div *ngFor="let propiedad of propiedades.slice(0, 6)">
         <app-propiedad-card
+          [id]="propiedad.id"
           [nombre]="propiedad.nombre || ''"
           [departamento]="propiedad.departamento?.departamento || ''"
           [municipio]="propiedad.municipio?.municipio || ''"

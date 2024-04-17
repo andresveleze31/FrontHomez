@@ -1,0 +1,29 @@
+<app-navbardashboard></app-navbardashboard>
+
+<div class="flex">
+  <app-sidebararrendatario></app-sidebararrendatario>
+
+  <main
+    class="bg-slate-100 w-full h-[calc(100vh-85px)] overflow-y-auto p-[6rem]"
+  >
+    <h1 class="text-[3rem] font-semibold">Mis Solicitudes</h1>
+
+    <div
+      class="mt-[3rem] p-[4rem] bg-white rounded-[1.5rem] shadow-md flex flex-col gap-[1rem]"
+    >
+      <div
+        class="grid grid-cols-[1fr,1fr,1fr,1fr] py-[2rem] px-[2rem] bg-slate-100"
+      >
+        <p class="text-[1.5rem] font-semibold">Imagen Propiedad</p>
+        <p class="text-[1.5rem] font-semibold">Datos Solicitud</p>
+        <p class="text-[1.5rem] font-semibold">Estado</p>
+        <p class="text-[1.5rem] font-semibold">Acciones</p>
+      </div>
+
+      <app-solicitud-admin-arrendatario></app-solicitud-admin-arrendatario>
+      <app-solicitud-admin-arrendatario></app-solicitud-admin-arrendatario>
+      <app-solicitud-admin-arrendatario></app-solicitud-admin-arrendatario>
+      <app-solicitud-admin-arrendatario></app-solicitud-admin-arrendatario>
+    </div>
+  </main>
+</div>

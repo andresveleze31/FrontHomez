@@ -7,7 +7,7 @@ import { TipoIngreso } from './TipoIngreso';
 
 export class Propiedad {
   constructor(
-    public id?: number | null,
+    public id?: number | null | undefined,
     public activa?: boolean | null,
     public nombre?: string | null,
     public descripcion?: string | null,
@@ -25,5 +25,25 @@ export class Propiedad {
     public arrendador?: Arrendador | null,
     public tipo?: Tipo | null,
     public fotos?: Foto[] | null
-  ) {}
+  ) {
+    if (fotos?.length === 0 || fotos == undefined) {
+      this.fotos = []
+    }
+
+    if (!baños) {
+      this.baños = 4
+    }
+
+    if (!id) {
+      this.id = null;
+    }
+
+    if (!activa) {
+      this.activa = true;
+    }
+
+    if (!calificacion) {
+      this.calificacion = 5;
+    }
+  }
 }
