@@ -17,6 +17,10 @@ import { PropiedadDetallesComponent } from './pages/propiedad-detalles/propiedad
 
 export const routes: Routes = [
   {
+    path: '',
+    component: HomeComponent,
+  },
+  {
     path: 'homez/home',
     component: HomeComponent,
   },
