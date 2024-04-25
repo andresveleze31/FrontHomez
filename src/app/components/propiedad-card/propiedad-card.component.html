@@ -13,7 +13,7 @@
   </div>
   <div class="p-[2rem] flex flex-col">
     <a class="font-semibold text-[1.5rem] hover:underline" [href]="'/homez/propiedad/' + id">{{
-      nombre
+      nombre.length > 30 ? nombre.slice(0, 30) + '...' : nombre
     }}</a>
     <span class="text-gray-500 mt-[0.5rem]"
       >{{ departamento }}, {{ municipio }}</span

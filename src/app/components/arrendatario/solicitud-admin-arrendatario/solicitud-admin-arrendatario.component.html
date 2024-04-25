@@ -1,21 +1,27 @@
 <div class="grid grid-cols-[1fr,1fr,1fr,1fr] py-[2rem] px-[2rem] border-b">
   <img
     class="h-[12rem] w-[15rem] object-cover rounded-[2rem]"
-    src="https://homez-appdir.vercel.app/_next/image?url=%2Fimages%2Flistings%2Flist-1.jpg&w=128&q=75"
+    [src]="img"
     alt="Imagen"
   />
 
   <div class="flex flex-col gap-[1rem] justify-center">
-    <p class="text-[1.5rem] font-semibold">Pedro Pablo Perez Peralta</p>
-    <p class="text-[1.5rem]">Fecha Inicio, Fecha Fin</p>
-    <p class="text-[1.5rem] font-semibold">$valor</p>
+    <p class="text-[1.5rem] font-semibold">
+      {{ solicitud?.arrendatario?.nombre }}
+      {{ solicitud?.arrendatario?.apellido }}
+    </p>
+    <p class="text-[1.5rem]">
+      {{ formatDate(solicitud?.fechaInicio) }},
+      {{ formatDate(solicitud?.fechaFin) }}
+    </p>
+    <p class="text-[1.5rem] font-semibold">${{ solicitud?.valor }}</p>
   </div>
 
   <div class="flex items-center">
     <p
       class="py-[1rem] px-[3rem] text-[1.4rem] text-red-500 bg-red-400/20 rounded-full w-fit"
     >
-      Estado
+      {{ solicitud?.estado?.estado }}
     </p>
   </div>
 
@@ -27,21 +33,21 @@
         class="pi pi-money-bill text-[1.5rem] group-hover:text-white transition-all duration-300"
       ></li>
     </button>
-    <button
+    <a
+      [routerLink]="['/homez/arrendatario/calificar-finca', solicitud?.id]"
       class="bg-slate-100 py-[1.4rem] group px-[1.4rem] rounded-full flex items-center justify-center hover:bg-customBlack transition-all duration-300"
     >
       <li
         class="pi pi-star text-[1.5rem] group-hover:text-white transition-all duration-300"
       ></li>
-    </button>
-    <button
+    </a>
+    <a
+      [routerLink]="['/homez/arrendatario/calificar-arrendador', solicitud?.id]"
       class="bg-slate-100 py-[1.4rem] group px-[1.4rem] rounded-full flex items-center justify-center hover:bg-customBlack transition-all duration-300"
     >
       <li
         class="pi pi-user text-[1.5rem] group-hover:text-white transition-all duration-300"
       ></li>
-    </button>
-
-
+    </a>
   </div>
 </div>

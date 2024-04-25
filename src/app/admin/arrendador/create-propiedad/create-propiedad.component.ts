@@ -74,7 +74,7 @@ export class CreatePropiedadComponent {
   }
 
   insertarPropiedad(event: Event) {
-    event.preventDefault()
+    event.preventDefault();
     this.propiedad.arrendador = this.arrendador;
 
     this.propiedadService.insertarPropiedad(this.propiedad).then(
@@ -87,27 +87,27 @@ export class CreatePropiedadComponent {
         this.fotointerna2.propiedad = propiedadTemp;
         this.fotointerna3.propiedad = propiedadTemp;
 
-        if (this.fotofrontal.foto !== '' && this.fotofrontal.foto !== null) {
+        if (this.fotofrontal.foto != '' && this.fotofrontal.foto != null) {
           this.insertarFoto(this.fotofrontal);
         }
 
-        if (this.fotoperfil.foto !== '' && this.fotoperfil.foto !== null) {
+        if (this.fotoperfil.foto != '' && this.fotoperfil.foto != null) {
           this.insertarFoto(this.fotoperfil);
         }
 
-        if (this.fotointerna.foto !== '' && this.fotointerna.foto !== null) {
+        if (this.fotointerna.foto != '' && this.fotointerna.foto != null) {
           this.insertarFoto(this.fotointerna);
         }
 
-        if (this.fotointerna2.foto !== '' && this.fotointerna2.foto !== null) {
+        if (this.fotointerna2.foto != '' && this.fotointerna2.foto != null) {
           this.insertarFoto(this.fotointerna2);
         }
 
-        if (this.fotointerna3.foto !== '' && this.fotointerna3.foto !== null) {
+        if (this.fotointerna3.foto != '' && this.fotointerna3.foto != null) {
           this.insertarFoto(this.fotointerna3);
         }
 
-        window.location.href = '/homez/arrendador/propiedades';
+        window.location.href = '/homez/arrendador/mis-propiedades';
       },
       (error) => {
         console.error('Error:', error);

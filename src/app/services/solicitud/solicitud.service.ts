@@ -41,4 +41,12 @@ export class SolicitudService {
       )
       .then((response) => response.data);
   }
+
+  async getSolicitudesByArrendatario(): Promise<Solicitud[]> {
+    return await axios
+      .get<Solicitud[]>(
+        'https://gruposjaveriana.dynaco.co/api/homez/solicitud/arrendatario/1'
+      )
+      .then((response) => response.data);
+  }
 }

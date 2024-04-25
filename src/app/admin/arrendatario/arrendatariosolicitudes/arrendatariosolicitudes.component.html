@@ -20,10 +20,12 @@
         <p class="text-[1.5rem] font-semibold">Acciones</p>
       </div>
 
-      <app-solicitud-admin-arrendatario></app-solicitud-admin-arrendatario>
-      <app-solicitud-admin-arrendatario></app-solicitud-admin-arrendatario>
-      <app-solicitud-admin-arrendatario></app-solicitud-admin-arrendatario>
-      <app-solicitud-admin-arrendatario></app-solicitud-admin-arrendatario>
+      <div *ngFor="let solicitud of solicitudes">
+        <app-solicitud-admin-arrendatario
+          [solicitud]="solicitud"
+        ></app-solicitud-admin-arrendatario>
+      </div>
+
     </div>
   </main>
 </div>

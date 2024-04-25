@@ -6,36 +6,36 @@
   <main class="bg-slate-100 w-full h-[calc(100vh-85px)] overflow-y-auto p-[6rem] ">
     <h1 class="text-[3rem] font-semibold ">Perfil</h1>
 
-    <form class="mt-[3rem]   p-[2rem] bg-white rounded-[1.5rem] shadow-md font-sans" action="">
+    <form class="mt-[3rem]   p-[2rem] bg-white rounded-[1.5rem] shadow-md font-sans" (ngSubmit)="updateArrendador()">
       <div class="grid grid-cols-2 gap-[2rem]">
         <div>
           <label class="block text-[1.5rem] font-semibold" for="">Nombre</label>
-          <input class="input w-full" type="text" placeholder="Tu Nombre" />
+          <input name = 'nombre' [(ngModel)] = "arrendador.nombre" class="input w-full" type="text" placeholder="Tu Nombre" />
         </div>
 
         <div>
           <label class="block text-[1.5rem] font-semibold" for=""
             >Apellido</label
           >
-          <input class="input w-full" type="text" placeholder="Tu Apellido" />
+          <input name = 'apellido' [(ngModel)] = "arrendador.apellido" class="input w-full" type="text" placeholder="Tu Apellido" />
         </div>
       </div>
       <div class="mt-[1rem]">
         <label class="block text-[1.5rem] font-semibold" for="">Email</label>
-        <input class="input w-full" type="email" placeholder="Tu Email" />
+        <input name = 'correo' [(ngModel)] = "arrendador.correo" class="input w-full" type="email" placeholder="Tu Email" />
       </div>
 
       <div class="mt-[1rem]">
         <label class="block text-[1.5rem] font-semibold" for="">Telefono</label>
-        <input class="input w-full" type="number" placeholder="Tu Telefono" />
+        <input name = 'telefono' [(ngModel)] = "arrendador.telefono" class="input w-full" type="number" placeholder="Tu Telefono" />
       </div>
 
       <div class="mt-[1rem]">
         <label class="block text-[1.5rem] font-semibold" for="">Password</label>
-        <input class="input w-full" type="password" placeholder="Tu Password" />
+        <input name='contraseña' [(ngModel)]="arrendador['contraseña']"  class="input w-full" type="password" placeholder="Tu Password" />
       </div>
 
-      <input class="py-[1.7rem] px-[5rem] bg-redPrimary text-white rounded-[.8rem] mt-[2rem] hover:bg-redPrimary/90 transition-all duration-300 cursor-pointer" type="submit" value="Actualizar">
+      <input value="Actualizar" class=" py-[1.7rem] px-[5rem] bg-redPrimary text-white rounded-[.8rem] mt-[2rem] hover:bg-redPrimary/90 transition-all duration-300 cursor-pointer" type="submit">
     </form>
   </main>
 

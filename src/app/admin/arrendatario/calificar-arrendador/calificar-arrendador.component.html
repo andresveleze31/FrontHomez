@@ -1,0 +1,35 @@
+<app-navbardashboard></app-navbardashboard>
+
+<div class="flex">
+  <app-sidebararrendatario></app-sidebararrendatario>
+
+  <main
+    class="bg-slate-100 w-full h-[calc(100vh-85px)] overflow-y-auto p-[6rem]"
+  >
+    <h1 class="text-[3rem] font-semibold">Calificar Arrendador</h1>
+
+    <div
+      class="mt-[3rem] p-[4rem] bg-white rounded-[1.5rem] shadow-md flex flex-col gap-[1rem]"
+    >
+      <form
+        (ngSubmit)="agregarCalificacion($event)"
+        class="flex flex-col"
+        action=""
+      >
+        <p-rating class="" name="stars" [(ngModel)]="value"></p-rating>
+        <input
+          [(ngModel)]="comentario"
+          name="comentario"
+          class="input"
+          placeholder="Comentario"
+          type="text"
+        />
+        <input
+          class="bg-redPrimary cursor-pointer text-[1.4rem] w-[30rem] mt-[2rem] rounded-2xl text-white hover:bg-redPrimary/90 p-[1.5rem]"
+          value="Enviar Calificacion"
+          type="submit"
+        />
+      </form>
+    </div>
+  </main>
+</div>

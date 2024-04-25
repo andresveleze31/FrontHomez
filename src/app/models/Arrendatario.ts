@@ -11,5 +11,9 @@ export class Arrendatario {
     if (!createdAt) {
       this.createdAt = new Date().toISOString();
     }
+
+    if(!id){
+      this.id = null
+    }
   }
 }

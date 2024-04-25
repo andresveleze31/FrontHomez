@@ -97,27 +97,28 @@ export class ActualizarPropiedadComponent {
         this.fotointerna2.propiedad = propiedadTemp;
         this.fotointerna3.propiedad = propiedadTemp;
 
-        if (this.fotofrontal.foto !== '' && this.fotofrontal.foto !== null) {
+        if (this.fotofrontal.foto != '' && this.fotofrontal.foto != null) {
           this.updateFoto(this.fotofrontal);
         }
 
-        if (this.fotoperfil.foto !== '' && this.fotoperfil.foto !== null) {
+        console.log(this.fotoperfil);
+        if (this.fotoperfil.foto != '' && this.fotoperfil.foto != null) {
           this.updateFoto(this.fotoperfil);
         }
 
-        if (this.fotointerna.foto !== '' && this.fotointerna.foto !== null) {
+        if (this.fotointerna.foto != '' && this.fotointerna.foto != null) {
           this.updateFoto(this.fotointerna);
         }
 
-        if (this.fotointerna2.foto !== '' && this.fotointerna2.foto !== null) {
+        if (this.fotointerna2.foto != '' && this.fotointerna2.foto != null) {
           this.updateFoto(this.fotointerna2);
         }
 
-        if (this.fotointerna3.foto !== '' && this.fotointerna3.foto !== null) {
+        if (this.fotointerna3.foto != '' && this.fotointerna3.foto != null) {
           this.updateFoto(this.fotointerna3);
         }
 
-        window.location.href = '/homez/arrendador/propiedades';
+        window.location.href = '/homez/arrendador/mis-propiedades';
       },
       (error) => {
         console.error('Error:', error);
@@ -135,7 +136,7 @@ export class ActualizarPropiedadComponent {
             this.fotofrontal = post.fotos[0];
           }
           if (post.fotos[1] != null || undefined) {
-            this.fotoperfil = post.fotos[2];
+            this.fotoperfil = post.fotos[1];
           }
           if (post.fotos[2] != null || undefined) {
             this.fotointerna = post.fotos[2];

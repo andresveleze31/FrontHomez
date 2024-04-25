@@ -1,51 +1,83 @@
-<main class="w-full  flex justify-center items-center bg-stone-50 ">
-    <div class="py-[4rem] px-[4rem] rounded-[2rem] bg-white my-[5rem] shadow-xl">
-      <div class="flex flex-col items-center">
-        <img src="../../../assets/logohomez.svg" alt="Logo Homez" />
-        <div class="mt-[3rem] text-center">
-          <h3 class="font-semibold mb-3">Registrar Arrendatario</h3>
-          <span
-            >Arrienda una de propiedad de forma segura.</span
-          >
-        </div>
-      </div>
-  
-      <form class="mt-[3rem]" action="">
-        <div class="grid grid-cols-2 gap-[2rem]">
-          <div>
-            <label class="block text-[1.5rem] font-semibold" for="">Nombre</label>
-            <input class="input w-full" type="text" placeholder="Tu Nombre" />
-          </div>
-  
-          <div>
-            <label class="block text-[1.5rem] font-semibold" for=""
-              >Apellido</label
-            >
-            <input class="input w-full" type="text" placeholder="Tu Apellido" />
-          </div>
-        </div>
-        <div class="mt-[1rem]">
-          <label class="block text-[1.5rem] font-semibold" for="">Email</label>
-          <input class="input w-full" type="email" placeholder="Tu Email" />
-        </div>
-  
-        <div class="mt-[1rem]">
-          <label class="block text-[1.5rem] font-semibold" for="">Telefono</label>
-          <input class="input w-full" type="number" placeholder="Tu Telefono" />
-        </div>
-  
-        <div class="mt-[1rem]">
-          <label class="block text-[1.5rem] font-semibold" for="">Password</label>
-          <input class="input w-full" type="password" placeholder="Tu Password" />
-        </div>
-  
-        <input class="w-full py-[1.7rem] px-[2rem] bg-redPrimary text-white rounded-[.8rem] mt-[2rem] hover:bg-redPrimary/90 transition-all duration-300 cursor-pointer" type="submit">
-      </form>
-  
-      <div class="mt-[2rem] flex justify-center">
-          <a class="text-[1.4rem] text-gray-400" href="/homez/register/arrendador">¿Deseas ser arrendador? <span class="text-customBlack font-semibold">Registrate aqui</span></a>
-  
+<main class="w-full flex justify-center items-center bg-stone-50">
+  <div class="py-[4rem] px-[4rem] rounded-[2rem] bg-white my-[5rem] shadow-xl">
+    <div class="flex flex-col items-center">
+      <img src="../../../assets/logohomez.svg" alt="Logo Homez" />
+      <div class="mt-[3rem] text-center">
+        <h3 class="font-semibold mb-3">Registrar Arrendatario</h3>
+        <span>Arrienda una de propiedad de forma segura.</span>
       </div>
     </div>
-  </main>
-  
+
+    <form class="mt-[3rem]" (ngSubmit)="insertarArrendatario()">
+      <div class="grid grid-cols-2 gap-[2rem]">
+        <div>
+          <label class="block text-[1.5rem] font-semibold" for="">Nombre</label>
+          <input
+            name="nombre"
+            [(ngModel)]="arrendatario.nombre"
+            class="input w-full"
+            type="text"
+            placeholder="Tu Nombre"
+          />
+        </div>
+
+        <div>
+          <label class="block text-[1.5rem] font-semibold" for=""
+            >Apellido</label
+          >
+          <input
+            name="apellido"
+            [(ngModel)]="arrendatario.apellido"
+            class="input w-full"
+            type="text"
+            placeholder="Tu Apellido"
+          />
+        </div>
+      </div>
+      <div class="mt-[1rem]">
+        <label class="block text-[1.5rem] font-semibold" for="">Email</label>
+        <input
+          name="correo"
+          [(ngModel)]="arrendatario.correo"
+          class="input w-full"
+          type="email"
+          placeholder="Tu Email"
+        />
+      </div>
+
+      <div class="mt-[1rem]">
+        <label class="block text-[1.5rem] font-semibold" for="">Telefono</label>
+        <input
+          name="telefono"
+          [(ngModel)]="arrendatario.telefono"
+          class="input w-full"
+          type="number"
+          placeholder="Tu Telefono"
+        />
+      </div>
+
+      <div class="mt-[1rem]">
+        <label class="block text-[1.5rem] font-semibold" for="">Password</label>
+        <input
+          name="contraseña"
+          [(ngModel)]="arrendatario['contraseña']"
+          class="input w-full"
+          type="password"
+          placeholder="Tu Password"
+        />
+      </div>
+
+      <input
+        class="w-full py-[1.7rem] px-[2rem] bg-redPrimary text-white rounded-[.8rem] mt-[2rem] hover:bg-redPrimary/90 transition-all duration-300 cursor-pointer"
+        type="submit"
+      />
+    </form>
+
+    <div class="mt-[2rem] flex justify-center">
+      <a class="text-[1.4rem] text-gray-400" href="/homez/register/arrendador"
+        >¿Deseas ser arrendador?
+        <span class="text-customBlack font-semibold">Registrate aqui</span></a
+      >
+    </div>
+  </div>
+</main>
