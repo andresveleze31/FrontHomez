@@ -29,7 +29,7 @@ export class SolicitudService {
   async getSolicitudesByPropietario(): Promise<Solicitud[]> {
     return await axios
       .get<Solicitud[]>(
-        'http://localhost:9093/api/homez/solicitud/propietario/1'
+        'https://gruposjaveriana.dynaco.co/api/homez/solicitud/propietario/1'
       )
       .then((response) => response.data);
   }
