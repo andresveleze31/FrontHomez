@@ -179,25 +179,45 @@
           <h4 class="text-[2rem] font-semibold">Has una solicitud</h4>
           <p class="text-[1.4rem] mt-[1rem]">Agenda y espera una respuesta</p>
 
-          <form class="mt-[2rem]" action="">
+          <form class="mt-[2rem]" action="" (ngSubmit)="insertarSolicitud($event)">
             <div>
               <label class="text-[1.4rem] font-semibold" for=""
                 >Fecha Inicio</label
               >
-              <input class="inputb w-full" type="date" placeholder="" />
+              <input
+                [(ngModel)]="solicitud.fechaInicio"
+                class="inputb w-full"
+                type="date"
+                name="fechaInicio"
+                placeholder=""
+              />
             </div>
 
             <div class="mt-[1.5rem]">
               <label class="text-[1.4rem] font-semibold" for=""
                 >Fecha Fin</label
               >
-              <input class="inputb w-full" type="date" placeholder="" />
+              <input
+                [(ngModel)]="solicitud.fechaFin"
+                class="inputb w-full"
+                name="fechaFin"
+                type="date"
+                placeholder=""
+              />
             </div>
 
             <div class="mt-[1.5rem]">
               <label class="text-[1.4rem] font-semibold" for="">Personas</label>
-              <select class="inputb w-full appearance-none">
-                <option *ngFor="let numero of numeros" [value]="numero">
+              <select
+                [(ngModel)]="solicitud.personas"
+                name="personas"
+                class="inputb w-full appearance-none"
+              >
+                <option
+                  *ngFor="let numero of numeros"
+                  value="numero"
+                  [ngValue]="numero"
+                >
                   {{ numero }}
                 </option>
               </select>

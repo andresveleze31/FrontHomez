@@ -8,6 +8,10 @@ import { GalleriaModule } from 'primeng/galleria';
 import { Foto } from '../../models/Foto';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { Solicitud } from '../../models/Solicitud';
+import { Arrendatario } from '../../models/Arrendatario';
+import { Estado } from '../../models/Estado';
+import { SolicitudService } from '../../services/solicitud/solicitud.service';
 
 @Component({
   selector: 'app-propiedad-detalles',
@@ -23,6 +27,9 @@ import { FormsModule } from '@angular/forms';
   styleUrl: './propiedad-detalles.component.scss',
 })
 export class PropiedadDetallesComponent {
+  arrendatario: Arrendatario;
+  estado: Estado;
+  solicitud: Solicitud;
   propiedad: Propiedad;
   banios: number | null | undefined = 3;
   propertyId: string | null = null;
@@ -31,10 +38,14 @@ export class PropiedadDetallesComponent {
 
   constructor(
     private propiedadService: PropiedadService,
+    private solicitudService: SolicitudService,
     private route: ActivatedRoute
   ) {
     this.propiedad = new Propiedad();
     this.banios = 3;
+    this.solicitud = new Solicitud();
+    this.arrendatario = new Arrendatario();
+    this.estado = new Estado();
   }
 
   ngOnInit(): void {
@@ -51,6 +62,26 @@ export class PropiedadDetallesComponent {
     const cantidadPersonas = this.propiedad?.personas ?? 0;
     return Array.from({ length: cantidadPersonas }, (_, i) => i + 1);
   }
+
+  insertarSolicitud(event: Event) {
+    event.preventDefault();
+    if (this.propiedad?.valor !== null && this.propiedad?.valor !== undefined) {
+      this.solicitud.valor = Number(this.propiedad.valor) * 5;
+    }
+
+    if (this.propiedad) {
+      this.solicitud.propiedad = this.propiedad;
+    }
+
+    this.arrendatario.id = 1;
+    this.estado.id = 1;
+    this.solicitud.arrendatario = this.arrendatario;
+    this.solicitud.estado = this.estado;
+
+    this.solicitudService.insertarSolicitud(this.solicitud);
+
+  }
+
   cargarPropiedad() {
     this.propiedadService
       .getPropiedadById(Number(this.propertyId))

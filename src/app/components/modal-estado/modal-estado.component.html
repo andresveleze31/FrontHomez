@@ -1,0 +1,21 @@
+<div class="absolute inset-0 bg-black/20 flex justify-center items-center">
+    <div class="bg-white rounded-2xl p-[4rem]">
+      <div class="flex justify-between gap-[5rem] items-center">
+        <h3 class="font-semibold text-[2.5rem] m-0">Cambiar Estado</h3>
+        <li (click)="showModal" class="pi pi-times text-[2.5rem] cursor-pointer"></li>
+      </div>
+
+      <form action="">
+        <div class="">
+          <select class="input w-full mt-4 appearance-none" name="estado" id="">
+            <option value="">Estado 1</option>
+          </select>
+        </div>
+        <input
+        value="Actualizar Estado"
+          type="submit"
+          class="bg-redPrimary cursor-pointer text-[1.4rem] w-full mt-[2rem] rounded-2xl text-white hover:bg-redPrimary/90 p-[1.5rem]"
+        />
+      </form>
+    </div>
+</div>

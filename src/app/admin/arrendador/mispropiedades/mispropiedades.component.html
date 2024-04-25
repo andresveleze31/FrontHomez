@@ -18,10 +18,21 @@
         <p class="text-[1.5rem] font-semibold">Acciones</p>
       </div>
 
-      <app-propiedad-admin-arrendador></app-propiedad-admin-arrendador>
-      <app-propiedad-admin-arrendador></app-propiedad-admin-arrendador>
-      <app-propiedad-admin-arrendador></app-propiedad-admin-arrendador>
-      <app-propiedad-admin-arrendador></app-propiedad-admin-arrendador>
+      <div *ngFor="let propiedad of propiedades">
+        <app-propiedad-admin-arrendador
+          [id]="propiedad.id"
+          [nombre]="propiedad.nombre || ''"
+          [departamento]="propiedad.departamento?.departamento || ''"
+          [municipio]="propiedad.municipio?.municipio || ''"
+          [habitaciones]="propiedad.habitaciones"
+          [valor]="propiedad.valor"
+          [estado]="propiedad?.activa!!"
+          [img]="propiedad.fotos?.[0]?.foto || ''"
+          [personas]="propiedad.personas"
+        ></app-propiedad-admin-arrendador>
+      </div>
+
+      
     </div>
   </main>
 </div>

@@ -14,6 +14,8 @@ import { ArrendatarioperfilComponent } from './admin/arrendatario/arrendatariope
 import { ArrendadorsolicitudesComponent } from './admin/arrendador/arrendadorsolicitudes/arrendadorsolicitudes.component';
 import { ArrendatariosolicitudesComponent } from './admin/arrendatario/arrendatariosolicitudes/arrendatariosolicitudes.component';
 import { PropiedadDetallesComponent } from './pages/propiedad-detalles/propiedad-detalles.component';
+import { ActualizarPropiedadComponent } from './admin/arrendador/actualizar-propiedad/actualizar-propiedad.component';
+import { ActualizarSolicitudComponent } from './admin/arrendador/actualizar-solicitud/actualizar-solicitud.component';
 
 export const routes: Routes = [
   {
@@ -76,5 +78,13 @@ export const routes: Routes = [
   {
     path: 'homez/register/arrendatario',
     component: RegisterArrendatarioComponent,
+  },
+  {
+    path: 'homez/arrendador/actualizar-propiedad/:id',
+    component: ActualizarPropiedadComponent,
+  },
+  {
+    path: 'homez/arrendador/actualizar-solicitud/:id',
+    component: ActualizarSolicitudComponent,
   },
 ];

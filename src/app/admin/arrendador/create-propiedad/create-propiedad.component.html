@@ -9,7 +9,7 @@
     <h1 class="text-[3rem] font-semibold">Añade una Propiedad</h1>
 
     <form
-      (ngSubmit)="insertarPropiedad()"
+      (ngSubmit)="insertarPropiedad($event)"
       class="p-[3.5rem] bg-white rounded-[1.5rem] shadow-md font-sans"
       action=""
     >
@@ -50,36 +50,73 @@
             placeholder="Valor Dia de la Propiedad"
           />
         </div>
-      </div>
-      <div class="flex flex-col w-full">
-        <div *ngFor="let foto of fotos; let i = index">
+
+        <div class="mt-[2rem]">
           <label class="block text-[1.5rem] mt-[2rem] font-semibold" for=""
-            >Foto</label
+            >Foto Frontal</label
           >
           <input
             class="input w-full"
             type="text"
-            [(ngModel)]="fotos[i].foto"
-            placeholder="Foto de la Propiedad"
+            name="fotofrontal"
+            [(ngModel)]="fotofrontal.foto"
+            placeholder="Foto Frontal de la Propiedad"
           />
         </div>
 
-        <div class="flex gap-[2rem]">
-          <button
-            (click)="onClick($event)"
-            class="bg-redPrimary text-[1.4rem] w-[30rem] mt-[2rem] rounded-2xl text-white hover:bg-redPrimary/90 p-[1.5rem]"
+        <div class="mt-[2rem]">
+          <label class="block text-[1.5rem] mt-[2rem] font-semibold" for=""
+            >Foto Perfil</label
           >
-            Añadir Foto
-          </button>
+          <input
+            class="input w-full"
+            type="text"
+            name="fotoperfil"
+            [(ngModel)]="fotoperfil.foto"
+            placeholder="Foto Perfil de la Propiedad"
+          />
+        </div>
 
-          <button
-            (click)="onClickDelete($event)"
-            class="bg-customBlack text-[1.4rem] w-[30rem] mt-[2rem] rounded-2xl text-white hover:bg-customBlack/90 p-[1.5rem]"
+        <div class="mt-[2rem]">
+          <label class="block text-[1.5rem] mt-[2rem] font-semibold" for=""
+            >Foto Interna</label
           >
-            Eliminar Foto Anterior
-          </button>
+          <input
+            class="input w-full"
+            type="text"
+            name="fotointerna"
+            [(ngModel)]="fotointerna.foto"
+            placeholder="Foto Interna de la Propiedad"
+          />
+        </div>
+
+        <div class="mt-[2rem]">
+          <label class="block text-[1.5rem] mt-[2rem] font-semibold" for=""
+            >Foto Interna 2</label
+          >
+          <input
+            class="input w-full"
+            type="text"
+            name="fotointerna2"
+            [(ngModel)]="fotointerna2.foto"
+            placeholder="Foto Interna de la Propiedad"
+          />
+        </div>
+
+        <div class="mt-[2rem]">
+          <label class="block text-[1.5rem] mt-[2rem] font-semibold" for=""
+            >Foto Interna 3</label
+          >
+          <input
+            class="input w-full"
+            type="text"
+            name="fotointerna3"
+            [(ngModel)]="fotointerna3.foto"
+            placeholder="Foto Interna de la Propiedad"
+          />
         </div>
       </div>
+
       <div class="flex flex-col h-12rem">
         <div class="grid grid-cols-3 gap-[2rem]">
           <div>

@@ -10,10 +10,13 @@ export class FotoService {
 
   insertarFoto(foto: Foto): Promise<Foto> {
     return axios
-      .post<Foto>(
-        'https://gruposjaveriana.dynaco.co/api/homez/foto',
-        foto
-      )
+      .post<Foto>('https://gruposjaveriana.dynaco.co/api/homez/foto', foto)
+      .then((response) => response.data);
+  }
+
+  updateFoto(foto: Foto): Promise<Foto> {
+    return axios
+      .put<Foto>('https://gruposjaveriana.dynaco.co/api/homez/foto', foto)
       .then((response) => response.data);
   }
 }

@@ -1,33 +1,42 @@
 <div class="grid grid-cols-[1fr,1fr,1fr,1.5fr] py-[2rem] px-[2rem] border-b">
   <img
     class="h-[12rem] w-[15rem] object-cover rounded-[2rem]"
-    src="https://homez-appdir.vercel.app/_next/image?url=%2Fimages%2Flistings%2Flist-1.jpg&w=128&q=75"
+    [src]="img"
     alt="Imagen"
   />
 
   <div class="flex flex-col gap-[1rem] justify-center">
-    <p class="text-[1.5rem] font-semibold">Equestrian Family Home</p>
-    <p class="text-[1.5rem]">Departamento, Municipio</p>
-    <p class="text-[1.5rem] font-semibold">$valor/dia</p>
+    <p class="text-[1.5rem] font-semibold">{{ nombre }}</p>
+    <p class="text-[1.5rem]">{{ departamento }}, {{ municipio }}</p>
+    <p class="text-[1.5rem] font-semibold">${{ valor }}/dia</p>
   </div>
 
-  <div class="flex items-center">
+  <div *ngIf="estado" class="flex items-center">
     <p
       class="py-[1rem] px-[3rem] text-[1.4rem] text-red-500 bg-red-400/20 rounded-full w-fit"
     >
-      Estado
+      Activa
+    </p>
+  </div>
+
+  <div *ngIf="!estado" class="flex items-center">
+    <p
+      class="py-[1rem] px-[3rem] text-[1.4rem] text-red-500 bg-red-400/20 rounded-full w-fit"
+    >
+      Inactiva
     </p>
   </div>
 
   <div class="flex items-center gap-[2rem]">
-    <button
+    <a [routerLink]="['/homez/arrendador/actualizar-propiedad', id]"
       class="bg-slate-100 py-[1.4rem] group px-[1.4rem] rounded-full flex items-center justify-center hover:bg-customBlack transition-all duration-300"
     >
       <li
         class="pi pi-pencil text-[1.5rem] group-hover:text-white transition-all duration-300"
       ></li>
-    </button>
+  </a>
     <button
+      (click)="cambiarEstado()"
       class="bg-slate-100 py-[1.4rem] group px-[1.4rem] rounded-full flex items-center justify-center hover:bg-customBlack transition-all duration-300"
     >
       <li
@@ -36,7 +45,7 @@
     </button>
 
     <a
-    href=""
+      [href]="'/homez/propiedad/' + id"
       class="bg-slate-100 py-[1.4rem] group px-[1.4rem] rounded-full flex items-center justify-center hover:bg-customBlack transition-all duration-300"
     >
       <li
@@ -44,4 +53,5 @@
       ></li>
     </a>
   </div>
+
 </div>

@@ -35,7 +35,11 @@ import { Arrendador } from '../../../models/Arrendador';
   styleUrl: './create-propiedad.component.scss',
 })
 export class CreatePropiedadComponent {
-  fotos: Foto[] = [];
+  fotofrontal: Foto;
+  fotoperfil: Foto;
+  fotointerna: Foto;
+  fotointerna2: Foto;
+  fotointerna3: Foto;
   propiedad: Propiedad;
   departamentos: Departamento[] = [];
   municipios: Municipio[] = [];
@@ -52,7 +56,11 @@ export class CreatePropiedadComponent {
     private tipoService: TipoService,
     private arrendadorService: ArrendadorService
   ) {
-    this.fotos = [];
+    this.fotofrontal = new Foto();
+    this.fotoperfil = new Foto();
+    this.fotointerna = new Foto();
+    this.fotointerna2 = new Foto();
+    this.fotointerna3 = new Foto();
     this.arrendador = new Arrendador();
     this.propiedad = new Propiedad();
   }
@@ -65,20 +73,40 @@ export class CreatePropiedadComponent {
     this.cargarTipos();
   }
 
-  insertarPropiedad() {
+  insertarPropiedad(event: Event) {
+    event.preventDefault()
     this.propiedad.arrendador = this.arrendador;
 
     this.propiedadService.insertarPropiedad(this.propiedad).then(
       (response) => {
-        for (let i = 0; i < this.fotos.length; i++) {
-          const propiedadTemp = new Propiedad();
-          propiedadTemp.id = response.id;
-          this.fotos[i].propiedad = propiedadTemp;
-          console.log(this.fotos[i]);
+        const propiedadTemp = new Propiedad();
+        propiedadTemp.id = response.id;
+        this.fotofrontal.propiedad = propiedadTemp;
+        this.fotoperfil.propiedad = propiedadTemp;
+        this.fotointerna.propiedad = propiedadTemp;
+        this.fotointerna2.propiedad = propiedadTemp;
+        this.fotointerna3.propiedad = propiedadTemp;
 
-          this.insertarFoto(this.fotos[i]);
+        if (this.fotofrontal.foto !== '' && this.fotofrontal.foto !== null) {
+          this.insertarFoto(this.fotofrontal);
         }
-        return;
+
+        if (this.fotoperfil.foto !== '' && this.fotoperfil.foto !== null) {
+          this.insertarFoto(this.fotoperfil);
+        }
+
+        if (this.fotointerna.foto !== '' && this.fotointerna.foto !== null) {
+          this.insertarFoto(this.fotointerna);
+        }
+
+        if (this.fotointerna2.foto !== '' && this.fotointerna2.foto !== null) {
+          this.insertarFoto(this.fotointerna2);
+        }
+
+        if (this.fotointerna3.foto !== '' && this.fotointerna3.foto !== null) {
+          this.insertarFoto(this.fotointerna3);
+        }
+
         window.location.href = '/homez/arrendador/propiedades';
       },
       (error) => {
@@ -148,18 +176,5 @@ export class CreatePropiedadComponent {
       .catch((error) => {
         console.error(error);
       });
-  }
-
-  onClick(event: MouseEvent) {
-    event.preventDefault(); // Esto previene el comportamiento predeterminado del clic en el botón.
-    const foto = new Foto();
-    this.fotos.push(foto);
-    console.log(this.fotos);
-  }
-
-  onClickDelete(event: MouseEvent) {
-    event.preventDefault(); // Esto previene el comportamiento predeterminado del clic en el botón.
-    this.fotos.pop();
-    console.log(this.fotos);
   }
 }

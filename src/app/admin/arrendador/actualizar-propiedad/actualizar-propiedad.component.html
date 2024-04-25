@@ -1,0 +1,269 @@
+<app-navbardashboard></app-navbardashboard>
+
+<div class="flex">
+  <app-sidebararrendador></app-sidebararrendador>
+
+  <main
+    class="bg-slate-100 w-full h-[calc(100vh-85px)] overflow-y-auto p-[6rem]"
+  >
+    <h1 class="text-[3rem] font-semibold">Actualiza tu Propiedad</h1>
+
+    <form
+      (ngSubmit)="actualizarPropiedad($event)"
+      class="p-[3.5rem] bg-white rounded-[1.5rem] shadow-md font-sans"
+      action=""
+    >
+      <div class="flex flex-col w-full">
+        <div>
+          <label class="block text-[1.5rem] font-semibold" for="">Titulo</label>
+          <input
+            [(ngModel)]="propiedad.nombre"
+            name="nombre"
+            class="input w-full"
+            type="text"
+            placeholder="Nombre Significativo de la Propiedad"
+          />
+        </div>
+
+        <div class="mt-[2rem]">
+          <label class="block text-[1.5rem] font-semibold" for=""
+            >Descripcion</label
+          >
+
+          <input
+            [(ngModel)]="propiedad.descripcion"
+            class="input w-full"
+            placeholder="Descripcion la Propiedad"
+            name="descripcion"
+            cols="30"
+            rows="6"
+          />
+        </div>
+
+        <div class="mt-[2rem]">
+          <label class="block text-[1.5rem] font-semibold" for="">Valor</label>
+          <input
+            [(ngModel)]="propiedad.valor"
+            class="input w-full"
+            name="valor"
+            type="number"
+            placeholder="Valor Dia de la Propiedad"
+          />
+        </div>
+
+        <div class="mt-[2rem]">
+          <label class="block text-[1.5rem] mt-[2rem] font-semibold" for=""
+            >Foto Frontal</label
+          >
+          <input
+            class="input w-full"
+            type="text"
+            name="fotofrontal"
+            [(ngModel)]="fotofrontal.foto"
+            placeholder="Foto Frontal de la Propiedad"
+          />
+        </div>
+
+        <div class="mt-[2rem]">
+          <label class="block text-[1.5rem] mt-[2rem] font-semibold" for=""
+            >Foto Perfil</label
+          >
+          <input
+            class="input w-full"
+            type="text"
+            name="fotoperfil"
+            [(ngModel)]="fotoperfil.foto"
+            placeholder="Foto Perfil de la Propiedad"
+          />
+        </div>
+
+        <div class="mt-[2rem]">
+          <label class="block text-[1.5rem] mt-[2rem] font-semibold" for=""
+            >Foto Interna</label
+          >
+          <input
+            class="input w-full"
+            type="text"
+            name="fotointerna"
+            [(ngModel)]="fotointerna.foto"
+            placeholder="Foto Interna de la Propiedad"
+          />
+        </div>
+
+        <div class="mt-[2rem]">
+          <label class="block text-[1.5rem] mt-[2rem] font-semibold" for=""
+            >Foto Interna 2</label
+          >
+          <input
+            class="input w-full"
+            type="text"
+            name="fotointerna2"
+            [(ngModel)]="fotointerna2.foto"
+            placeholder="Foto Interna de la Propiedad"
+          />
+        </div>
+
+        <div class="mt-[2rem]">
+          <label class="block text-[1.5rem] mt-[2rem] font-semibold" for=""
+            >Foto Interna 3</label
+          >
+          <input
+            class="input w-full"
+            type="text"
+            name="fotointerna3"
+            [(ngModel)]="fotointerna3.foto"
+            placeholder="Foto Interna de la Propiedad"
+          />
+        </div>
+      </div>
+
+      <div class="flex flex-col h-12rem">
+        <div class="grid grid-cols-3 gap-[2rem]">
+          <div>
+            <label class="block text-[1.5rem] mt-[2rem] font-semibold" for=""
+              >Departamento</label
+            >
+            <select
+              [(ngModel)]="propiedad.departamento"
+              class="input w-full appearance-none"
+              name="departamento"
+            >
+              <option *ngFor="let dep of departamentos" [ngValue]="dep">
+                {{ dep.departamento }}
+              </option>
+            </select>
+          </div>
+          <div>
+            <label class="block text-[1.5rem] mt-[2rem] font-semibold" for=""
+              >Municipio</label
+            >
+            <select
+              [(ngModel)]="propiedad.municipio"
+              class="input w-full appearance-none"
+              name="municipio"
+            >
+              <option *ngFor="let mun of municipios" [ngValue]="mun">
+                {{ mun.municipio }}
+              </option>
+            </select>
+          </div>
+          <div>
+            <label class="block text-[1.5rem] mt-[2rem] font-semibold" for=""
+              >Tipo Ingreso</label
+            >
+            <select
+              [(ngModel)]="propiedad.tipoIngreso"
+              class="input w-full appearance-none"
+              name="tipoIngreso"
+            >
+              <option *ngFor="let tiping of tipoingresos" [ngValue]="tiping">
+                {{ tiping.tipoingreso }}
+              </option>
+            </select>
+          </div>
+
+          <div>
+            <label class="block text-[1.5rem] mt-[2rem] font-semibold" for=""
+              >Tipo</label
+            >
+            <select
+              [(ngModel)]="propiedad.tipo"
+              class="input w-full appearance-none"
+              name="tipo"
+            >
+              <option *ngFor="let tipo of tipos" [ngValue]="tipo">
+                {{ tipo.tipo }}
+              </option>
+            </select>
+          </div>
+
+          <div>
+            <label class="block text-[1.5rem] mt-[2rem] font-semibold" for=""
+              >Personas</label
+            >
+            <input
+              [(ngModel)]="propiedad.personas"
+              name="personas"
+              class="input w-full"
+              type="number"
+              placeholder="Cantidad de Personas"
+            />
+          </div>
+
+          <div>
+            <label class="block text-[1.5rem] mt-[2rem] font-semibold" for=""
+              >Baños</label
+            >
+            <input
+              class="input w-full"
+              type="number"
+              name="baños"
+              placeholder="Cantidad de Baños"
+            />
+          </div>
+
+          <div>
+            <label class="block text-[1.5rem] mt-[2rem] font-semibold" for=""
+              >Habitaciones</label
+            >
+            <input
+              [(ngModel)]="propiedad.habitaciones"
+              class="input w-full"
+              type="number"
+              name="habitaciones"
+              placeholder="Cantidad de Habitaciones"
+            />
+          </div>
+
+          <div>
+            <label class="block text-[1.5rem] mt-[2rem] font-semibold" for=""
+              >Mascotas</label
+            >
+            <select
+              [(ngModel)]="propiedad.mascotas"
+              class="input w-full appearance-none"
+              name="mascotas"
+            >
+              <option [ngValue]="true">Si</option>
+              <option [ngValue]="false">No</option>
+            </select>
+          </div>
+
+          <div>
+            <label class="block text-[1.5rem] mt-[2rem] font-semibold" for=""
+              >Piscina</label
+            >
+            <select
+              [(ngModel)]="propiedad.piscina"
+              name="piscina"
+              class="input w-full appearance-none"
+            >
+              <option [ngValue]="true">Si</option>
+              <option [ngValue]="false">No</option>
+            </select>
+          </div>
+
+          <div>
+            <label class="block text-[1.5rem] mt-[2rem] font-semibold" for=""
+              >Asador</label
+            >
+            <select
+              [(ngModel)]="propiedad.asador"
+              class="input w-full appearance-none"
+              name="asador"
+            >
+              <option [ngValue]="true">Si</option>
+              <option [ngValue]="false">No</option>
+            </select>
+          </div>
+        </div>
+      </div>
+
+      <input
+        class="bg-redPrimary cursor-pointer text-[1.4rem] w-[30rem] mt-[2rem] rounded-2xl text-white hover:bg-redPrimary/90 p-[1.5rem]"
+        type="submit"
+        value="Actualizar Propiedad"
+      />
+    </form>
+  </main>
+</div>

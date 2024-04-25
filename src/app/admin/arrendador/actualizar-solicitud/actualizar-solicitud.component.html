@@ -1,0 +1,33 @@
+<app-navbardashboard></app-navbardashboard>
+
+<div class="flex">
+  <app-sidebararrendador></app-sidebararrendador>
+
+  <main
+    class="bg-slate-100 w-full h-[calc(100vh-85px)] overflow-y-auto p-[6rem]"
+  >
+    <h1 class="text-[3rem] font-semibold">Actualizar Estado Solicitud</h1>
+
+    <div
+      class="mt-[3rem] p-[4rem] w-1/2 bg-white rounded-[1.5rem] shadow-md flex flex-col gap-[1rem]"
+    >
+      <form (ngSubmit)="actualizarEstado($event)">
+        <select
+          [(ngModel)]="solicitud.estado"
+          class="input w-full appearance-none"
+          name="estado"
+        >
+          <option *ngFor="let estado of estados" [ngValue]="estado">
+            {{ estado.estado }}
+          </option>
+        </select>
+
+        <input
+        value="Actualizar Estado"
+          type="submit"
+          class="bg-redPrimary cursor-pointer text-[1.4rem] w-full mt-[2rem] rounded-2xl text-white hover:bg-redPrimary/90 p-[1.5rem]"
+        />
+      </form>
+    </div>
+  </main>
+</div>
