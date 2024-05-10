@@ -2,7 +2,7 @@
   <div class="contenedor py-[2rem]">
     <nav class="flex justify-between items-center">
       <img src="../../assets/logohomez.svg" alt="Logo Homez" />
-      <div class="flex gap-[4rem]">
+      <div class="flex gap-[4rem] md:hidden">
         <a
           class="text-[1.5rem] font-medium hover:text-redPrimary transition-all duration-300"
           href="/homez/home"
@@ -25,7 +25,7 @@
         >
       </div>
 
-      <div class="flex gap-[1rem] items-center">
+      <div class="flex gap-[1rem] md:hidden items-center">
         <li class="pi pi-user text-[1.8rem]"></li>
         <a
           href="/homez/register/arrendador"
@@ -40,6 +40,14 @@
           Dashboard
           <li class="pi pi-arrow-up-right"></li>
         </a>
+      </div>
+
+      
+
+      <div class="lg:hidden">
+        <button (click)="sidebarVisible2 = true">
+          <li class="pi pi-bars text-[2rem]"></li>
+        </button>
       </div>
     </nav>
   </div>

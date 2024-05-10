@@ -1,0 +1,48 @@
+<div
+  [ngClass]="{
+    'absolute top-0 right-0 bottom-0 pt-[12rem] lg:hidden px-[2rem] flex flex-col bg-white z-40':
+      display,
+    hidden: !display
+  }"
+>
+  <div class="sticky top-[12rem]">
+    <div class="flex flex-col gap-[4rem] lg:hidden">
+      <a
+        class="text-[1.5rem] font-medium hover:text-redPrimary transition-all duration-300"
+        href="/homez/home"
+        >Home</a
+      >
+      <a
+        class="text-[1.5rem] font-medium hover:text-redPrimary transition-all duration-300"
+        href="/homez/propiedades"
+        >Propiedades</a
+      >
+      <a
+        class="text-[1.5rem] font-medium hover:text-redPrimary transition-all duration-300"
+        href="/homez/about"
+        >Sobre Nosotros</a
+      >
+      <a
+        class="text-[1.5rem] font-medium hover:text-redPrimary transition-all duration-300"
+        href="/homez/blog"
+        >Blog</a
+      >
+    </div>
+
+    <div class="flex flex-col mt-[4rem] items-start gap-[1rem] lg:hidden">
+      <a
+        href="/homez/register/arrendador"
+        class="text-[1.5rem] font-medium hover:text-redPrimary transition-all duration-300 cursor-pointer"
+        >Login / Register</a
+      >
+
+      <a
+        class="flex text-[1.5rem] hover:bg-redPrimary transition-all duration-300 hover:text-white hover:border-white font-medium gap-[1rem] items-center border rounded-full py-[1rem] px-[3rem] border-black mt-[3rem]"
+        href="/homez/arrendador/dashboard"
+      >
+        Dashboard
+        <li class="pi pi-arrow-up-right"></li>
+      </a>
+    </div>
+  </div>
+</div>

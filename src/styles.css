@@ -18,7 +18,7 @@
   body {
     font-size: 1.6rem;
     font-family: "Poppins", sans-serif;
-    color: #181a20;
+    color: #181A20;
   }
   p {
     font-size: 2rem;
@@ -32,9 +32,6 @@
   img {
     max-width: 100%;
     display: block;
-  }
-  pi-star{
-    font-size: 100px;
   }
   h1,
   h2,
@@ -57,9 +54,6 @@
     max-width: 1200px;
     margin: 0 auto;
   }
-  .custom-star .pi-star {
-    font-size: 2rem; /* Define el tamaño deseado de la estrella */
-  }
   .contenedor-2 {
     width: 95%;
     max-width: 1600px;
@@ -67,12 +61,6 @@
   }
   .bg-banner {
     background-image: url("./assets/bannerhomez.jpg"); /* Especifica la ruta de tu imagen */
-    background-size: cover; /* Ajusta la imagen al tamaño del contenedor */
-    background-position: center; /* Centra la imagen */
-    background-repeat: no-repeat; /* Evita que la imagen se repita */
-  }
-  .bg_dos {
-    background-image: url("./assets/about_banner.jpg"); /* Especifica la ruta de tu imagen */
     background-size: cover; /* Ajusta la imagen al tamaño del contenedor */
     background-position: center; /* Centra la imagen */
     background-repeat: no-repeat; /* Evita que la imagen se repita */
@@ -95,7 +83,4 @@
     outline: none;
     margin-top: 1rem;
   }
-  ::ng-deep p-rating .p-rating-star {
-    color: orange;
-  }
-} /*# sourceMappingURL=styles.css.map */
+}/*# sourceMappingURL=styles.css.map */

@@ -1,526 +1,555 @@
-<app-navbar></app-navbar>
-<header class="bg-banner">
-  <div
-    class="contenedor py-[20rem] gap-[1.5rem] flex flex-col justify-center items-center"
-  >
-    <p class="text-white uppercase text-[1.5rem] font-medium">
-      La mejor manera de
-    </p>
-    <h1 class="text-white font-bold text-[5.2rem]">
-      Encontrar El Lugar Perfecto
-    </h1>
-    <p class="text-white text-[1.5rem] font-medium">
-      Tenemos mas de 745,000 apartamentos, lugares y demas
-    </p>
+<div class="relative">
+  
 
-    <form
-      class="bg-white w-full p-[2rem] rounded-xl mt-[8rem] grid grid-cols-3 gap-[2rem]"
-    >
-      <div
-        class="flex px-[2rem] gap-[2rem] items-center bg-gray-100 py-[2rem] rounded-2xl"
-      >
-        <li class="pi pi-key text-gray-400 text-xl"></li>
-        <input
-          class="outline-none bg-gray-100"
-          type="text"
-          placeholder="Ingresa un Keyword"
-        />
-      </div>
+  <app-navbar></app-navbar>
 
-      <div
-        class="flex px-[2rem] gap-[2rem] items-center bg-gray-100 py-[2rem] rounded-2xl"
-      >
-        <li class="pi pi-flag text-gray-500 text-xl"></li>
-        <select class="outline-none bg-gray-100 w-full text-gray-400">
-          <option value="opcion1">Bogota</option>
-          <option value="opcion2">Cali</option>
-          <option value="opcion3">Medellin</option>
-        </select>
-      </div>
-
-      <div
-        class="flex px-[2rem] hover:bg-gray-700 transition-all duration-300 cursor-pointer gap-[2rem] justify-center text-white font-medium items-center bg-redPrimary py-[2rem] rounded-2xl"
-      >
-        <li class="pi pi-search text-white text-xl"></li>
-
-        <input type="submit" value="Buscar" />
-      </div>
-    </form>
-  </div>
-</header>
-
-<!-- Departamentos Seccion -->
-<section class="py-[10rem] contenedor">
-  <div class="flex justify-between">
-    <div>
-      <h3 class="font-semibold mb-3">Propiedades por Departamento</h3>
-      <span>Encuentra una propiedad cercana a ti</span>
-    </div>
-
-    <a
-      class="flex text-[1.5rem] gap-[1rem] hover:text-redPrimary transition-all duration-300 items-center cursor-pointer font-semibold"
-    >
-      Ver Propiedades
-      <li class="pi pi-arrow-up-right text-xl"></li>
-    </a>
-  </div>
-
-  <div class="mt-[5rem]">
-    <p-carousel
-      [value]="products"
-      [numVisible]="5"
-      [numScroll]="1"
-      [circular]="true"
-      [responsiveOptions]="responsiveOptions"
-      autoplayInterval="3000"
-    >
-      <ng-template let-product pTemplate="item">
-        <app-departamento
-          [nombre]="product.departamento"
-          [img]="product.img"
-          precio="12 Propiedades"
-        ></app-departamento>
-      </ng-template>
-    </p-carousel>
-  </div>
-</section>
-
-<!--Como Funciona-->
-<section class="pb-[10rem] contenedor">
-  <div class="flex flex-col items-center">
-    <span class="text-center">Como Funciona</span>
-    <h3 class="font-semibold mb-3 text-center">
-      Encuentra la Propiedad Perfecta
-    </h3>
-  </div>
-
-  <div class="mt-[5rem] grid grid-cols-4 gap-[3rem]">
+  <app-mobile-navbar></app-mobile-navbar>
+  
+  <header class="bg-banner">
     <div
-      class="flex flex-col group hover:bg-gray-900 transition-all duration-300 gap-[2rem] bg-slate-100 rounded-xl items-center px-[2rem] py-[5rem]"
+      class="contenedor py-[20rem] gap-[1.5rem] flex flex-col justify-center items-center"
     >
-      <div
-        class="bg-white group-hover:bg-gray-800 transition-all duration-300 p-[1rem] w-[7rem] h-[7rem] flex justify-center items-center rounded-full"
-      >
-        <li
-          class="pi pi-home text-[3rem] group-hover:text-white transition-all duration-300"
-        ></li>
-      </div>
-      <h4
-        class="font-semibold text-[1.8rem] mt-[5rem] group-hover:text-white transition-all duration-300"
-      >
-        Encontrar Propiedad
-      </h4>
-      <p
-        class="text-[1.4rem] text-center group-hover:text-white transition-all duration-300"
-      >
-        Seleccion una propiedad de nuestro gran listado
+      <p class="text-white uppercase text-[1.5rem] font-medium">
+        La mejor manera de
       </p>
-    </div>
+      <h1 class="text-white font-bold text-[5.2rem] md:text-center">
+        Encontrar El Lugar Perfecto
+      </h1>
+      <p class="text-white text-[1.5rem] font-medium md:text-center">
+        Tenemos mas de 745,000 apartamentos, lugares y demas
+      </p>
 
-    <div
-      class="flex flex-col group hover:bg-gray-900 transition-all duration-300 gap-[2rem] bg-slate-100 rounded-xl items-center px-[2rem] py-[5rem]"
-    >
-      <div
-        class="bg-white group-hover:bg-gray-800 transition-all duration-300 p-[1rem] w-[7rem] h-[7rem] flex justify-center items-center rounded-full"
+      <form
+        class="bg-white w-full md:flex md:flex-col p-[2rem] rounded-xl mt-[8rem] grid grid-cols-3 gap-[2rem]"
       >
-        <li
-          class="pi pi-desktop text-[3rem] group-hover:text-white transition-all duration-300"
-        ></li>
-      </div>
-      <h4
-        class="font-semibold text-[1.8rem] mt-[5rem] group-hover:text-white transition-all duration-300"
-      >
-        Conoce al Propietario
-      </h4>
-      <p
-        class="text-[1.4rem] text-center group-hover:text-white transition-all duration-300"
-      >
-        Genera confianza con la propiedad y el propietario
-      </p>
-    </div>
-    <div
-      class="flex flex-col group hover:bg-gray-900 transition-all duration-300 gap-[2rem] bg-slate-100 rounded-xl items-center px-[2rem] py-[5rem]"
-    >
-      <div
-        class="bg-white group-hover:bg-gray-800 transition-all duration-300 p-[1rem] w-[7rem] h-[7rem] flex justify-center items-center rounded-full"
-      >
-        <li
-          class="pi pi-calendar text-[3rem] group-hover:text-white transition-all duration-300"
-        ></li>
-      </div>
-      <h4
-        class="font-semibold text-[1.8rem] mt-[5rem] group-hover:text-white transition-all duration-300"
-      >
-        Agenda tu Calendario
-      </h4>
-      <p
-        class="text-[1.4rem] text-center group-hover:text-white transition-all duration-300"
-      >
-        Da a conocer tus horarios para brindarte la mejor experiencia
-      </p>
-    </div>
-    <div
-      class="flex flex-col group hover:bg-gray-900 transition-all duration-300 gap-[2rem] bg-slate-100 rounded-xl items-center px-[2rem] py-[5rem]"
-    >
-      <div
-        class="bg-white group-hover:bg-gray-800 transition-all duration-300 p-[1rem] w-[7rem] h-[7rem] flex justify-center items-center rounded-full"
-      >
-        <li
-          class="pi pi-key text-[3rem] group-hover:text-white transition-all duration-300"
-        ></li>
-      </div>
-      <h4
-        class="font-semibold text-[1.8rem] mt-[5rem] group-hover:text-white transition-all duration-300"
-      >
-        Tomas las llaves
-      </h4>
-      <p
-        class="text-[1.4rem] text-center group-hover:text-white transition-all duration-300"
-      >
-        Ve y disfruta de una gran temporada en la propiedad
-      </p>
-    </div>
-  </div>
-</section>
+        <div
+          class="flex px-[2rem] gap-[2rem] items-center bg-gray-100 py-[2rem] rounded-2xl"
+        >
+          <li class="pi pi-key text-gray-400 text-xl"></li>
+          <input
+            class="outline-none bg-gray-100"
+            type="text"
+            placeholder="Ingresa un Keyword"
+          />
+        </div>
 
-<!-- Apartamentos Seccion -->
-<section class="py-[10rem] bg-slate-100">
-  <div class="contenedor">
+        <div
+          class="flex px-[2rem] gap-[2rem] items-center bg-gray-100 py-[2rem] rounded-2xl"
+        >
+          <li class="pi pi-flag text-gray-500 text-xl"></li>
+          <select class="outline-none bg-gray-100 w-full text-gray-400">
+            <option value="opcion1">Bogota</option>
+            <option value="opcion2">Cali</option>
+            <option value="opcion3">Medellin</option>
+          </select>
+        </div>
+
+        <div
+          class="flex px-[2rem] hover:bg-gray-700 transition-all duration-300 cursor-pointer gap-[2rem] justify-center text-white font-medium items-center bg-redPrimary py-[2rem] rounded-2xl"
+        >
+          <li class="pi pi-search text-white text-xl"></li>
+
+          <input type="submit" value="Buscar" />
+        </div>
+      </form>
+    </div>
+  </header>
+
+  <!-- Departamentos Seccion -->
+  <section class="py-[10rem] contenedor">
     <div class="flex justify-between">
-      <div>
-        <h3 class="font-semibold mb-3">Descubre las Mejores Propiedades</h3>
-        <span>La mejor calidad en un solo sitio</span>
+      <div class="sm:flex sm:flex-col sm:justify-center">
+        <h3 class="font-semibold mb-3 sm:text-center">
+          Propiedades por Departamento
+        </h3>
+        <span class="sm:text-center">Encuentra una propiedad cercana a ti</span>
       </div>
 
       <a
-        class="flex text-[1.5rem] gap-[1rem] hover:text-redPrimary transition-all duration-300 items-center cursor-pointer font-semibold"
+        class="flex sm:hidden text-[1.5rem] gap-[1rem] hover:text-redPrimary transition-all duration-300 items-center cursor-pointer font-semibold"
       >
         Ver Propiedades
         <li class="pi pi-arrow-up-right text-xl"></li>
       </a>
     </div>
 
-    <!-- Componente hacer el for Seccion -->
-
-    <div class="mt-[7rem] grid grid-cols-3 gap-[3rem]">
-      <div *ngFor="let propiedad of propiedades.slice(0, 6)">
-        <app-propiedad-card
-          [id]="propiedad.id"
-          [nombre]="propiedad.nombre || ''"
-          [departamento]="propiedad.departamento?.departamento || ''"
-          [municipio]="propiedad.municipio?.municipio || ''"
-          [habitaciones]="propiedad.habitaciones"
-          [valor]="propiedad.valor"
-          [img]="propiedad.fotos?.[0]?.foto || ''"
-          [personas]="propiedad.personas"
-        ></app-propiedad-card>
-      </div>
+    <div class="mt-[5rem]">
+      <p-carousel
+        [value]="products"
+        [numVisible]="numVisible"
+        [numScroll]="1"
+        [circular]="true"
+        [responsiveOptions]="responsiveOptions"
+        autoplayInterval="3000"
+      >
+        <ng-template let-product pTemplate="item">
+          <app-departamento
+            [nombre]="product.departamento"
+            [img]="product.img"
+            precio="12 Propiedades"
+          ></app-departamento>
+        </ng-template>
+      </p-carousel>
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- Por que escogernos -->
-<section class="py-[10rem] contenedor grid grid-cols-[1.6fr,2fr] gap-[4rem]">
-  <div>
-    <div>
-      <span>¿Por que escogernos?</span>
-      <h3 class="font-semibold mb-3">Encontremos la mejor opcion para ti.</h3>
+  <!--Como Funciona-->
+  <section class="pb-[10rem] contenedor">
+    <div class="flex flex-col items-center">
+      <span class="text-center">Como Funciona</span>
+      <h3 class="font-semibold mb-3 text-center">
+        Encuentra la Propiedad Perfecta
+      </h3>
     </div>
 
-    <div class="flex flex-col gap-[5rem] mt-[3rem]">
-      <div class="flex gap-[2rem] items-center">
+    <div
+      class="mt-[5rem] grid grid-cols-4 md:grid-cols-2 sm:grid-cols-1 gap-[3rem]"
+    >
+      <div
+        class="flex flex-col group hover:bg-gray-900 transition-all duration-300 gap-[2rem] bg-slate-100 rounded-xl items-center px-[2rem] py-[5rem]"
+      >
         <div
-          class="bg-slate-100 group hover:bg-redPrimary transition-all duration-300 p-[1rem] w-[9rem] h-[7rem] flex justify-center items-center rounded-full"
+          class="bg-white group-hover:bg-gray-800 transition-all duration-300 p-[1rem] w-[7rem] h-[7rem] flex justify-center items-center rounded-full"
         >
           <li
             class="pi pi-home text-[3rem] group-hover:text-white transition-all duration-300"
           ></li>
         </div>
-
-        <div>
-          <p class="text-[1.5rem] font-semibold">Manejo de Propiedades</p>
-          <p class="text-[1.5rem] mt-[1rem]">
-            Por medio de la plataforma seras capaz de administrar de forma facil
-            y rapida.
-          </p>
-        </div>
+        <h4
+          class="font-semibold text-[1.8rem] mt-[5rem] group-hover:text-white transition-all duration-300"
+        >
+          Encontrar Propiedad
+        </h4>
+        <p
+          class="text-[1.4rem] text-center group-hover:text-white transition-all duration-300"
+        >
+          Seleccion una propiedad de nuestro gran listado
+        </p>
       </div>
 
-      <div class="flex gap-[2rem] items-center">
+      <div
+        class="flex flex-col group hover:bg-gray-900 transition-all duration-300 gap-[2rem] bg-slate-100 rounded-xl items-center px-[2rem] py-[5rem]"
+      >
         <div
-          class="bg-slate-100 group hover:bg-redPrimary transition-all duration-300 p-[1rem] w-[7rem] h-[7rem] flex justify-center items-center rounded-full"
+          class="bg-white group-hover:bg-gray-800 transition-all duration-300 p-[1rem] w-[7rem] h-[7rem] flex justify-center items-center rounded-full"
+        >
+          <li
+            class="pi pi-desktop text-[3rem] group-hover:text-white transition-all duration-300"
+          ></li>
+        </div>
+        <h4
+          class="font-semibold text-[1.8rem] mt-[5rem] group-hover:text-white transition-all duration-300"
+        >
+          Conoce al Propietario
+        </h4>
+        <p
+          class="text-[1.4rem] text-center group-hover:text-white transition-all duration-300"
+        >
+          Genera confianza con la propiedad y el propietario
+        </p>
+      </div>
+      <div
+        class="flex flex-col group hover:bg-gray-900 transition-all duration-300 gap-[2rem] bg-slate-100 rounded-xl items-center px-[2rem] py-[5rem]"
+      >
+        <div
+          class="bg-white group-hover:bg-gray-800 transition-all duration-300 p-[1rem] w-[7rem] h-[7rem] flex justify-center items-center rounded-full"
+        >
+          <li
+            class="pi pi-calendar text-[3rem] group-hover:text-white transition-all duration-300"
+          ></li>
+        </div>
+        <h4
+          class="font-semibold text-[1.8rem] mt-[5rem] group-hover:text-white transition-all duration-300"
+        >
+          Agenda tu Calendario
+        </h4>
+        <p
+          class="text-[1.4rem] text-center group-hover:text-white transition-all duration-300"
+        >
+          Da a conocer tus horarios para brindarte la mejor experiencia
+        </p>
+      </div>
+      <div
+        class="flex flex-col group hover:bg-gray-900 transition-all duration-300 gap-[2rem] bg-slate-100 rounded-xl items-center px-[2rem] py-[5rem]"
+      >
+        <div
+          class="bg-white group-hover:bg-gray-800 transition-all duration-300 p-[1rem] w-[7rem] h-[7rem] flex justify-center items-center rounded-full"
         >
           <li
             class="pi pi-key text-[3rem] group-hover:text-white transition-all duration-300"
           ></li>
         </div>
-
-        <div>
-          <p class="text-[1.5rem] font-semibold">Seguridad y Verificacion</p>
-          <p class="text-[1.5rem] mt-[1rem]">
-            Garantizamos la Seguridad de sus propiedades y suya.
-          </p>
-        </div>
-      </div>
-
-      <div class="flex gap-[2rem] items-center">
-        <div
-          class="bg-slate-100 group hover:bg-redPrimary transition-all duration-300 p-[1rem] w-[7rem] h-[7rem] flex justify-center items-center rounded-full"
+        <h4
+          class="font-semibold text-[1.8rem] mt-[5rem] group-hover:text-white transition-all duration-300"
         >
-          <li
-            class="pi pi-money-bill text-[3rem] group-hover:text-white transition-all duration-300"
-          ></li>
+          Tomas las llaves
+        </h4>
+        <p
+          class="text-[1.4rem] text-center group-hover:text-white transition-all duration-300"
+        >
+          Ve y disfruta de una gran temporada en la propiedad
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Apartamentos Seccion -->
+  <section class="py-[10rem] bg-slate-100">
+    <div class="contenedor">
+      <div class="flex justify-between">
+        <div class="sm:flex sm:flex-col md:items-center">
+          <h3 class="sm:text-center font-semibold mb-3">
+            Descubre las Mejores Propiedades
+          </h3>
+          <span>La mejor calidad en un solo sitio</span>
         </div>
 
-        <div>
-          <p class="text-[1.5rem] font-semibold">Precios Excelentes</p>
-          <p class="text-[1.5rem] mt-[1rem]">
-            Las mejores ofertas y propiedades en un solo sitio.
-          </p>
+        <a
+          class="flex sm:hidden text-[1.5rem] gap-[1rem] hover:text-redPrimary transition-all duration-300 items-center cursor-pointer font-semibold"
+        >
+          Ver Propiedades
+          <li class="pi pi-arrow-up-right text-xl"></li>
+        </a>
+      </div>
+
+      <!-- Componente hacer el for Seccion -->
+
+      <div
+        class="mt-[7rem] grid grid-cols-3 md:grid-cols-2 sm:grid-cols-1 gap-[3rem]"
+      >
+        <div *ngFor="let propiedad of propiedades.slice(0, 6)">
+          <app-propiedad-card
+            [id]="propiedad.id"
+            [nombre]="propiedad.nombre || ''"
+            [departamento]="propiedad.departamento?.departamento || ''"
+            [municipio]="propiedad.municipio?.municipio || ''"
+            [habitaciones]="propiedad.habitaciones"
+            [valor]="propiedad.valor"
+            [img]="propiedad.fotos?.[0]?.foto || ''"
+            [personas]="propiedad.personas"
+          ></app-propiedad-card>
         </div>
       </div>
     </div>
-  </div>
+  </section>
 
-  <div class="flex gap-[3rem] items-end">
-    <img
-      class="w-[30rem] h-[41rem] rounded-[2rem]"
-      src="../../assets/why-us-img-1.jpg"
-      alt="Why us"
-    />
-    <img
-      class="w-[30rem] h-[48rem] rounded-[2rem]"
-      src="../../assets/why-us-img-2.jpg"
-      alt="Why us"
-    />
-  </div>
-</section>
-
-<!--Tipos Propiedades-->
-<section class="pb-[10rem] pt-[5rem] contenedor">
-  <div class="flex justify-between">
+  <!-- Por que escogernos -->
+  <section
+    class="py-[10rem] contenedor grid grid-cols-[1.6fr,2fr] sm:grid-cols-1 gap-[4rem]"
+  >
     <div>
-      <h3 class="font-semibold mb-3">Tipos de Propiedades para Ti</h3>
-      <span>Encuentra Apartamentos, Fincas y demas</span>
-    </div>
+      <div>
+        <span>¿Por que escogernos?</span>
+        <h3 class="font-semibold mb-3">Encontremos la mejor opcion para ti.</h3>
+      </div>
 
-    <a
-      class="flex text-[1.5rem] gap-[1rem] hover:text-redPrimary transition-all duration-300 items-center cursor-pointer font-semibold"
-    >
-      Ver Propiedades
-      <li class="pi pi-arrow-up-right text-xl"></li>
-    </a>
-  </div>
+      <div class="flex flex-col gap-[5rem] mt-[3rem]">
+        <div class="flex gap-[2rem] items-center">
+          <div
+            class="bg-slate-100 group hover:bg-redPrimary transition-all duration-300 p-[1rem] w-[9rem] h-[7rem] flex justify-center items-center rounded-full"
+          >
+            <li
+              class="pi pi-home text-[3rem] group-hover:text-white transition-all duration-300"
+            ></li>
+          </div>
 
-  <div class="mt-[5rem]">
-    <p-carousel
-      [value]="tipos"
-      [numVisible]="4"
-      [numScroll]="1"
-      [circular]="true"
-      [responsiveOptions]="responsiveOptions"
-      autoplayInterval="3000"
-    >
-      <ng-template let-tipo pTemplate="item">
-        <app-tipo
-          [tipo]="tipo.tipo"
-          [img]="tipo.img"
-          propiedades="12"
-        ></app-tipo>
-      </ng-template>
-    </p-carousel>
-  </div>
-</section>
-
-<!-- Testimoniales -->
-
-<section class="py-[20rem] bg-[#181A20]">
-  <div class="contenedor text-white grid grid-cols-[2fr,1fr] items-center">
-    <div>
-      <h3 class="font-semibold text-white mb-3">
-        La Gente Adora Estar Segura con Homez
-      </h3>
-      <span class="text-white">Encuentra Apartamentos, Fincas y demas</span>
-
-      <div class="mt-[7rem] flex gap-[4rem]">
-        <div>
-          <h1 class="font-bold mb-0">80%</h1>
-          <span class="text-white">Propiedades Completas</span>
+          <div>
+            <p class="text-[1.5rem] font-semibold">Manejo de Propiedades</p>
+            <p class="text-[1.5rem] mt-[1rem]">
+              Por medio de la plataforma seras capaz de administrar de forma
+              facil y rapida.
+            </p>
+          </div>
         </div>
 
-        <div>
-          <h1 class="font-bold mb-0">99%</h1>
-          <span class="text-white">Cliente Satisfechos</span>
+        <div class="flex gap-[2rem] items-center">
+          <div
+            class="bg-slate-100 group hover:bg-redPrimary transition-all duration-300 p-[1rem] w-[7rem] h-[7rem] flex justify-center items-center rounded-full"
+          >
+            <li
+              class="pi pi-key text-[3rem] group-hover:text-white transition-all duration-300"
+            ></li>
+          </div>
+
+          <div>
+            <p class="text-[1.5rem] font-semibold">Seguridad y Verificacion</p>
+            <p class="text-[1.5rem] mt-[1rem]">
+              Garantizamos la Seguridad de sus propiedades y suya.
+            </p>
+          </div>
         </div>
 
-        <div>
-          <h1 class="font-bold mb-0">50%</h1>
-          <span class="text-white">Propietarios Completos</span>
+        <div class="flex gap-[2rem] items-center">
+          <div
+            class="bg-slate-100 group hover:bg-redPrimary transition-all duration-300 p-[1rem] w-[7rem] h-[7rem] flex justify-center items-center rounded-full"
+          >
+            <li
+              class="pi pi-money-bill text-[3rem] group-hover:text-white transition-all duration-300"
+            ></li>
+          </div>
+
+          <div>
+            <p class="text-[1.5rem] font-semibold">Precios Excelentes</p>
+            <p class="text-[1.5rem] mt-[1rem]">
+              Las mejores ofertas y propiedades en un solo sitio.
+            </p>
+          </div>
         </div>
       </div>
     </div>
 
-    <div class="bg-white p-[3rem] rounded-2xl">
-      <div class="flex text-customBlack justify-between">
-        <p class="text-[1.6rem] font-semibold">Gran trabajo</p>
-        <li class="pi pi-comments text-[2rem] text-redPrimary"></li>
+    <div class="flex gap-[3rem] items-end">
+      <img
+        class="w-[30rem] h-[41rem] rounded-[2rem]"
+        src="../../assets/why-us-img-1.jpg"
+        alt="Why us"
+      />
+      <img
+        class="w-[30rem] h-[48rem] rounded-[2rem]"
+        src="../../assets/why-us-img-2.jpg"
+        alt="Why us"
+      />
+    </div>
+  </section>
+
+  <!--Tipos Propiedades-->
+  <section class="pb-[10rem] pt-[5rem] contenedor">
+    <div class="flex justify-between">
+      <div>
+        <h3 class="font-semibold mb-3">Tipos de Propiedades para Ti</h3>
+        <span>Encuentra Apartamentos, Fincas y demas</span>
       </div>
-      <p class="text-customBlack font-semibold text-[1.4rem] mt-[2rem]">
-        Diseño increíble, fácil de personalizar y una calidad de diseño
-        superlativa en su plataforma en la nube para un rendimiento optimizado.
-        Y no lo teníamos en nuestros diseños originales.
-      </p>
 
-      <div class="flex gap-[.6rem] items-center mt-[1rem] mb-[2rem]">
-        <li class="pi pi-star-fill text-yellow-400 text-[1.4rem]"></li>
-        <li class="pi pi-star-fill text-yellow-400 text-[1.4rem]"></li>
-        <li class="pi pi-star-fill text-yellow-400 text-[1.4rem]"></li>
-        <li class="pi pi-star-fill text-yellow-400 text-[1.4rem]"></li>
-        <li class="pi pi-star-fill text-yellow-400 text-[1.4rem]"></li>
+      <a
+        class="flex text-[1.5rem] sm:hidden gap-[1rem] hover:text-redPrimary transition-all duration-300 items-center cursor-pointer font-semibold"
+      >
+        Ver Propiedades
+        <li class="pi pi-arrow-up-right text-xl"></li>
+      </a>
+    </div>
+
+    <div class="mt-[5rem]">
+      <p-carousel
+        [value]="tipos"
+        [numVisible]="numVisible2"
+        [numScroll]="1"
+        [circular]="true"
+        [responsiveOptions]="responsiveOptions"
+        autoplayInterval="3000"
+      >
+        <ng-template let-tipo pTemplate="item">
+          <app-tipo
+            [tipo]="tipo.tipo"
+            [img]="tipo.img"
+            propiedades="12"
+          ></app-tipo>
+        </ng-template>
+      </p-carousel>
+    </div>
+  </section>
+
+  <!-- Testimoniales -->
+
+  <section class="py-[20rem] bg-[#181A20]">
+    <div
+      class="contenedor text-white grid grid-cols-[2fr,1fr] md:grid-cols-[1.5fr,1fr] sm:grid-cols-1 md:gap-[1rem] items-center"
+    >
+      <div>
+        <h3 class="font-semibold text-white mb-3">
+          La Gente Adora Estar Segura con Homez
+        </h3>
+        <span class="text-white">Encuentra Apartamentos, Fincas y demas</span>
+
+        <div class="mt-[7rem] flex gap-[4rem]">
+          <div>
+            <h1 class="font-bold mb-0">80%</h1>
+            <span class="text-white">Propiedades Completas</span>
+          </div>
+
+          <div>
+            <h1 class="font-bold mb-0">99%</h1>
+            <span class="text-white">Cliente Satisfechos</span>
+          </div>
+
+          <div>
+            <h1 class="font-bold mb-0">50%</h1>
+            <span class="text-white">Propietarios Completos</span>
+          </div>
+        </div>
       </div>
 
-      <hr />
+      <div class="bg-white p-[3rem] sm:mt-[4rem] rounded-2xl">
+        <div class="flex text-customBlack justify-between">
+          <p class="text-[1.6rem] font-semibold">Gran trabajo</p>
+          <li class="pi pi-comments text-[2rem] text-redPrimary"></li>
+        </div>
+        <p class="text-customBlack font-semibold text-[1.4rem] mt-[2rem]">
+          Diseño increíble, fácil de personalizar y una calidad de diseño
+          superlativa en su plataforma en la nube para un rendimiento
+          optimizado. Y no lo teníamos en nuestros diseños originales.
+        </p>
 
-      <div class="flex gap-[2rem] mt-[2rem] items-center">
+        <div class="flex gap-[.6rem] items-center mt-[1rem] mb-[2rem]">
+          <li class="pi pi-star-fill text-yellow-400 text-[1.4rem]"></li>
+          <li class="pi pi-star-fill text-yellow-400 text-[1.4rem]"></li>
+          <li class="pi pi-star-fill text-yellow-400 text-[1.4rem]"></li>
+          <li class="pi pi-star-fill text-yellow-400 text-[1.4rem]"></li>
+          <li class="pi pi-star-fill text-yellow-400 text-[1.4rem]"></li>
+        </div>
+
+        <hr />
+
+        <div class="flex gap-[2rem] mt-[2rem] items-center">
+          <img
+            src="https://homez-appdir.vercel.app/_next/image?url=%2Fimages%2Ftestimonials%2Ftestimonial-1.png&w=64&q=75"
+            alt="Testimonio"
+          />
+          <div class="flex flex-col gap-[1rem]">
+            <p class="text-[1.5rem] text-customBlack font-semibold">
+              Leslie Alexander
+            </p>
+            <p class="text-[1.3rem] text-customBlack">Nintendo</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Blog -->
+
+  <section class="py-[10rem] contenedor">
+    <div class="flex flex-col items-center">
+      <h3 class="font-semibold mb-3 text-center">De Nuestro Blog</h3>
+      <span class="text-center"
+        >Algunas de Nuestras Entradas, Conoce mas de Nosotros</span
+      >
+    </div>
+
+    <div
+      class="mt-[6rem] grid grid-cols-3 sm:grid-cols-1 md:grid-cols-2 gap-[3rem]"
+    >
+      <div class="flex flex-col relative overflow-hidden rounded-[2rem]">
         <img
-          src="https://homez-appdir.vercel.app/_next/image?url=%2Fimages%2Ftestimonials%2Ftestimonial-1.png&w=64&q=75"
-          alt="Testimonio"
+          class="w-full object-cover rounded-[1.8rem] hover:scale-110 transition-all duration-300"
+          src="https://homez-appdir.vercel.app/_next/image?url=%2Fimages%2Fblog%2Fblog-1.jpg&w=640&q=75"
+          alt=""
         />
-        <div class="flex flex-col gap-[1rem]">
-          <p class="text-[1.5rem] text-customBlack font-semibold">
-            Leslie Alexander
-          </p>
-          <p class="text-[1.3rem] text-customBlack">Nintendo</p>
+        <div class="mt-[2rem]">
+          <p class="text-[1.3rem] text-gray-500">Living Room</p>
+          <a
+            class="text-[1.5rem] font-semibold block mt-[1rem] hover:text-redPrimary transition-all duration-300"
+            href=""
+            >Private Contemporary Home Balancing Openness</a
+          >
+        </div>
+
+        <div
+          class="absolute bg-white shadow-xl py-[1rem] px-[2rem] rounded-3xl bottom-[6rem] right-[3rem]"
+        >
+          <p class="text-center text-[1.3rem]">Julio</p>
+          <p class="text-center font-semibold">28</p>
+        </div>
+      </div>
+
+      <div class="flex flex-col relative overflow-hidden rounded-[2rem]">
+        <img
+          class="w-full object-cover rounded-[1.8rem] hover:scale-110 transition-all duration-300"
+          src="https://homez-appdir.vercel.app/_next/image?url=%2Fimages%2Fblog%2Fblog-1.jpg&w=640&q=75"
+          alt=""
+        />
+        <div class="mt-[2rem]">
+          <p class="text-[1.3rem] text-gray-500">Living Room</p>
+          <a
+            class="text-[1.5rem] font-semibold block mt-[1rem] hover:text-redPrimary transition-all duration-300"
+            href=""
+            >Private Contemporary Home Balancing Openness</a
+          >
+        </div>
+
+        <div
+          class="absolute bg-white shadow-xl py-[1rem] px-[2rem] rounded-3xl bottom-[6rem] right-[3rem]"
+        >
+          <p class="text-center text-[1.3rem]">Julio</p>
+          <p class="text-center font-semibold">28</p>
+        </div>
+      </div>
+
+      <div
+        class="flex flex-col relative md:hidden overflow-hidden rounded-[2rem]"
+      >
+        <img
+          class="w-full object-cover rounded-[1.8rem] hover:scale-110 transition-all duration-300"
+          src="https://homez-appdir.vercel.app/_next/image?url=%2Fimages%2Fblog%2Fblog-1.jpg&w=640&q=75"
+          alt=""
+        />
+        <div class="mt-[2rem]">
+          <p class="text-[1.3rem] text-gray-500">Living Room</p>
+          <a
+            class="text-[1.5rem] font-semibold block mt-[1rem] hover:text-redPrimary transition-all duration-300"
+            href=""
+            >Private Contemporary Home Balancing Openness</a
+          >
+        </div>
+
+        <div
+          class="absolute bg-white shadow-xl py-[1rem] px-[2rem] rounded-3xl bottom-[6rem] right-[3rem]"
+        >
+          <p class="text-center text-[1.3rem]">Julio</p>
+          <p class="text-center font-semibold">28</p>
         </div>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- Blog -->
+  <!-- Best Zone -->
 
-<section class="py-[10rem] contenedor">
-  <div class="flex flex-col items-center">
-    <h3 class="font-semibold mb-3 text-center">De Nuestro Blog</h3>
-    <span class="text-center"
-      >Algunas de Nuestras Entradas, Conoce mas de Nosotros</span
+  <div class="contenedor pb-[10rem] flex flex-col items-center">
+    <span class="text-center font-semibold">Confiados por los mejores</span>
+
+    <div
+      class="grid grid-cols-6 sm:grid-cols-2 md:grid-cols-3 items-center justify-center gap-[9rem] mt-[4rem]"
     >
+      <img src="../../assets/best1.webp" alt="Best" />
+      <img src="../../assets/best2.webp" alt="Best" />
+      <img src="../../assets/best3.webp" alt="Best" />
+      <img src="../../assets/best4.webp" alt="Best" />
+      <img src="../../assets/best5.webp" alt="Best" />
+      <img src="../../assets/best6.webp" alt="Best" />
+    </div>
   </div>
 
-  <div class="mt-[6rem] grid grid-cols-3 gap-[3rem]">
-    <div class="flex flex-col relative overflow-hidden rounded-[2rem]">
-      <img
-        class="w-full object-cover rounded-[1.8rem] hover:scale-110 transition-all duration-300"
-        src="https://homez-appdir.vercel.app/_next/image?url=%2Fimages%2Fblog%2Fblog-1.jpg&w=640&q=75"
-        alt=""
-      />
-      <div class="mt-[2rem]">
-        <p class="text-[1.3rem] text-gray-500">Living Room</p>
-        <a
-          class="text-[1.5rem] font-semibold block mt-[1rem] hover:text-redPrimary transition-all duration-300"
-          href=""
-          >Private Contemporary Home Balancing Openness</a
+  <section
+    class="contenedor-2 bg-gray-100 rounded-[2rem] py-[10rem] flex justify-center items-center mb-[10rem]"
+  >
+    <div class="contenedor flex md:flex-col justify-between items-center">
+      <div class="md:flex md:flex-col md:items-center">
+        <h3 class="font-semibold mb-3 md:text-center">
+          ¿Necesitas Ayuda? Contactanos.
+        </h3>
+        <span class="md:text-center"
+          >Habla con nuestros expertos o mira mas propiedades</span
         >
       </div>
 
-      <div
-        class="absolute bg-white shadow-xl py-[1rem] px-[2rem] rounded-3xl bottom-[6rem] right-[3rem]"
-      >
-        <p class="text-center text-[1.3rem]">Julio</p>
-        <p class="text-center font-semibold">28</p>
-      </div>
-    </div>
-
-    <div class="flex flex-col relative overflow-hidden rounded-[2rem]">
-      <img
-        class="w-full object-cover rounded-[1.8rem] hover:scale-110 transition-all duration-300"
-        src="https://homez-appdir.vercel.app/_next/image?url=%2Fimages%2Fblog%2Fblog-1.jpg&w=640&q=75"
-        alt=""
-      />
-      <div class="mt-[2rem]">
-        <p class="text-[1.3rem] text-gray-500">Living Room</p>
+      <div class="flex md:mt-[2rem] sm:flex-col gap-[2rem]">
         <a
-          class="text-[1.5rem] font-semibold block mt-[1rem] hover:text-redPrimary transition-all duration-300"
+          class="flex text-[1.5rem] hover:bg-redPrimary transition-all duration-300 hover:text-white hover:border-white font-medium gap-[1rem] items-center border rounded-[1rem] py-[1.6rem] px-[3rem] border-black ml-[2rem]"
           href=""
-          >Private Contemporary Home Balancing Openness</a
         >
-      </div>
+          Contactanos
+          <li class="pi pi-arrow-up-right"></li>
+        </a>
 
-      <div
-        class="absolute bg-white shadow-xl py-[1rem] px-[2rem] rounded-3xl bottom-[6rem] right-[3rem]"
-      >
-        <p class="text-center text-[1.3rem]">Julio</p>
-        <p class="text-center font-semibold">28</p>
-      </div>
-    </div>
-
-    <div class="flex flex-col relative overflow-hidden rounded-[2rem]">
-      <img
-        class="w-full object-cover rounded-[1.8rem] hover:scale-110 transition-all duration-300"
-        src="https://homez-appdir.vercel.app/_next/image?url=%2Fimages%2Fblog%2Fblog-1.jpg&w=640&q=75"
-        alt=""
-      />
-      <div class="mt-[2rem]">
-        <p class="text-[1.3rem] text-gray-500">Living Room</p>
         <a
-          class="text-[1.5rem] font-semibold block mt-[1rem] hover:text-redPrimary transition-all duration-300"
+          class="flex text-[1.5rem] hover:bg-redPrimary text-white transition-all duration-300 hover:text-white hover:border-white font-medium gap-[1rem] bg-gray-900 items-center border rounded-[1rem] py-[1.6rem] px-[3rem] border-black ml-[2rem]"
           href=""
-          >Private Contemporary Home Balancing Openness</a
         >
-      </div>
-
-      <div
-        class="absolute bg-white shadow-xl py-[1rem] px-[2rem] rounded-3xl bottom-[6rem] right-[3rem]"
-      >
-        <p class="text-center text-[1.3rem]">Julio</p>
-        <p class="text-center font-semibold">28</p>
+          920 851 9087
+          <li class="pi pi-phone"></li>
+        </a>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- Best Zone -->
-
-<div class="contenedor pb-[10rem] flex flex-col items-center">
-  <span class="text-center font-semibold">Confiados por los mejores</span>
-
-  <div class="grid grid-cols-6 gap-[9rem] mt-[4rem]">
-    <img src="../../assets/best1.webp" alt="Best" />
-    <img src="../../assets/best2.webp" alt="Best" />
-    <img src="../../assets/best3.webp" alt="Best" />
-    <img src="../../assets/best4.webp" alt="Best" />
-    <img src="../../assets/best5.webp" alt="Best" />
-    <img src="../../assets/best6.webp" alt="Best" />
-  </div>
+  <app-footer></app-footer>
 </div>
-
-<section
-  class="contenedor-2 bg-gray-100 rounded-[2rem] py-[10rem] flex justify-center items-center mb-[10rem]"
->
-  <div class="contenedor flex justify-between items-center">
-    <div>
-      <h3 class="font-semibold mb-3">¿Necesitas Ayuda? Contactanos.</h3>
-      <span>Habla con nuestros expertos o mira mas propiedades</span>
-    </div>
-
-    <div class="flex gap-[2rem]">
-      <a
-        class="flex text-[1.5rem] hover:bg-redPrimary transition-all duration-300 hover:text-white hover:border-white font-medium gap-[1rem] items-center border rounded-[1rem] py-[1.6rem] px-[3rem] border-black ml-[2rem]"
-        href=""
-      >
-        Contactanos
-        <li class="pi pi-arrow-up-right"></li>
-      </a>
-
-      <a
-        class="flex text-[1.5rem] hover:bg-redPrimary text-white transition-all duration-300 hover:text-white hover:border-white font-medium gap-[1rem] bg-gray-900 items-center border rounded-[1rem] py-[1.6rem] px-[3rem] border-black ml-[2rem]"
-        href=""
-      >
-        920 851 9087
-        <li class="pi pi-phone"></li>
-      </a>
-    </div>
-  </div>
-</section>
-
-<app-footer></app-footer>

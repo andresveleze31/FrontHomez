@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, HostListener } from '@angular/core';
 import { NavbarComponent } from '../../components/navbar/navbar.component';
 import { CarouselModule } from 'primeng/carousel';
 import { FooterComponent } from '../../components/footer/footer.component';
@@ -12,6 +12,8 @@ import { Propiedad } from '../../models/Propiedad';
 import { PropiedadService } from '../../services/propiedad/propiedad.service';
 import { PropiedadCardComponent } from '../../components/propiedad-card/propiedad-card.component';
 import { CommonModule } from '@angular/common';
+import { SidebarModule } from 'primeng/sidebar';
+import { MobileNavbarComponent } from '../../components/mobile-navbar/mobile-navbar.component';
 
 @Component({
   selector: 'app-home',
@@ -23,12 +25,15 @@ import { CommonModule } from '@angular/common';
     FooterComponent,
     DepartamentoComponent,
     TipoComponent,
-    PropiedadCardComponent
+    PropiedadCardComponent,
+    SidebarModule,
+    MobileNavbarComponent
   ],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss',
 })
 export class HomeComponent {
+  sidebarVisible2: boolean = true;
 
   responsiveOptions = [];
 
@@ -36,9 +41,53 @@ export class HomeComponent {
   tipos: Tipo[] = [];
   propiedades: Propiedad[] = [];
 
-  constructor(private departamentoService: DepartamentoService,
-    private tipoService: TipoService, private propiedadService: PropiedadService
-  ) {}
+  numVisible: number;
+  numVisible2: number;
+
+  constructor(
+    private departamentoService: DepartamentoService,
+    private tipoService: TipoService,
+    private propiedadService: PropiedadService
+  
+  ) {
+    this.sidebarVisible2 = true;
+    if (window.innerWidth < 639) {
+      this.numVisible = 1;
+      this.numVisible2 = 1;
+    } else if (window.innerWidth < 769) {
+      this.numVisible = 3;
+      this.numVisible2 = 2;
+    } else {
+      this.numVisible = 5;
+      this.numVisible2 = 4;
+    }
+  }
+
+  @HostListener('window:resize', ['$event'])
+  onResize(event: Event) {
+    this.setNumVisible(window.innerWidth);
+    this.setNumVisible2(window.innerWidth);
+  }
+
+  private setNumVisible(screenWidth: number) {
+    if (screenWidth < 639) {
+      this.numVisible = 1;
+    } else if (screenWidth < 769) {
+      this.numVisible = 3;
+    } else {
+      this.numVisible = 5;
+    }
+  }
+
+  private setNumVisible2(screenWidth: number) {
+    if (screenWidth < 639) {
+      this.numVisible2 = 1;
+    } else if (screenWidth < 769) {
+      this.numVisible2 = 2;
+    } else {
+      this.numVisible2 = 4;
+    }
+  }
 
   ngOnInit(): void {
     this.cargarDepartamentos();
@@ -58,7 +107,7 @@ export class HomeComponent {
       });
   }
 
-  cargarTipos(){
+  cargarTipos() {
     // Externo
     this.tipoService
       .getTipos()
@@ -70,8 +119,7 @@ export class HomeComponent {
       });
   }
 
-  cargarPropiedades(){
-
+  cargarPropiedades() {
     this.propiedadService
       .getPropiedades()
       .then((post) => {
@@ -81,6 +129,5 @@ export class HomeComponent {
       .catch((error) => {
         console.error(error);
       });
-
   }
 }
