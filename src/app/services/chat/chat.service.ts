@@ -31,7 +31,7 @@ export class ChatService {
   }
 
   initConnectionSocket() {
-    const url = 'https://gruposjaveriana.dynaco.co/chat-socket';
+    const url = '//https://gruposjaveriana.dynaco.co/api/homez/chat-socket';
     const socket = new SockJS(url);
     this.stompClient = Stomp.over(socket);
   }
