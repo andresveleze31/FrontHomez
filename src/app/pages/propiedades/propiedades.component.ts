@@ -5,6 +5,7 @@ import { CommonModule } from '@angular/common';
 import { PropiedadCardComponent } from '../../components/propiedad-card/propiedad-card.component';
 import { Propiedad } from '../../models/Propiedad';
 import { PropiedadService } from '../../services/propiedad/propiedad.service';
+import { MobileNavbarComponent } from '../../components/mobile-navbar/mobile-navbar.component';
 
 @Component({
   selector: 'app-propiedades',
@@ -14,6 +15,7 @@ import { PropiedadService } from '../../services/propiedad/propiedad.service';
     FooterComponent,
     CommonModule,
     PropiedadCardComponent,
+    MobileNavbarComponent
   ],
   templateUrl: './propiedades.component.html',
   styleUrl: './propiedades.component.scss',

@@ -18,6 +18,13 @@ import { ActualizarPropiedadComponent } from './admin/arrendador/actualizar-prop
 import { ActualizarSolicitudComponent } from './admin/arrendador/actualizar-solicitud/actualizar-solicitud.component';
 import { CalificarFincaComponent } from './admin/arrendatario/calificar-finca/calificar-finca.component';
 import { CalificarArrendadorComponent } from './admin/arrendatario/calificar-arrendador/calificar-arrendador.component';
+import { LoginArrendatarioComponent } from './pages/login-arrendatario/login-arrendatario.component';
+import { LoginArrendadorComponent } from './pages/login-arrendador/login-arrendador.component';
+import { AuthGuardArrendadorService } from './services/authArrendador/auth-guard-arrendador.service';
+import { AuthGuardArrendatarioService } from './services/authArrendatario/auth-guard-arrendatario.service';
+import { ChatComponent } from './components/chat/chat.component';
+import { ArrendatarioChatComponent } from './arrendatario-chat/arrendatario-chat.component';
+import { ArrendadorChatComponent } from './arrendador-chat/arrendador-chat.component';
 
 export const routes: Routes = [
   {
@@ -44,34 +51,50 @@ export const routes: Routes = [
   {
     path: 'homez/arrendador/dashboard',
     component: DashboardArrendadorComponent,
+    canActivate: [AuthGuardArrendadorService],
   },
   {
     path: 'homez/arrendador/crear-propiedad',
     component: CreatePropiedadComponent,
+    canActivate: [AuthGuardArrendadorService],
   },
   {
     path: 'homez/arrendador/mis-propiedades',
     component: MispropiedadesComponent,
+    canActivate: [AuthGuardArrendadorService],
   },
   {
     path: 'homez/arrendador/perfil',
     component: ArrendadorperfilComponent,
+    canActivate: [AuthGuardArrendadorService],
   },
   {
     path: 'homez/arrendador/solicitudes',
     component: ArrendadorsolicitudesComponent,
+    canActivate: [AuthGuardArrendadorService],
   },
   {
     path: 'homez/arrendatario/dashboard',
     component: DashboardArrendatarioComponent,
+    canActivate: [AuthGuardArrendatarioService],
   },
   {
     path: 'homez/arrendatario/perfil',
     component: ArrendatarioperfilComponent,
+    canActivate: [AuthGuardArrendatarioService],
+  },
+  {
+    path: 'homez/login/arrendatario',
+    component: LoginArrendatarioComponent,
+  },
+  {
+    path: 'homez/login/arrendador',
+    component: LoginArrendadorComponent,
   },
   {
     path: 'homez/arrendatario/solicitudes',
     component: ArrendatariosolicitudesComponent,
+    canActivate: [AuthGuardArrendatarioService],
   },
   {
     path: 'homez/register/arrendador',
@@ -84,17 +107,35 @@ export const routes: Routes = [
   {
     path: 'homez/arrendador/actualizar-propiedad/:id',
     component: ActualizarPropiedadComponent,
+    canActivate: [AuthGuardArrendadorService],
   },
   {
     path: 'homez/arrendador/actualizar-solicitud/:id',
     component: ActualizarSolicitudComponent,
+    canActivate: [AuthGuardArrendadorService],
   },
   {
     path: 'homez/arrendatario/calificar-finca/:id',
     component: CalificarFincaComponent,
+    canActivate: [AuthGuardArrendatarioService],
   },
   {
     path: 'homez/arrendatario/calificar-arrendador/:id',
     component: CalificarArrendadorComponent,
+    canActivate: [AuthGuardArrendatarioService],
+  },
+  {
+    path: 'homez/arrendatario/chat',
+    component: ArrendatarioChatComponent,
+    canActivate: [AuthGuardArrendatarioService],
+  },
+  {
+    path: 'homez/arrendador/chat',
+    component: ArrendadorChatComponent,
+    canActivate: [AuthGuardArrendadorService],
+  },
+  {
+    path: 'homez/chat/:userId',
+    component: ChatComponent,
   },
 ];

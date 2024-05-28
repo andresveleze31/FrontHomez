@@ -9,43 +9,54 @@ export class SolicitudService {
   constructor() {}
 
   insertarSolicitud(solicitud: Solicitud): Promise<Solicitud> {
+    const token = localStorage.getItem('idHomezArrendatario');
     return axios
-      .post<Solicitud>(
-        'https://gruposjaveriana.dynaco.co/api/homez/solicitud',
-        solicitud
-      )
+      .post<Solicitud>('https://gruposjaveriana.dynaco.co/api/homez/solicitud', solicitud, {
+        headers: { Authorization: `Bearer ${token}` },
+      })
       .then((response) => response.data);
   }
 
   updateSolicitud(solicitud: Solicitud): Promise<Solicitud> {
+    const token = localStorage.getItem('idHomezArrendador');
+
     return axios
-      .put<Solicitud>(
-        'https://gruposjaveriana.dynaco.co/api/homez/solicitud',
-        solicitud
-      )
+      .put<Solicitud>('https://gruposjaveriana.dynaco.co/api/homez/solicitud', solicitud, {
+        headers: { Authorization: `Bearer ${token}` },
+      })
       .then((response) => response.data);
   }
 
   async getSolicitudesByPropietario(): Promise<Solicitud[]> {
+    const token = localStorage.getItem('idHomezArrendador');
     return await axios
       .get<Solicitud[]>(
-        'https://gruposjaveriana.dynaco.co/api/homez/solicitud/propietario/1'
+        'https://gruposjaveriana.dynaco.co/api/homez/solicitud/propietario',
+        { headers: { Authorization: `Bearer ${token}` } }
       )
       .then((response) => response.data);
   }
 
   async getSolicitudById(id: number | null): Promise<Solicitud> {
+    let token = localStorage.getItem('idHomezArrendador');
+
+    if (!token) {
+      token = localStorage.getItem('idHomezArrendatario');
+    }
+
     return await axios
-      .get<Solicitud>(
-        `https://gruposjaveriana.dynaco.co/api/homez/solicitud/${id}`
-      )
+      .get<Solicitud>(`https://gruposjaveriana.dynaco.co/api/homez/solicitud/${id}`, {
+        headers: { Authorization: `Bearer ${token}` },
+      })
       .then((response) => response.data);
   }
 
   async getSolicitudesByArrendatario(): Promise<Solicitud[]> {
+    const token = localStorage.getItem('idHomezArrendatario');
     return await axios
       .get<Solicitud[]>(
-        'https://gruposjaveriana.dynaco.co/api/homez/solicitud/arrendatario/1'
+        'https://gruposjaveriana.dynaco.co/api/homez/solicitud/arrendatario',
+        { headers: { Authorization: `Bearer ${token}` } }
       )
       .then((response) => response.data);
   }

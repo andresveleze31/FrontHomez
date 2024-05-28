@@ -9,6 +9,7 @@ import { SolicitudService } from '../../../services/solicitud/solicitud.service'
 import { CalificarArrendador } from '../../../models/CalificarArrendador';
 import { Solicitud } from '../../../models/Solicitud';
 import { CalificarArrendadorService } from '../../../services/calificacionArrendador/calificar-arrendador.service';
+import { Propiedad } from '../../../models/Propiedad';
 
 @Component({
   selector: 'app-calificar-arrendador',
@@ -29,10 +30,12 @@ export class CalificarArrendadorComponent {
   propertyId: number | string | null = null;
   calificacion: CalificarArrendador 
   solicitud: Solicitud | null;
+  propiedad: Propiedad | undefined | null;
 
   constructor(private route: ActivatedRoute, private solicitudService: SolicitudService, private calificacionService: CalificarArrendadorService) {
     this.calificacion = new CalificarArrendador();
     this.solicitud = new Solicitud();
+    this.propiedad = new Propiedad();
   }
   ngOnInit(): void {
     this.route.paramMap.subscribe((params) => {
@@ -47,7 +50,9 @@ export class CalificarArrendadorComponent {
     this.solicitudService
       .getSolicitudById(Number(this.propertyId))
       .then((post) => {
-        this.solicitud = post;        
+        this.solicitud = post;
+        this.propiedad = post.propiedad;    
+        console.log(this.propiedad);    
       })
       .catch((error) => {
         console.error(error);
@@ -57,8 +62,9 @@ export class CalificarArrendadorComponent {
   agregarCalificacion(event: Event) {
     event.preventDefault();
     this.calificacion.comentario = this.comentario;
-    this.calificacion.solicitud = this.solicitud;
+    this.calificacion.propiedad = this.propiedad;
     this.calificacion.calificacion = this.value;
     this.calificacionService.insertarCalificacion(this.calificacion);  
+    window.location.href = "/homez/arrendatario/dashboard"
   }
 }

@@ -1,267 +1,277 @@
-<app-navbar></app-navbar>
+<div class="relative">
+  <app-navbar></app-navbar>
 
-<div class="bg-slate-100">
-  <main class="contenedor py-[7rem]">
-    <div class="flex justify-between items-center">
-      <div>
-        <h3 class="font-semibold mb-3">{{ propiedad?.nombre }}</h3>
-        <span class="text-[1.5rem]"
-          >{{ propiedad?.departamento?.departamento }} /
-          {{ propiedad?.municipio?.municipio }}
-        </span>
+  <app-mobile-navbar></app-mobile-navbar>
 
-        <div class="flex gap-[2rem] mt-[1.5rem]">
-          <div
-            class="flex gap-[1rem] text-[1.3rem] cursor-pointer group items-center text-gray-700 transition-all duration-300"
-          >
-            <li
-              class="pi pi-inbox text-[1.3rem] group-hover:text-redPrimary transition-all duration-300"
-            ></li>
-            <span
-              class="group-hover:text-redPrimary transition-all duration-300"
-              >{{ propiedad?.habitaciones }} camas</span
+  <div class="bg-slate-100">
+    <main class="contenedor py-[7rem]">
+      <div class="flex justify-between sm:grid sm:grid-cols-1 items-center">
+        <div class="sm:flex sm:flex-col sm:items-center">
+          <h3 class="font-semibold mb-3">{{ propiedad?.nombre }}</h3>
+          <span class="text-[1.5rem]"
+            >{{ propiedad?.departamento?.departamento }} /
+            {{ propiedad?.municipio?.municipio }}
+          </span>
+
+          <div class="flex gap-[2rem] mt-[1.5rem]">
+            <div
+              class="flex gap-[1rem] text-[1.3rem] cursor-pointer group items-center text-gray-700 transition-all duration-300"
             >
-          </div>
+              <li
+                class="pi pi-inbox text-[1.3rem] group-hover:text-redPrimary transition-all duration-300"
+              ></li>
+              <span
+                class="group-hover:text-redPrimary transition-all duration-300"
+                >{{ propiedad?.habitaciones }} camas</span
+              >
+            </div>
 
-          <div
-            class="flex gap-[1rem] text-[1.3rem] cursor-pointer group items-center text-gray-700 transition-all duration-300"
-          >
-            <li
-              class="pi pi-filter text-[1.3rem] group-hover:text-redPrimary transition-all duration-300"
-            ></li>
-            <span
-              class="group-hover:text-redPrimary transition-all duration-300"
-              >4 baños</span
+            <div
+              class="flex gap-[1rem] text-[1.3rem] cursor-pointer group items-center text-gray-700 transition-all duration-300"
             >
-          </div>
+              <li
+                class="pi pi-filter text-[1.3rem] group-hover:text-redPrimary transition-all duration-300"
+              ></li>
+              <span
+                class="group-hover:text-redPrimary transition-all duration-300"
+                >4 baños</span
+              >
+            </div>
 
-          <div
-            class="flex gap-[1rem] text-[1.3rem] cursor-pointer group items-center text-gray-700 transition-all duration-300"
-          >
-            <li
-              class="pi pi-slack text-[1.3rem] group-hover:text-redPrimary transition-all duration-300"
-            ></li>
-            <span
-              class="group-hover:text-redPrimary transition-all duration-300"
-              >{{ propiedad?.tipo?.tipo }}</span
+            <div
+              class="flex gap-[1rem] text-[1.3rem] cursor-pointer group items-center text-gray-700 transition-all duration-300"
             >
+              <li
+                class="pi pi-slack text-[1.3rem] group-hover:text-redPrimary transition-all duration-300"
+              ></li>
+              <span
+                class="group-hover:text-redPrimary transition-all duration-300"
+                >{{ propiedad?.tipo?.tipo }}</span
+              >
+            </div>
           </div>
+        </div>
+        <div class="flex flex-col sm:mt-[2rem] sm:items-center gap-[1rem]">
+          <h4 class="text-[2.6rem] font-semibold">
+            ${{ propiedad?.valor }} / dia
+          </h4>
+          <p class="text-[1.5rem] text-right">
+            {{ propiedad?.arrendador?.nombre }}
+          </p>
+          <p class="text-[1.4rem] text-right">
+            {{ propiedad?.arrendador?.telefono }}
+          </p>
         </div>
       </div>
-      <div class="flex flex-col gap-[1rem]">
-        <h4 class="text-[2.6rem] font-semibold">
-          ${{ propiedad?.valor }} / dia
-        </h4>
-        <p class="text-[1.5rem] text-right">
-          {{ propiedad?.arrendador?.nombre }}
-        </p>
-        <p class="text-[1.4rem] text-right">
-          {{ propiedad?.arrendador?.telefono }}
-        </p>
-      </div>
-    </div>
 
-    <div class="grid grid-cols-[2fr,1fr] mt-[2rem] gap-[2rem]">
-      <div class="flex flex-col gap-[3rem]">
-        <div class="bg-white rounded-[1.4rem] shadow-md p-[3rem]">
-          <p-galleria
-            *ngIf="images"
-            [value]="images"
-            [numVisible]="5"
-            [circular]="true"
-            [showItemNavigators]="true"
-            [showThumbnails]="false"
-            class="w-full rounded-xl text-white"
-          >
-            <ng-template pTemplate="item" let-item>
-              <img
-                class="rounded-[1rem] h-[42rem] object-cover"
-                [src]="item.foto"
-                style="width: 100%; display: block"
-              />
-            </ng-template>
-          </p-galleria>
-        </div>
-        <div class="bg-white rounded-[1.4rem] shadow-md p-[3rem]">
-          <h4 class="font-semibold">Descripcion Propiedad</h4>
-          <p class="text-[1.4rem] mt-[2rem]">{{ propiedad?.descripcion }}</p>
-        </div>
+      <div class="grid grid-cols-[2fr,1fr] md:grid-cols-1 mt-[2rem] gap-[2rem]">
+        <div class="flex flex-col gap-[3rem]">
+          <div class="bg-white rounded-[1.4rem] shadow-md p-[3rem]">
+            <p-galleria
+              *ngIf="images"
+              [value]="images"
+              [numVisible]="5"
+              [circular]="true"
+              [showItemNavigators]="true"
+              [showThumbnails]="false"
+              class="w-full rounded-xl text-white"
+            >
+              <ng-template pTemplate="item" let-item>
+                <img
+                  class="rounded-[1rem] h-[42rem] object-cover"
+                  [src]="item.foto"
+                  style="width: 100%; display: block"
+                />
+              </ng-template>
+            </p-galleria>
+          </div>
+          <div class="bg-white rounded-[1.4rem] shadow-md p-[3rem]">
+            <h4 class="font-semibold">Descripcion Propiedad</h4>
+            <p class="text-[1.4rem] mt-[2rem]">{{ propiedad?.descripcion }}</p>
+          </div>
 
-        <div class="bg-white rounded-[1.4rem] shadow-md p-[3rem]">
-          <h4 class="font-semibold">Comodidades</h4>
-          <div class="grid grid-cols-3 mt-[2rem] gap-[3rem]">
-            <div class="flex gap-[2rem]">
-              <div
-                class="border rounded-2xl p-[1.5rem] flex justify-center items-center"
-              >
-                <li class="pi pi-users text-[2rem]"></li>
+          <div class="bg-white rounded-[1.4rem] shadow-md p-[3rem]">
+            <h4 class="font-semibold">Comodidades</h4>
+            <div class="grid grid-cols-3 mt-[2rem] gap-[3rem]">
+              <div class="flex gap-[2rem]">
+                <div
+                  class="border rounded-2xl p-[1.5rem] flex justify-center items-center"
+                >
+                  <li class="pi pi-users text-[2rem]"></li>
+                </div>
+                <div class="flex flex-col justify-center">
+                  <p class="text-[1.5rem] font-semibold">Personas</p>
+                  <p class="text-[1.5rem]">{{ propiedad?.personas }}</p>
+                </div>
               </div>
-              <div class="flex flex-col justify-center">
-                <p class="text-[1.5rem] font-semibold">Personas</p>
-                <p class="text-[1.5rem]">{{ propiedad?.personas }}</p>
-              </div>
-            </div>
 
-            <div class="flex gap-[2rem]">
-              <div
-                class="border rounded-2xl p-[1.5rem] flex justify-center items-center"
-              >
-                <li class="pi pi-filter text-[2rem]"></li>
+              <div class="flex gap-[2rem]">
+                <div
+                  class="border rounded-2xl p-[1.5rem] flex justify-center items-center"
+                >
+                  <li class="pi pi-filter text-[2rem]"></li>
+                </div>
+                <div class="flex flex-col justify-center">
+                  <p class="text-[1.5rem] font-semibold">Baños</p>
+                  <p class="text-[1.5rem]">4</p>
+                </div>
               </div>
-              <div class="flex flex-col justify-center">
-                <p class="text-[1.5rem] font-semibold">Baños</p>
-                <p class="text-[1.5rem]">4</p>
-              </div>
-            </div>
 
-            <div class="flex gap-[2rem]">
-              <div
-                class="border rounded-2xl p-[1.5rem] flex justify-center items-center"
-              >
-                <li class="pi pi-inbox text-[2rem]"></li>
+              <div class="flex gap-[2rem]">
+                <div
+                  class="border rounded-2xl p-[1.5rem] flex justify-center items-center"
+                >
+                  <li class="pi pi-inbox text-[2rem]"></li>
+                </div>
+                <div class="flex flex-col justify-center">
+                  <p class="text-[1.5rem] font-semibold">Habitaciones</p>
+                  <p class="text-[1.5rem]">{{ propiedad?.habitaciones }}</p>
+                </div>
               </div>
-              <div class="flex flex-col justify-center">
-                <p class="text-[1.5rem] font-semibold">Habitaciones</p>
-                <p class="text-[1.5rem]">{{ propiedad?.habitaciones }}</p>
-              </div>
-            </div>
 
-            <div class="flex gap-[2rem]">
-              <div
-                class="border rounded-2xl p-[1.5rem] flex justify-center items-center"
-              >
-                <li class="pi pi-prime text-[2rem]"></li>
+              <div class="flex gap-[2rem]">
+                <div
+                  class="border rounded-2xl p-[1.5rem] flex justify-center items-center"
+                >
+                  <li class="pi pi-prime text-[2rem]"></li>
+                </div>
+                <div class="flex flex-col justify-center">
+                  <p class="text-[1.5rem] font-semibold">Mascotas</p>
+                  <p class="text-[1.5rem]">{{ propiedad?.mascotas }}</p>
+                </div>
               </div>
-              <div class="flex flex-col justify-center">
-                <p class="text-[1.5rem] font-semibold">Mascotas</p>
-                <p class="text-[1.5rem]">{{ propiedad?.mascotas }}</p>
-              </div>
-            </div>
 
-            <div class="flex gap-[2rem]">
-              <div
-                class="border rounded-2xl p-[1.5rem] flex justify-center items-center"
-              >
-                <li class="pi pi-mobile text-[2rem]"></li>
+              <div class="flex gap-[2rem]">
+                <div
+                  class="border rounded-2xl p-[1.5rem] flex justify-center items-center"
+                >
+                  <li class="pi pi-mobile text-[2rem]"></li>
+                </div>
+                <div class="flex flex-col justify-center">
+                  <p class="text-[1.5rem] font-semibold">Piscina</p>
+                  <p class="text-[1.5rem]">{{ propiedad?.piscina }}</p>
+                </div>
               </div>
-              <div class="flex flex-col justify-center">
-                <p class="text-[1.5rem] font-semibold">Piscina</p>
-                <p class="text-[1.5rem]">{{ propiedad?.piscina }}</p>
-              </div>
-            </div>
 
-            <div class="flex gap-[2rem]">
-              <div
-                class="border rounded-2xl p-[1.5rem] flex justify-center items-center"
-              >
-                <li class="pi pi-tag text-[2rem]"></li>
-              </div>
-              <div class="flex flex-col justify-center">
-                <p class="text-[1.5rem] font-semibold">Asador</p>
-                <p class="text-[1.5rem]">{{ propiedad?.asador }}</p>
+              <div class="flex gap-[2rem]">
+                <div
+                  class="border rounded-2xl p-[1.5rem] flex justify-center items-center"
+                >
+                  <li class="pi pi-tag text-[2rem]"></li>
+                </div>
+                <div class="flex flex-col justify-center">
+                  <p class="text-[1.5rem] font-semibold">Asador</p>
+                  <p class="text-[1.5rem]">{{ propiedad?.asador }}</p>
+                </div>
               </div>
             </div>
           </div>
-        </div>
 
-        <!-- Comentarios -->
-        <!-- <div class="bg-white rounded-[1.4rem] shadow-md p-[3rem]">
+          <!-- Comentarios -->
+          <!-- <div class="bg-white rounded-[1.4rem] shadow-md p-[3rem]">
           <h4 class="font-semibold">Calificaciones Arrendador</h4>
         </div>
 
         <div class="bg-white rounded-[1.4rem] shadow-md p-[3rem]">
           <h4 class="font-semibold">Calificaciones Propiedad</h4>
         </div> -->
-      </div>
-
-      <div class="flex flex-col gap-[3rem]">
-        <div class="bg-white rounded-[1.4rem] shadow-md p-[2rem]">
-          <h4 class="text-[2rem] font-semibold">Has una solicitud</h4>
-          <p class="text-[1.4rem] mt-[1rem]">Agenda y espera una respuesta</p>
-
-          <form class="mt-[2rem]" action="" (ngSubmit)="insertarSolicitud($event)">
-            <div>
-              <label class="text-[1.4rem] font-semibold" for=""
-                >Fecha Inicio</label
-              >
-              <input
-                [(ngModel)]="solicitud.fechaInicio"
-                class="inputb w-full"
-                type="date"
-                name="fechaInicio"
-                placeholder=""
-              />
-            </div>
-
-            <div class="mt-[1.5rem]">
-              <label class="text-[1.4rem] font-semibold" for=""
-                >Fecha Fin</label
-              >
-              <input
-                [(ngModel)]="solicitud.fechaFin"
-                class="inputb w-full"
-                name="fechaFin"
-                type="date"
-                placeholder=""
-              />
-            </div>
-
-            <div class="mt-[1.5rem]">
-              <label class="text-[1.4rem] font-semibold" for="">Personas</label>
-              <select
-                [(ngModel)]="solicitud.personas"
-                name="personas"
-                class="inputb w-full appearance-none"
-              >
-                <option
-                  *ngFor="let numero of numeros"
-                  value="numero"
-                  [ngValue]="numero"
-                >
-                  {{ numero }}
-                </option>
-              </select>
-            </div>
-
-            <input
-              class="mt-[2rem] bg-redPrimary py-[1.2rem] px-[2rem] rounded-xl text-white hover:bg-redPrimary/90 transition-all duration-300 cursor-pointer w-full"
-              type="submit"
-              placeholder="Enviar Solicitud"
-            />
-          </form>
         </div>
 
-        <div class="bg-white rounded-[1.4rem] shadow-md p-[2rem]">
-          <h4 class="text-[1.7rem] font-semibold">Obtener mas informacion</h4>
+        <div class="flex flex-col gap-[3rem]">
+          <div class="bg-white rounded-[1.4rem] shadow-md p-[2rem]">
+            <h4 class="text-[2rem] font-semibold">Has una solicitud</h4>
+            <p class="text-[1.4rem] mt-[1rem]">Agenda y espera una respuesta</p>
 
-          <div class="flex gap-[2rem] mt-[2rem]">
-            <img
-              src="../../../assets/userhomez.png"
-              class="w-[9rem] h-[9rem] rounded-full object-cover"
-              alt="User Image"
-            />
-            <div class="flex flex-col justify-center gap-[1rem]">
-              <p class="text-[1.5rem] font-semibold">
-                {{ propiedad?.arrendador?.nombre }}
-              </p>
-              <div class="flex items-center gap-[1rem]">
-                <li class="pi pi-phone text-[1.5rem]"></li>
-                <p class="text-[1.5rem]">
-                  {{ propiedad?.arrendador?.telefono }}
-                </p>
+            <form
+              class="mt-[2rem]"
+              action=""
+              (ngSubmit)="insertarSolicitud($event)"
+            >
+              <div>
+                <label class="text-[1.4rem] font-semibold" for=""
+                  >Fecha Inicio</label
+                >
+                <input
+                  [(ngModel)]="solicitud.fechaInicio"
+                  class="inputb w-full"
+                  type="date"
+                  name="fechaInicio"
+                  placeholder=""
+                />
               </div>
-            </div>
+
+              <div class="mt-[1.5rem]">
+                <label class="text-[1.4rem] font-semibold" for=""
+                  >Fecha Fin</label
+                >
+                <input
+                  [(ngModel)]="solicitud.fechaFin"
+                  class="inputb w-full"
+                  name="fechaFin"
+                  type="date"
+                  placeholder=""
+                />
+              </div>
+
+              <div class="mt-[1.5rem]">
+                <label class="text-[1.4rem] font-semibold" for=""
+                  >Personas</label
+                >
+                <select
+                  [(ngModel)]="solicitud.personas"
+                  name="personas"
+                  class="inputb w-full appearance-none"
+                >
+                  <option
+                    *ngFor="let numero of numeros"
+                    value="numero"
+                    [ngValue]="numero"
+                  >
+                    {{ numero }}
+                  </option>
+                </select>
+              </div>
+
+              <input
+                class="mt-[2rem] bg-redPrimary py-[1.2rem] px-[2rem] rounded-xl text-white hover:bg-redPrimary/90 transition-all duration-300 cursor-pointer w-full"
+                type="submit"
+                placeholder="Enviar Solicitud"
+              />
+            </form>
           </div>
 
-          <a
-            class="mt-[2rem] bg-redPrimary py-[1.2rem] px-[2rem] rounded-xl text-white hover:bg-redPrimary/90 transition-all duration-300 cursor-pointer w-full block text-center"
-            [href]="'mailto:' + propiedad?.arrendador?.correo"
-            >Contactar</a
-          >
+          <div class="bg-white rounded-[1.4rem] shadow-md p-[2rem]">
+            <h4 class="text-[1.7rem] font-semibold">Obtener mas informacion</h4>
+
+            <div class="flex gap-[2rem] mt-[2rem]">
+              <img
+                src="../../../assets/userhomez.png"
+                class="w-[9rem] h-[9rem] rounded-full object-cover"
+                alt="User Image"
+              />
+              <div class="flex flex-col justify-center gap-[1rem]">
+                <p class="text-[1.5rem] font-semibold">
+                  {{ propiedad?.arrendador?.nombre }}
+                </p>
+                <div class="flex items-center gap-[1rem]">
+                  <li class="pi pi-phone text-[1.5rem]"></li>
+                  <p class="text-[1.5rem]">
+                    {{ propiedad?.arrendador?.telefono }}
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <a
+              class="mt-[2rem] bg-redPrimary py-[1.2rem] px-[2rem] rounded-xl text-white hover:bg-redPrimary/90 transition-all duration-300 cursor-pointer w-full block text-center"
+              [href]="'mailto:' + propiedad?.arrendador?.correo"
+              >Contactar</a
+            >
+          </div>
         </div>
       </div>
-    </div>
-  </main>
-</div>
+    </main>
+  </div>
 
-<app-footer></app-footer>
+  <app-footer></app-footer>
+</div>

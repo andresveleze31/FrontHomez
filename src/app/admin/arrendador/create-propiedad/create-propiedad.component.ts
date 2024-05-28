@@ -77,6 +77,8 @@ export class CreatePropiedadComponent {
     event.preventDefault();
     this.propiedad.arrendador = this.arrendador;
 
+    console.log(this.propiedad);
+
     this.propiedadService.insertarPropiedad(this.propiedad).then(
       (response) => {
         const propiedadTemp = new Propiedad();

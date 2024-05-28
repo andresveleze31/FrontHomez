@@ -10,9 +10,7 @@ export class MunicipioService {
 
   async getMunicipios(): Promise<Municipio[]> {
     return await axios
-      .get<Municipio[]>(
-        'https://gruposjaveriana.dynaco.co/api/homez/municipio'
-      )
+      .get<Municipio[]>('https://gruposjaveriana.dynaco.co/api/homez/municipio')
       .then((response) => response.data);
   }
 }

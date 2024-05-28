@@ -1,0 +1,55 @@
+<div
+  class="contenedor  w-full flex flex-col items-center justify-center"
+>
+  <div
+    class="bg-white rounded-t-2xl shadow-xl flex justify-center w-full py-[1rem] px-[2rem]"
+  >
+    <p class="font-bold">Homez</p>
+  </div>
+
+  <div class="w-full h-[50rem] shadow-xl overflow-y-auto bg-slate-100">
+    <div
+      class="flex gap-[2rem] m-[2rem] items-center"
+      *ngFor="let item of messageList"
+      [ngClass]="{
+        'justify-end':
+          item.message_side === 'sender' || item.message_side === 'receiver',
+        'flex-row-reverse': item.message_side === 'receiver'
+      }"
+    >
+      <p
+        class="bg-redPrimary/30 text-[1.4rem] py-[1rem] px-[2rem] rounded-2xl"
+        [ngClass]="{
+          'bg-redPrimary/30': item.message_side === 'sender',
+          'bg-gray-400/30': item.message_side === 'receiver'
+        }"
+      >
+        {{ item.message }}
+      </p>
+      <div
+        class="p-[2rem] bg-redPrimary rounded-full"
+        [ngClass]="{
+          'bg-redPrimary': item.message_side === 'sender',
+          'bg-gray-400': item.message_side === 'receiver'
+        }"
+      ></div>
+    </div>
+  </div>
+  <div
+    class="bg-white rounded-b-2xl shadow-xl gap-[3rem] flex justify-between items-center w-full py-[1rem] px-[2rem]"
+  >
+    <input
+      type="text"
+      class="input w-full"
+      placeholder="Ingresa tu Mensaje"
+      [(ngModel)]="messageInput"
+      name="messageInput"
+    />
+    <button
+      (click)="sendMessage()"
+      class="bg-redPrimary rounded-xl text-white py-[1.3rem] px-[2rem]"
+    >
+      Enviar
+    </button>
+  </div>
+</div>

@@ -9,11 +9,18 @@ import { SolicitudService } from '../../../services/solicitud/solicitud.service'
 import { CalificarFinca } from '../../../models/CalificarFinca';
 import { FormsModule } from '@angular/forms';
 import { RatingModule } from 'primeng/rating';
+import { Propiedad } from '../../../models/Propiedad';
 
 @Component({
   selector: 'app-calificar-finca',
   standalone: true,
-  imports: [NavbardashboardComponent, SidebararrendatarioComponent, CommonModule, FormsModule, RatingModule],
+  imports: [
+    NavbardashboardComponent,
+    SidebararrendatarioComponent,
+    CommonModule,
+    FormsModule,
+    RatingModule,
+  ],
   templateUrl: './calificar-finca.component.html',
   styleUrl: './calificar-finca.component.scss',
 })
@@ -23,6 +30,7 @@ export class CalificarFincaComponent {
   propertyId: number | string | null = null;
   calificacion: CalificarFinca;
   solicitud: Solicitud | null;
+  propiedad: Propiedad | undefined | null;
 
   constructor(
     private route: ActivatedRoute,
@@ -31,6 +39,7 @@ export class CalificarFincaComponent {
   ) {
     this.calificacion = new CalificarFinca();
     this.solicitud = new Solicitud();
+    this.propiedad = new Propiedad();
   }
   ngOnInit(): void {
     this.route.paramMap.subscribe((params) => {
@@ -46,6 +55,7 @@ export class CalificarFincaComponent {
       .getSolicitudById(Number(this.propertyId))
       .then((post) => {
         this.solicitud = post;
+        this.propiedad = post.propiedad;
       })
       .catch((error) => {
         console.error(error);
@@ -55,8 +65,9 @@ export class CalificarFincaComponent {
   agregarCalificacion(event: Event) {
     event.preventDefault();
     this.calificacion.comentario = this.comentario;
-    this.calificacion.solicitud = this.solicitud;
+    this.calificacion.propiedad = this.propiedad;
     this.calificacion.calificacion = this.value;
     this.calificacionService.insertarCalificacion(this.calificacion);
+    window.location.href = '/homez/arrendatario/dashboard';
   }
 }

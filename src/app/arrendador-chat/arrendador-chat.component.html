@@ -1,0 +1,42 @@
+<app-navbardashboard></app-navbardashboard>
+
+<div class="flex">
+  <app-sidebararrendador></app-sidebararrendador>
+
+  <main
+    class="bg-slate-100 w-full h-[calc(100vh-85px)] overflow-y-auto p-[6rem]"
+  >
+    <h1 class="text-[3rem] font-semibold">Chats</h1>
+
+    <div class="grid grid-cols-2 gap-[4rem]">
+      <div class="flex flex-col gap-[2rem] h-[64rem] overflow-y-auto">
+        <button
+          class="flex bg-white p-[2rem] rounded-2xl gap-[2rem]"
+          (click)="changeRoom(solicitud.id)"
+          *ngFor="let solicitud of solicitudes"
+        >
+          <img
+            src="../../assets/tiposvivienda.webp"
+            class="w-[10rem]"
+            alt="tiposvivienda"
+          />
+          <div class="flex flex-col gap-[2rem] ">
+            <div class="flex gap-[0.5rem] ">
+              <li class="pi pi-warehouse text-[1.5rem] "></li>
+              <p class="text-[1.4rem] font-bold">{{ solicitud?.propiedad?.nombre }}</p>
+            </div>
+            <div class="flex gap-[0.5rem] ">
+              <li class="pi pi-arrow-right text-[1.5rem] "></li>
+              <p class="text-[1.4rem] ">{{ formatDate(solicitud?.fechaInicio) }}</p>
+            </div>
+            <div class="flex gap-[0.5rem] ">
+              <li class="pi pi-arrow-left text-[1.5rem] "></li>
+              <p class="text-[1.4rem]">{{ formatDate(solicitud?.fechaFin) }}</p>
+            </div>
+          </div>
+        </button>
+      </div>
+      <app-chat></app-chat>
+    </div>
+  </main>
+</div>

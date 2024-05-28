@@ -45,6 +45,9 @@ export class ActualizarSolicitudComponent {
   actualizarEstado(event: Event) {
     event.preventDefault();
     this.solicitudService.updateSolicitud(this.solicitud);
+    setTimeout(() => {
+      window.location.href = '/homez/arrendador/solicitudes';
+    }, 3000)
   }
 
   cargarEstados() {
@@ -64,6 +67,7 @@ export class ActualizarSolicitudComponent {
       .getSolicitudById(Number(this.propertyId))
       .then((post) => {
         this.solicitud = post;
+        console.log(this.solicitud);
       })
       .catch((error) => {
         console.error(error);

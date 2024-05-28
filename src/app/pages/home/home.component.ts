@@ -14,10 +14,12 @@ import { PropiedadCardComponent } from '../../components/propiedad-card/propieda
 import { CommonModule } from '@angular/common';
 import { SidebarModule } from 'primeng/sidebar';
 import { MobileNavbarComponent } from '../../components/mobile-navbar/mobile-navbar.component';
+import { MobileNavbarServiceService } from '../../services/navbarservice/mobile-navbar-service.service';
 
 @Component({
   selector: 'app-home',
   standalone: true,
+
   imports: [
     NavbarComponent,
     CommonModule,
@@ -27,8 +29,10 @@ import { MobileNavbarComponent } from '../../components/mobile-navbar/mobile-nav
     TipoComponent,
     PropiedadCardComponent,
     SidebarModule,
-    MobileNavbarComponent
+    CommonModule,
+    MobileNavbarComponent,
   ],
+
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss',
 })
@@ -47,8 +51,7 @@ export class HomeComponent {
   constructor(
     private departamentoService: DepartamentoService,
     private tipoService: TipoService,
-    private propiedadService: PropiedadService
-  
+    private propiedadService: PropiedadService,
   ) {
     this.sidebarVisible2 = true;
     if (window.innerWidth < 639) {
@@ -88,6 +91,8 @@ export class HomeComponent {
       this.numVisible2 = 4;
     }
   }
+
+  
 
   ngOnInit(): void {
     this.cargarDepartamentos();

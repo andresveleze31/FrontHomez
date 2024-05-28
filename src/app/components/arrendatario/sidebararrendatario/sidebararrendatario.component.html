@@ -20,6 +20,14 @@
       <p class="text-[1.5rem] font-semibold">Solicitudes</p>
     </a>
 
+    <a
+      class="flex gap-[1.5rem] items-center px-[2rem] hover:bg-customBlack hover:text-white py-[1.6rem] rounded-2xl transition-all duration-300"
+      href="/homez/arrendatario/chat"
+    >
+      <li class="pi pi-comment text-[1.5rem]"></li>
+      <p class="text-[1.5rem] font-semibold">Chats</p>
+    </a>
+
     <p class="uppercase text-[1.5rem]">Cuenta</p>
 
     <a
@@ -30,12 +38,12 @@
       <p class="text-[1.5rem] font-semibold">Mi Perfil</p>
     </a>
 
-    <a
+    <button
+    (click)="logout()"
       class="flex gap-[1.5rem] items-center px-[2rem] hover:bg-customBlack hover:text-white py-[1.6rem] rounded-2xl transition-all duration-300"
-      href="#"
     >
       <li class="pi pi-sign-out text-[1.5rem]"></li>
       <p class="text-[1.5rem] font-semibold">Cerrar Sesion</p>
-    </a>
+    </button>
   </nav>
 </div>

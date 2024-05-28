@@ -12,6 +12,7 @@ import { Solicitud } from '../../models/Solicitud';
 import { Arrendatario } from '../../models/Arrendatario';
 import { Estado } from '../../models/Estado';
 import { SolicitudService } from '../../services/solicitud/solicitud.service';
+import { MobileNavbarComponent } from '../../components/mobile-navbar/mobile-navbar.component';
 
 @Component({
   selector: 'app-propiedad-detalles',
@@ -22,6 +23,7 @@ import { SolicitudService } from '../../services/solicitud/solicitud.service';
     GalleriaModule,
     CommonModule,
     FormsModule,
+    MobileNavbarComponent
   ],
   templateUrl: './propiedad-detalles.component.html',
   styleUrl: './propiedad-detalles.component.scss',
@@ -79,7 +81,9 @@ export class PropiedadDetallesComponent {
     this.solicitud.estado = this.estado;
 
     this.solicitudService.insertarSolicitud(this.solicitud);
-
+    setTimeout(() => {
+      window.location.href = '/homez/arrendatario/solicitudes';
+    }, 2000)
   }
 
   cargarPropiedad() {

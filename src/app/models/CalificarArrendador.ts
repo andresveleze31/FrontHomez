@@ -1,3 +1,4 @@
+import { Propiedad } from "./Propiedad";
 import { Solicitud } from "./Solicitud";
 
 export class CalificarArrendador {
@@ -5,6 +6,6 @@ export class CalificarArrendador {
     public id?: number | null,
     public calificacion?: number | null,
     public comentario?: string | null,
-    public solicitud?: Solicitud | null
+    public propiedad?: Propiedad | null
   ) {}
 }

@@ -35,17 +35,15 @@
 
         <a
           class="flex text-[1.5rem] hover:bg-redPrimary transition-all duration-300 hover:text-white hover:border-white font-medium gap-[1rem] items-center border rounded-full py-[1rem] px-[3rem] border-black ml-[2rem]"
-          href="/homez/arrendador/dashboard"
+          [href]="href"
         >
           Dashboard
           <li class="pi pi-arrow-up-right"></li>
         </a>
       </div>
 
-      
-
       <div class="lg:hidden">
-        <button (click)="sidebarVisible2 = true">
+        <button (click)="toggleMenu()">
           <li class="pi pi-bars text-[2rem]"></li>
         </button>
       </div>

@@ -13,7 +13,7 @@ import { CommonModule } from '@angular/common';
     NavbardashboardComponent,
     SidebararrendatarioComponent,
     SolicitudAdminArrendatarioComponent,
-    CommonModule
+    CommonModule,
   ],
   templateUrl: './arrendatariosolicitudes.component.html',
   styleUrl: './arrendatariosolicitudes.component.scss',
@@ -29,7 +29,7 @@ export class ArrendatariosolicitudesComponent {
 
   cargarSolicitudes() {
     this.solicitudService
-      .getSolicitudesByPropietario()
+      .getSolicitudesByArrendatario()
       .then((post) => {
         this.solicitudes = post;
         console.log(this.solicitudes);

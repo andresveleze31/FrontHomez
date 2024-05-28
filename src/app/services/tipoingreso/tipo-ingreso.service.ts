@@ -10,9 +10,7 @@ export class TipoIngresoService {
 
   async getTiposIngreso(): Promise<TipoIngreso[]> {
     return await axios
-      .get<TipoIngreso[]>(
-        'https://gruposjaveriana.dynaco.co/api/homez/tipoingreso'
-      )
+      .get<TipoIngreso[]>('https://gruposjaveriana.dynaco.co/api/homez/tipoingreso')
       .then((response) => response.data);
   }
 }

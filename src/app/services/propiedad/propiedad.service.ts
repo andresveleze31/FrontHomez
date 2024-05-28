@@ -8,6 +8,8 @@ import axios from 'axios';
 export class PropiedadService {
   constructor() {}
 
+  
+
   async getPropiedades(): Promise<Propiedad[]> {
     return await axios
       .get<Propiedad[]>('https://gruposjaveriana.dynaco.co/api/homez/propiedad')
@@ -15,36 +17,39 @@ export class PropiedadService {
   }
 
   async getPropiedadesByPropietario(): Promise<Propiedad[]> {
+    const token = localStorage.getItem('idHomezArrendador');
+    console.log(token);
     return await axios
       .get<Propiedad[]>(
-        'https://gruposjaveriana.dynaco.co/api/homez/propiedad/propietario/1'
+        'https://gruposjaveriana.dynaco.co/api/homez/propiedad/propietario',
+        { headers: { Authorization: `Bearer ${token}` } }
       )
       .then((response) => response.data);
   }
 
   async getPropiedadById(id: number | null): Promise<Propiedad> {
     return await axios
-      .get<Propiedad>(
-        `https://gruposjaveriana.dynaco.co/api/homez/propiedad/${id}`
-      )
+      .get<Propiedad>(`https://gruposjaveriana.dynaco.co/api/homez/propiedad/${id}`)
       .then((response) => response.data);
   }
 
   insertarPropiedad(propiedad: Propiedad): Promise<Propiedad> {
+    const token = localStorage.getItem('idHomezArrendador');
+
     return axios
-      .post<Propiedad>(
-        'https://gruposjaveriana.dynaco.co/api/homez/propiedad',
-        propiedad
-      )
+      .post<Propiedad>('https://gruposjaveriana.dynaco.co/api/homez/propiedad', propiedad, {
+        headers: { Authorization: `Bearer ${token}` },
+      })
       .then((response) => response.data);
   }
 
   updatePropiedad(propiedad: Propiedad): Promise<Propiedad> {
+    const token = localStorage.getItem('idHomezArrendador');
+
     return axios
-      .put<Propiedad>(
-        'https://gruposjaveriana.dynaco.co/api/homez/propiedad',
-        propiedad
-      )
+      .put<Propiedad>('https://gruposjaveriana.dynaco.co/api/homez/propiedad', propiedad, {
+        headers: { Authorization: `Bearer ${token}` },
+      })
       .then((response) => response.data);
   }
 }

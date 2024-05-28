@@ -9,10 +9,15 @@ export class CalificarFincaService {
   constructor() {}
 
   insertarCalificacion(calificacion: CalificarFinca): Promise<CalificarFinca> {
+        const token = localStorage.getItem('idHomezArrendatario');
+
     return axios
       .post<CalificarFinca>(
         'https://gruposjaveriana.dynaco.co/api/homez/calpropiedad',
-        calificacion
+        calificacion,
+        {
+          headers: { Authorization: `Bearer ${token}` },
+        }
       )
       .then((response) => response.data);
   }

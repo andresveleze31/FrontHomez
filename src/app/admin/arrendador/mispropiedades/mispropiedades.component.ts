@@ -5,6 +5,7 @@ import { PropiedadAdminArrendadorComponent } from '../../../components/arrendado
 import { Propiedad } from '../../../models/Propiedad';
 import { PropiedadService } from '../../../services/propiedad/propiedad.service';
 import { CommonModule } from '@angular/common';
+import { AuthServiceService } from '../../../services/auth/auth-service.service';
 
 @Component({
   selector: 'app-mispropiedades',
@@ -13,7 +14,7 @@ import { CommonModule } from '@angular/common';
     NavbardashboardComponent,
     SidebararrendadorComponent,
     PropiedadAdminArrendadorComponent,
-    CommonModule
+    CommonModule,
   ],
   templateUrl: './mispropiedades.component.html',
   styleUrl: './mispropiedades.component.scss',
@@ -21,9 +22,11 @@ import { CommonModule } from '@angular/common';
 export class MispropiedadesComponent {
   propiedades: Propiedad[] = [];
 
-  constructor(private propiedadService: PropiedadService) {}
+  constructor(private propiedadService: PropiedadService, private authService: AuthServiceService) {}
 
   ngOnInit(): void {
+    this.authService.isAuthenticatedArrendador();
+
     this.cargarPropiedades();
   }
 

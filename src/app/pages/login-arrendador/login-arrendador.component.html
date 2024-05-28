@@ -1,0 +1,55 @@
+<main class="w-full h-screen flex justify-center items-center bg-stone-50">
+  <div class="py-[4rem] px-[4rem] rounded-[2rem] bg-white my-[5rem] shadow-xl">
+    <div class="flex flex-col items-center">
+      <img src="../../../assets/logohomez.svg" alt="Logo Homez" />
+      <div class="mt-[3rem] text-center">
+        <h3 class="font-semibold mb-3">Login Arrendador</h3>
+        <span
+          >Arrienda una de propiedad de forma segura. Ingresa tus datos</span
+        >
+      </div>
+    </div>
+
+    <form class="mt-[3rem]" (ngSubmit)="loginArrendador()">
+      <div class="mt-[1rem]">
+        <label class="block text-[1.5rem] font-semibold" for="">Email</label>
+        <input
+          name="correo"
+          [(ngModel)]="correo"
+          class="input w-full"
+          type="email"
+          placeholder="Tu Email"
+        />
+      </div>
+
+      <div class="mt-[1rem]">
+        <label class="block text-[1.5rem] font-semibold" for="">Password</label>
+        <input
+          name="contraseña"
+          [(ngModel)]="contrasenia"
+          class="input w-full"
+          type="password"
+          placeholder="Tu Password"
+        />
+      </div>
+
+      <input
+        class="w-full py-[1.7rem] px-[2rem] bg-redPrimary text-white rounded-[.8rem] mt-[2rem] hover:bg-redPrimary/90 transition-all duration-300 cursor-pointer"
+        type="submit"
+      />
+    </form>
+
+    <div class="mt-[2rem] flex flex-col gap-[2rem] items-center justify-center">
+      <a class="text-[1.4rem] text-gray-400" href="/homez/register/arrendador"
+        >¿Deseas ser arrendador?
+        <span class="text-customBlack font-semibold">Registrate aqui</span></a
+      >
+
+      <a class="text-[1.4rem] text-gray-400" href="/homez/register/arrendatario"
+        >¿Deseas ser arrendatario?
+        <span class="text-customBlack font-semibold">Registrate aqui</span></a
+      >
+    </div>
+  </div>
+
+</main>

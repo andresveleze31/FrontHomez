@@ -5,5 +5,87 @@
 
   <main class="bg-slate-100 w-full h-[calc(100vh-85px)] overflow-y-auto p-[6rem] ">
     <h1 class="text-[3rem] font-semibold ">Dashboard</h1>
+
+    <div class="grid grid-cols-4 gap-[2rem]">
+      <a href="/homez/arrendador/crear-propiedad" class="w-full relative h-[25rem] bg-redPrimary rounded-2xl p-[2rem] ">
+        <div class="absolute w-[5rem] h-[5rem] top-8 left-8 bg-white/40 rounded-2xl flex items-center justify-center">
+          <li class="pi pi-plus text-white text-[2rem] "></li>
+        </div>
+
+        <div class="absolute bottom-8 left-8">
+          <p class="text-white font-bold">Crear Propiedad</p>
+          <span class="text-white">Añade una nueva propiedad a arrendar</span>
+
+        </div>
+      </a>
+
+      <a href="/homez/arrendador/mis-propiedades" class="w-full relative h-[25rem] bg-black/80 rounded-2xl p-[2rem] ">
+        <div class="absolute w-[5rem] h-[5rem] top-8 left-8 bg-white/40 rounded-2xl flex items-center justify-center">
+          <li class="pi pi-home text-white text-[2rem] "></li>
+        </div>
+
+        <div class="absolute bottom-8 left-8">
+          <p class="text-white font-bold">Mis Propiedades</p>
+          <span class="text-white">Administra tus propiedades</span>
+
+        </div>
+      </a>
+
+      <a href="/homez/arrendador/solicitudes" class="w-full relative h-[25rem] bg-redPrimary rounded-2xl p-[2rem] ">
+        <div class="absolute w-[5rem] h-[5rem] top-8 left-8 bg-white/40 rounded-2xl flex items-center justify-center">
+          <li class="pi pi-file text-white text-[2rem] "></li>
+        </div>
+
+        <div class="absolute bottom-8 left-8">
+          <p class="text-white font-bold">Solicitudes de Propiedad</p>
+          <span class="text-white">Arrienda tu propiedad</span>
+
+        </div>
+      </a>
+
+      <a href="/homez/arrendador/chat" class="w-full relative h-[25rem] bg-black/80 rounded-2xl p-[2rem] ">
+        <div class="absolute w-[5rem] h-[5rem] top-8 left-8 bg-white/40 rounded-2xl flex items-center justify-center">
+          <li class="pi pi-comment text-white text-[2rem] "></li>
+        </div>
+
+        <div class="absolute bottom-8 left-8">
+          <p class="text-white font-bold">Mis Chats</p>
+          <span class="text-white">Interactua con los solicitantes</span>
+
+        </div>
+      </a>
+
+    </div>
+
+    <div
+      class="mt-[3rem] p-[4rem] h-[35rem] overflow-y-auto bg-white rounded-[1.5rem] shadow-md flex flex-col gap-[1rem]"
+    >
+      <div class="grid grid-cols-[1fr,1fr,1fr,1.5fr] py-[2rem] px-[2rem] bg-slate-100">
+        <p class="text-[1.5rem] font-semibold">Imagen</p>
+        <p class="text-[1.5rem] font-semibold">Datos</p>
+        <p class="text-[1.5rem] font-semibold">Estado</p>
+        <p class="text-[1.5rem] font-semibold">Acciones</p>
+      </div>
+
+      <div *ngFor="let propiedad of propiedades">
+        <app-propiedad-admin-arrendador
+          [id]="propiedad.id"
+          [nombre]="propiedad.nombre || ''"
+          [departamento]="propiedad.departamento?.departamento || ''"
+          [municipio]="propiedad.municipio?.municipio || ''"
+          [habitaciones]="propiedad.habitaciones"
+          [valor]="propiedad.valor"
+          [estado]="propiedad?.activa!!"
+          [img]="propiedad.fotos?.[0]?.foto || ''"
+          [personas]="propiedad.personas"
+        ></app-propiedad-admin-arrendador>
+      </div>
+
+      
+    </div>
+
   </main>
+
+
+
 </div>

@@ -5,5 +5,68 @@
 
   <main class="bg-slate-100 w-full h-[calc(100vh-85px)] overflow-y-auto p-[6rem] ">
     <h1 class="text-[3rem] font-semibold ">Dashboard</h1>
+
+    <div class="grid grid-cols-3 gap-[2rem]">
+      
+
+      <a href="/homez/arrendatario/solicitudes" class="w-full relative h-[25rem] bg-redPrimary rounded-2xl p-[2rem] ">
+        <div class="absolute w-[5rem] h-[5rem] top-8 left-8 bg-white/40 rounded-2xl flex items-center justify-center">
+          <li class="pi pi-file text-white text-[2rem] "></li>
+        </div>
+
+        <div class="absolute bottom-8 left-8">
+          <p class="text-white font-bold">Solicitudes de Propiedad</p>
+          <span class="text-white">Ve tus solicitudes y progreso</span>
+
+        </div>
+      </a>
+
+      <a href="/homez/arrendatario/chat" class="w-full relative h-[25rem] bg-black/80 rounded-2xl p-[2rem] ">
+        <div class="absolute w-[5rem] h-[5rem] top-8 left-8 bg-white/40 rounded-2xl flex items-center justify-center">
+          <li class="pi pi-comment text-white text-[2rem] "></li>
+        </div>
+
+        <div class="absolute bottom-8 left-8">
+          <p class="text-white font-bold">Mis Chats</p>
+          <span class="text-white">Interactua con los propietarios</span>
+
+        </div>
+      </a>
+
+      <a href="/homez/arrendador/perfil" class="w-full relative h-[25rem] bg-redPrimary rounded-2xl p-[2rem] ">
+        <div class="absolute w-[5rem] h-[5rem] top-8 left-8 bg-white/40 rounded-2xl flex items-center justify-center">
+          <li class="pi pi-user text-white text-[2rem] "></li>
+        </div>
+
+        <div class="absolute bottom-8 left-8">
+          <p class="text-white font-bold">Mi perfil</p>
+          <span class="text-white">Administra tu perfil</span>
+
+        </div>
+      </a>
+
+      
+
+    </div>
+
+    <div
+      class="mt-[3rem] p-[4rem] h-[35rem] overflow-y-auto bg-white rounded-[1.5rem] shadow-md flex flex-col gap-[1rem]"
+    >
+      <div
+        class="grid grid-cols-[1fr,1fr,1fr,1fr] py-[2rem] px-[2rem] bg-slate-100"
+      >
+        <p class="text-[1.5rem] font-semibold">Imagen Propiedad</p>
+        <p class="text-[1.5rem] font-semibold">Datos Solicitud</p>
+        <p class="text-[1.5rem] font-semibold">Estado</p>
+        <p class="text-[1.5rem] font-semibold">Acciones</p>
+      </div>
+
+      <div *ngFor="let solicitud of solicitudes">
+        <app-solicitud-admin-arrendatario
+          [solicitud]="solicitud"
+        ></app-solicitud-admin-arrendatario>
+      </div>
+
+    </div>
   </main>
 </div>

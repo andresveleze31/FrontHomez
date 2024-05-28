@@ -18,19 +18,25 @@ export class ArrendatarioService {
   }
 
   updateArrendatario(arrendatario: Arrendatario): Promise<Arrendatario> {
+    const token = localStorage.getItem('idHomezArrendatario');
+
     return axios
       .put<Arrendatario>(
         'https://gruposjaveriana.dynaco.co/api/homez/arrendatario',
-        arrendatario
+        arrendatario,
+        {
+          headers: { Authorization: `Bearer ${token}` },
+        }
       )
       .then((response) => response.data);
   }
 
   async getArrendatarioByID(): Promise<Arrendatario> {
+    const token = localStorage.getItem('idHomezArrendatario');
     return await axios
-      .get<Arrendatario>(
-        'https://gruposjaveriana.dynaco.co/api/homez/arrendatario/1'
-      )
+      .get<Arrendatario>('https://gruposjaveriana.dynaco.co/api/homez/arrendatario/one', {
+        headers: { Authorization: `Bearer ${token}` },
+      })
       .then((response) => response.data);
   }
 }
