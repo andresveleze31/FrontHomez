@@ -39,13 +39,16 @@ export class ChatService {
   joinRoom(roomId: string) {
     this.disconnect();
     this.stompClient.connect({}, () => {
-      this.stompClient.subscribe(`/topic/${roomId}`, (messages: any) => {
-        const messageContent = JSON.parse(messages.body);
-        const currentMessage = this.messageSubject.getValue();
-        currentMessage.push(messageContent);
+      this.stompClient.subscribe(
+        `/api/homez/topic/${roomId}`,
+        (messages: any) => {
+          const messageContent = JSON.parse(messages.body);
+          const currentMessage = this.messageSubject.getValue();
+          currentMessage.push(messageContent);
 
-        this.messageSubject.next(currentMessage);
-      });
+          this.messageSubject.next(currentMessage);
+        }
+      );
     });
   }
 
@@ -57,7 +60,7 @@ export class ChatService {
 
   sendMessage(roomId: String, chatMessage: ChatMessage) {
     this.stompClient.send(
-      `/app/chat/${roomId}`,
+      `/api/homez/app/chat/${roomId}`,
       {},
       JSON.stringify(chatMessage)
     );
