@@ -40,7 +40,7 @@ export class ChatService {
     this.disconnect();
     this.stompClient.connect({}, () => {
       this.stompClient.subscribe(
-        `/api/homez/topic/${roomId}`,
+        `/topic/${roomId}`,
         (messages: any) => {
           const messageContent = JSON.parse(messages.body);
           const currentMessage = this.messageSubject.getValue();
@@ -60,7 +60,7 @@ export class ChatService {
 
   sendMessage(roomId: String, chatMessage: ChatMessage) {
     this.stompClient.send(
-      `/api/homez/app/chat/${roomId}`,
+      `/app/chat/${roomId}`,
       {},
       JSON.stringify(chatMessage)
     );
