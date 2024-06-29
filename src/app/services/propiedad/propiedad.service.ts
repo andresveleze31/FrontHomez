@@ -12,7 +12,7 @@ export class PropiedadService {
 
   async getPropiedades(): Promise<Propiedad[]> {
     return await axios
-      .get<Propiedad[]>('https://gruposjaveriana.dynaco.co/api/homez/propiedad')
+      .get<Propiedad[]>('https://homezbackend.onrender.com/api/homez/propiedad')
       .then((response) => response.data);
   }
 
@@ -21,7 +21,7 @@ export class PropiedadService {
     console.log(token);
     return await axios
       .get<Propiedad[]>(
-        'https://gruposjaveriana.dynaco.co/api/homez/propiedad/propietario',
+        'https://homezbackend.onrender.com/api/homez/propiedad/propietario',
         { headers: { Authorization: `Bearer ${token}` } }
       )
       .then((response) => response.data);
@@ -29,7 +29,7 @@ export class PropiedadService {
 
   async getPropiedadById(id: number | null): Promise<Propiedad> {
     return await axios
-      .get<Propiedad>(`https://gruposjaveriana.dynaco.co/api/homez/propiedad/${id}`)
+      .get<Propiedad>(`https://homezbackend.onrender.com/api/homez/propiedad/${id}`)
       .then((response) => response.data);
   }
 
@@ -37,7 +37,7 @@ export class PropiedadService {
     const token = localStorage.getItem('idHomezArrendador');
 
     return axios
-      .post<Propiedad>('https://gruposjaveriana.dynaco.co/api/homez/propiedad', propiedad, {
+      .post<Propiedad>('https://homezbackend.onrender.com/api/homez/propiedad', propiedad, {
         headers: { Authorization: `Bearer ${token}` },
       })
       .then((response) => response.data);
@@ -47,7 +47,7 @@ export class PropiedadService {
     const token = localStorage.getItem('idHomezArrendador');
 
     return axios
-      .put<Propiedad>('https://gruposjaveriana.dynaco.co/api/homez/propiedad', propiedad, {
+      .put<Propiedad>('https://homezbackend.onrender.com/api/homez/propiedad', propiedad, {
         headers: { Authorization: `Bearer ${token}` },
       })
       .then((response) => response.data);

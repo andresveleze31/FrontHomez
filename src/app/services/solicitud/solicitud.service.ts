@@ -11,7 +11,7 @@ export class SolicitudService {
   insertarSolicitud(solicitud: Solicitud): Promise<Solicitud> {
     const token = localStorage.getItem('idHomezArrendatario');
     return axios
-      .post<Solicitud>('https://gruposjaveriana.dynaco.co/api/homez/solicitud', solicitud, {
+      .post<Solicitud>('https://homezbackend.onrender.com/api/homez/solicitud', solicitud, {
         headers: { Authorization: `Bearer ${token}` },
       })
       .then((response) => response.data);
@@ -21,7 +21,7 @@ export class SolicitudService {
     const token = localStorage.getItem('idHomezArrendador');
 
     return axios
-      .put<Solicitud>('https://gruposjaveriana.dynaco.co/api/homez/solicitud', solicitud, {
+      .put<Solicitud>('https://homezbackend.onrender.com/api/homez/solicitud', solicitud, {
         headers: { Authorization: `Bearer ${token}` },
       })
       .then((response) => response.data);
@@ -31,7 +31,7 @@ export class SolicitudService {
     const token = localStorage.getItem('idHomezArrendador');
     return await axios
       .get<Solicitud[]>(
-        'https://gruposjaveriana.dynaco.co/api/homez/solicitud/propietario',
+        'https://homezbackend.onrender.com/api/homez/solicitud/propietario',
         { headers: { Authorization: `Bearer ${token}` } }
       )
       .then((response) => response.data);
@@ -45,7 +45,7 @@ export class SolicitudService {
     }
 
     return await axios
-      .get<Solicitud>(`https://gruposjaveriana.dynaco.co/api/homez/solicitud/${id}`, {
+      .get<Solicitud>(`https://homezbackend.onrender.com/api/homez/solicitud/${id}`, {
         headers: { Authorization: `Bearer ${token}` },
       })
       .then((response) => response.data);
@@ -55,7 +55,7 @@ export class SolicitudService {
     const token = localStorage.getItem('idHomezArrendatario');
     return await axios
       .get<Solicitud[]>(
-        'https://gruposjaveriana.dynaco.co/api/homez/solicitud/arrendatario',
+        'https://homezbackend.onrender.com/api/homez/solicitud/arrendatario',
         { headers: { Authorization: `Bearer ${token}` } }
       )
       .then((response) => response.data);

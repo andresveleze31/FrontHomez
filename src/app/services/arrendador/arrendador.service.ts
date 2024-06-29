@@ -11,7 +11,7 @@ export class ArrendadorService {
   insertarArrendador(arrendador: Arrendador): Promise<Arrendador> {
     return axios
       .post<Arrendador>(
-        'https://gruposjaveriana.dynaco.co/api/homez/arrendador',
+        'https://homezbackend.onrender.com/api/homez/arrendador',
         arrendador
       )
       .then((response) => response.data);
@@ -22,7 +22,7 @@ export class ArrendadorService {
 
     return axios
       .put<Arrendador>(
-        'https://gruposjaveriana.dynaco.co/api/homez/arrendador',
+        'https://homezbackend.onrender.com/api/homez/arrendador',
         arrendador,
         {
           headers: { Authorization: `Bearer ${token}` },
@@ -34,7 +34,7 @@ export class ArrendadorService {
   async getArrendadorByID(): Promise<Arrendador> {
     const token = localStorage.getItem('idHomezArrendador');
     return await axios
-      .get<Arrendador>('https://gruposjaveriana.dynaco.co/api/homez/arrendador/one', {
+      .get<Arrendador>('https://homezbackend.onrender.com/api/homez/arrendador/one', {
         headers: { Authorization: `Bearer ${token}` },
       })
       .then((response) => response.data);

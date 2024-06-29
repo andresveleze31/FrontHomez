@@ -10,7 +10,7 @@ export class TipoService {
 
   async getTipos(): Promise<Tipo[]> {
     return await axios
-      .get<Tipo[]>('https://gruposjaveriana.dynaco.co/api/homez/tipo')
+      .get<Tipo[]>('https://homezbackend.onrender.com/api/homez/tipo')
       .then((response) => response.data);
   }
 }

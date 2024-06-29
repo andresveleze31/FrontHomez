@@ -15,7 +15,7 @@ export class CalificarArrendadorService {
 
     return axios
       .post<CalificarArrendador>(
-        'https://gruposjaveriana.dynaco.co/api/homez/calarrendatario',
+        'https://homezbackend.onrender.com/api/homez/calarrendatario',
         calificacion,
         {
           headers: { Authorization: `Bearer ${token}` },

@@ -31,7 +31,7 @@ export class ChatService {
   }
 
   initConnectionSocket() {
-    const url = '//gruposjaveriana.dynaco.co/api/homez/chat-socket';
+    const url = '//homezbackend.onrender.com/api/homez/chat-socket';
     const socket = new SockJS(url);
     this.stompClient = Stomp.over(socket);
   }
@@ -72,7 +72,7 @@ export class ChatService {
       localStorage.getItem('idHomezArrendatario');
 
     return axios
-      .post<Message>('https://gruposjaveriana.dynaco.co/api/homez/message', message, {
+      .post<Message>('https://homezbackend.onrender.com/api/homez/message', message, {
         headers: { Authorization: `Bearer ${token}` },
       })
       .then((response) => response.data);
@@ -84,7 +84,7 @@ export class ChatService {
       localStorage.getItem('idHomezArrendatario');
 
     return await axios
-      .get<Message[]>(`https://gruposjaveriana.dynaco.co/api/homez/message/${room}`, {
+      .get<Message[]>(`https://homezbackend.onrender.com/api/homez/message/${room}`, {
         headers: { Authorization: `Bearer ${token}` },
       })
       .then((response) => {

@@ -12,7 +12,7 @@ export class EstadoService {
     const token = localStorage.getItem('idHomezArrendador');
 
     return await axios
-      .get<Estado[]>('https://gruposjaveriana.dynaco.co/api/homez/estado', {
+      .get<Estado[]>('https://homezbackend.onrender.com/api/homez/estado', {
         headers: { Authorization: `Bearer ${token}` },
       })
       .then((response) => response.data);

@@ -12,7 +12,7 @@ export class FotoService {
     const token = localStorage.getItem('idHomezArrendador');
 
     return axios
-      .post<Foto>('https://gruposjaveriana.dynaco.co/api/homez/foto', foto, {
+      .post<Foto>('https://homezbackend.onrender.com/api/homez/foto', foto, {
         headers: { Authorization: `Bearer ${token}` },
       })
       .then((response) => response.data);
@@ -22,7 +22,7 @@ export class FotoService {
     const token = localStorage.getItem('idHomezArrendador');
 
     return axios
-      .put<Foto>('https://gruposjaveriana.dynaco.co/api/homez/foto', foto, {
+      .put<Foto>('https://homezbackend.onrender.com/api/homez/foto', foto, {
         headers: { Authorization: `Bearer ${token}` },
       })
       .then((response) => response.data);

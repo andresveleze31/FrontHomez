@@ -13,7 +13,7 @@ export class CalificarFincaService {
 
     return axios
       .post<CalificarFinca>(
-        'https://gruposjaveriana.dynaco.co/api/homez/calpropiedad',
+        'https://homezbackend.onrender.com/api/homez/calpropiedad',
         calificacion,
         {
           headers: { Authorization: `Bearer ${token}` },
