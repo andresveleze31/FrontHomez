@@ -31,7 +31,7 @@ export class LoginArrendadorComponent {
 
     axios
       .post(
-        'https://gruposjaveriana.dynaco.co/api/homez/jwt/security/autenticar/arrendador',
+        'https://homezbackend.onrender.com/api/homez/jwt/security/autenticar/arrendador',
         info,
         {
           params: info,
